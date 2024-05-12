@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import Homepage from './components/home'
-import ProductInfo from './components/product-info'
-import Login from './components/login'
-import ImageSlider from './components/image-slider'
-import AboutUsSection from './components/aboutus'
+import Homepage from './pages/home'
+import ProductInfo from './pages/product-info'
+import Login from './pages/login'
+import AboutUsSection from './pages/aboutus'
 
 function App() {
   const [count, setCount] = useState(0)

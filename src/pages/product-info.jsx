@@ -1,7 +1,7 @@
 import React from 'react';
-import PhotosPage from './PhotosPage';
-import ProductInfoCard from './product-info-card'; 
-import FAQ from './faq';
+import PhotosPage from '../components/PhotosPage';
+import ProductInfoCard from '../components/product-info-card'; 
+import FAQ from '../components/faq';
 import '../styles/product-info.css';
 
 const ProductInfo = () => {

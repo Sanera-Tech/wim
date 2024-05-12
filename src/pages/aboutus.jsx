@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/aboutus.css';
-import AboutCard from './aboutcard';
-import CompareSlider from './image-slider';
+import AboutCard from '../components/aboutcard';
+import CompareSlider from '../components/image-slider';
 
 const AboutUsSection = () => {
   return (

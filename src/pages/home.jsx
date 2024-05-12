@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from './navbar';
-import HomeHeroSection from './homeherosection';
-import ProductsCarousel from './products-carousel';
-import HomeSection from './homesection';
-import Footer from './footer';
+import Navbar from '../components/navbar';
+import HomeHeroSection from '../components/homeherosection';
+import ProductsCarousel from '../components/products-carousel';
+import HomeSection from '../components/homesection';
+import Footer from '../components/footer';
 import '../styles/home.css';
 
 const Homepage = () => {

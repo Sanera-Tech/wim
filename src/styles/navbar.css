@@ -1,0 +1,144 @@
+.navbar-wrapper.scrolled .navbar {
+  background-color: green;
+}
+
+.navbar {
+  width: 100vw;
+  max-width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10000;
+}
+
+.navbar:hover {
+  background-color: green;
+}
+
+.navbar-brand {
+  align-items: center;
+  display: flex;
+}
+
+.navbar-logo {
+  display: block;
+  width: auto;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.navbar-title {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  margin-right: 1rem;
+}
+
+.navbar-actions {
+  align-items: center;
+  display: flex;
+  padding-right: 100px;
+}
+
+.navbar-button {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #ffa500;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.navbar-button:hover {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .navbar-menu {
+    margin-top: 20px; 
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+
+  .navbar-actions {
+    padding: 10px; 
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+}
+
+
+.shopping-cart-icon {
+  width: 24px; /* Adjust the size as needed */
+  height: 24px; /* Adjust the size as needed */
+}
+
+
+.sidebar-overlay {
+  position: fixed;
+  top: 80px; /* Height of the navbar */
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Ensure the overlay is above other content */
+  display: flex;
+  justify-content: flex-end; /* Start from the right */
+  align-items: center;
+  color: black;
+}
+
+.sidebar {
+  background-color: white;
+  width: 30%; /* 30% of the screen width */
+  height: 100%; /* 100% of the screen height */
+  padding: 20px;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+/* Additional styling for sidebar content */
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .sidebar {
+    width: 75%;
+  }
+
+}

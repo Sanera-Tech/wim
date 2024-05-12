@@ -1,0 +1,82 @@
+.horizontal-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    color: black;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 100px;
+}
+
+.horizontal-info p {
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .horizontal-info {
+        grid-template-columns: 1fr;
+        padding-right: 0;
+    }
+
+    .horizontal-info p {
+        text-align: left;
+        padding: 30px;
+    }
+}
+
+.vertical-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    color: black;
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 50px;
+}
+
+.vertical-info p {
+    text-align: left;
+}
+
+.horizontal-slider {
+    padding: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .horizontal-slider {
+        padding: 20px;
+    }
+}
+
+.about-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-card-info > * {
+    margin: 10px 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .about-card-info {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .about-card-info > * {
+        flex: 1;
+        margin: 0 10px;
+    }
+}
+
+
+.horizontal-info img {
+    max-width: 100%;
+    height: auto;
+}

@@ -1,0 +1,46 @@
+.about-label-section {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Adjust the height as needed */
+    margin: 0;
+    padding: 50px;
+}
+
+.about-label-container {
+    /* Optional: If you want to limit the width of the content */
+    max-width: 600px; /* Adjust as needed */
+    width: 100%;
+}
+
+.about-label-image {
+    position: relative;
+    flex: 1;
+}
+
+.about-label-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.about-label-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the description box */
+}
+
+.about-label-description button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.about-label-description button:hover {
+    background-color: #3e8e41;
+}

@@ -1,0 +1,92 @@
+
+.product-card {
+    width: 300px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column; 
+    background-color: white;
+  }
+
+
+  .product-card h3 {
+    font-size: 20px;
+    color: #3300FF;
+    margin-bottom: 5px;
+  }
+  
+  .product-card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+
+.main-featured {
+    padding-left: 30px;
+    padding-bottom: 40px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+.small-card-link {
+    text-decoration: none;
+    background-color: inherit;
+  }
+
+.small-card-link:hover {
+    text-decoration: none;
+    background-color: inherit;
+  }
+
+  .small-card-link:visited {
+    color: black;
+  }
+
+
+.main-featured .featured-title {  
+    padding-left: 25px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.card-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 5vh 0;
+  }
+
+
+.small-card-link {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.scroll-left {
+    left: 16px;
+}
+
+.scroll-right {
+    right: 16px;
+}
+  

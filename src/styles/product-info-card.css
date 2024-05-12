@@ -1,0 +1,40 @@
+
+.product-info-area {
+    background-color: transparent !important; 
+    text-align: left;
+}
+
+.product-info-area h2{
+    margin-bottom: 15px;
+    font-size: 28px;
+    text-align: left;
+}
+
+.product-info-area p{
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.size-selection {
+    display: flex; 
+}
+
+.size-selection button {
+    border: 2px solid black; 
+    padding: 10px 20px; 
+    margin: 5px;
+    cursor: pointer;
+    flex: 1; 
+    color: black;
+    background-color: white;
+}
+
+
+.size-selection button.selected {
+    border-color: blue;
+}
+
+.size-selection button span {
+    display: block;
+}

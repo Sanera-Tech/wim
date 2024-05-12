@@ -1,0 +1,20 @@
+.cart-product-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .cart-product-card h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .cart-product-card p {
+    margin: 0;
+    font-size: 16px;
+  }
+  

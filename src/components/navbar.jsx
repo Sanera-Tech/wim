@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import CartItemCard from './cart-item-card';
 import '../styles/navbar.css';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [sidebarVisible, setSidebarVisible] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomepage = location.pathname === '/';
 
   const products = [
     {
@@ -49,23 +54,25 @@ const Navbar = () => {
   };
 
   return (
-    <section className={`navbar-wrapper ${scrolled ? 'scrolled' : ''}`}>
+    <section className={`navbar-wrapper ${scrolled ? 'scrolled' : ''} ${!isHomepage ? 'scrolled' : ''}`}>
       <nav className="navbar">
         <div className="navbar-brand">
-          <span className="navbar-logo">
-            <img src="/logo.png" alt="Logo" className="navbar-logo" />
-          </span>
-          <span className="navbar-title">LOGO HERE</span>
+          <button className="navbar-logo button" onClick={() => navigate('/')}>
+            <span className="navbar-logo">
+              <img src="/logo.png" alt="Logo" className="navbar-logo" />
+            </span>
+            <span className="navbar-title">LOGO HERE</span>
+          </button>
         </div>
         <ul className="navbar-menu">
           <li className="navbar-item">
-            <a href="#" className="navbar-link">Everything</a>
+            <Link to="/nuestra-historia" className="navbar-link">Nuestra Historia</Link>
           </li>
           <li className="navbar-item">
-            <a href="#" className="navbar-link">All Products</a>
+            <Link to="/about-us" className="navbar-link">Our Products</Link>
           </li>
           <li className="navbar-item">
-            <a href="#" className="navbar-link">Something</a>
+            <Link to="/contáctanos" className="navbar-link">Contact Us</Link>
           </li>
         </ul>
         <div className="navbar-actions">

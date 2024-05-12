@@ -2,10 +2,13 @@ import React from 'react';
 import '../styles/aboutus.css';
 import AboutCard from '../components/aboutcard';
 import CompareSlider from '../components/image-slider';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 const AboutUsSection = () => {
   return (
-    <section className="about-us-section">
+    <div className="about-us-section">
+        <Navbar/>
         <div className="horizontal-info">
             <h1>WE ARE UPFRONT</h1>
             <p>We print our nutritional values in ingredients big on the front so that you get control over your health. Hence our name. Together we are making the food industry simple and functional again, rather than incomprehensible and addictive. Together we build a new Dutch standard.</p>
@@ -35,9 +38,9 @@ const AboutUsSection = () => {
             <AboutCard />
         </div>
 
+        <Footer />
 
-
-    </section>
+    </div>
   );
 };
 

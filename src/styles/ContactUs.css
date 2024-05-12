@@ -1,0 +1,103 @@
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f6f3dd;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    margin-top: -10px; /* Adjust based on your layout */
+    color: #494949; /* Adjust color to match design */
+    font-size: 36px; /* Adjust font size as needed */
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    width: 90%; /* Adjust based on your layout */
+}
+
+.left-panel, .right-panel {
+    width: 48%; /* Adjust based on your layout */
+    padding: 20px; /* Padding for spacing */
+    background-color: #fff; /* White background for panels */
+    border-radius: 5px; /* Rounded corners for panels */
+    color: black;
+    border-radius: 15px;
+}
+
+.contact-methods {
+    margin-top: 75px;
+    width: 100%; /* Take full width of the left-panel */
+    text-align: center; /* Center-align the buttons text */
+    padding: 20px 0; /* Adds vertical padding */
+}
+
+.contact-button {
+    margin: 10px; /* Adds spacing around buttons */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white; /* Text color */
+    display: inline-block; /* Ensures buttons are in a row */
+}
+
+.whatsapp {
+    background-color: #25d366;
+}
+
+.phone {
+    background-color: #007bff;
+}
+
+.email {
+    background-color: #dc3545;
+}
+
+i {
+    margin-right: 5px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

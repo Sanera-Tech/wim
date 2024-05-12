@@ -29,12 +29,23 @@
   display: flex;
 }
 
+.navbar-logo.button {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
 .navbar-logo {
   display: block;
   width: auto;
-  height: 40px;
+  height: 50px;
   background-repeat: no-repeat;
   background-size: contain;
+  padding-left: 50px;
 }
 
 .navbar-title {
@@ -53,6 +64,10 @@
 
 .navbar-item {
   margin-right: 1rem;
+}
+
+.navbar-link {
+  color: #ffffff;
 }
 
 .navbar-actions {

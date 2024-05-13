@@ -17,43 +17,57 @@
 }
 
 h1 {
-    margin-top: -10px; /* Adjust based on your layout */
-    color: #494949; /* Adjust color to match design */
-    font-size: 36px; /* Adjust font size as needed */
+    margin-top: -10px;
+    /* Adjust based on your layout */
+    color: #494949;
+    /* Adjust color to match design */
+    font-size: 36px;
+    /* Adjust font size as needed */
 }
 
 .content {
     display: flex;
     justify-content: space-between;
     margin: 20px;
-    width: 90%; /* Adjust based on your layout */
+    width: 90%;
+    /* Adjust based on your layout */
 }
 
 .left-panel, .right-panel {
-    width: 48%; /* Adjust based on your layout */
-    padding: 20px; /* Padding for spacing */
-    background-color: #fff; /* White background for panels */
-    border-radius: 5px; /* Rounded corners for panels */
+    width: 48%;
+    /* Adjust based on your layout */
+    padding: 20px;
+    /* Padding for spacing */
+    background-color: #fff;
+    /* White background for panels */
+    border-radius: 5px;
+    /* Rounded corners for panels */
     color: black;
     border-radius: 15px;
 }
 
 .contact-methods {
     margin-top: 75px;
-    width: 100%; /* Take full width of the left-panel */
-    text-align: center; /* Center-align the buttons text */
-    padding: 20px 0; /* Adds vertical padding */
+    width: 100%;
+    /* Take full width of the left-panel */
+    text-align: center;
+    /* Center-align the buttons text */
+    padding: 20px 0;
+    /* Adds vertical padding */
 }
 
 .contact-button {
-    margin: 10px; /* Adds spacing around buttons */
+    margin: 10px;
+    /* Adds spacing around buttons */
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    color: white; /* Text color */
-    display: inline-block; /* Ensures buttons are in a row */
+    color: white;
+    /* Text color */
+    display: inline-block;
+    /* Ensures buttons are in a row */
 }
 
 .whatsapp {
@@ -77,16 +91,16 @@ i {
     flex-direction: column;
 }
 
-.form-group {
+.contact-form .form-group {
     margin-bottom: 15px;
 }
 
-label {
+.contact-form label {
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-select, textarea {
+.contact-form select, .contact-form textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;

@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
-      <img src={product.image} style={{ height: 400, width: 300, objectFit: 'contain' }} />
+      <img src={product.image} className="product_card_img" />
       <h2>{product.title}</h2>
-      <p>{product.weight} kg | {product.serving} servings</p>
+      <p>
+        {product.weight} kg | {product.serving} servings
+      </p>
     </div>
   );
 };

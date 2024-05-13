@@ -1,64 +1,72 @@
 .label-section {
-    display: flex;
-    justify-content: center;
-    width: 60vw;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    background-color: #f7f7f7;
-    width: 100%;
-    margin: 0;
-    position: relative;
-    top: 0;
-    left: 0;
-    padding: 80px;
-  }
-  
-  .label-image img {
-    width: 80vw;
-    height: 25vw;
-    object-fit: cover;
-    border-radius: 10px;
-    align-items: flex-start;
-  }
-  
-  .label-description {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    text-align: left;
-    color: #fff;
-    z-index: 1; 
-    padding-left: 20%;
-  }
-  
-  .label-description h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .label-description p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  .label-description button {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 30%;
-  }
-  
-  .label-description button:hover {
-    background-color: #3e8e41;
-  }
+  display: flex;
+  justify-content: center;
+  width: 60vw;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  background-color: #f7f7f7;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 80px;
+}
+
+.label-image {
+  max-width: fit-content;
+  max-height: fit-content;
+  position: relative;
+}
+
+.label-image img {
+  width: 80vw;
+  height: 25vw;
+  object-fit: cover;
+  border-radius: 10px;
+  align-items: flex-start;
+}
+
+.label-description {
+  position: absolute;
+  border-radius: 10px;
+  top: -0.8%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  text-align: left;
+  color: #fff;
+  z-index: 1;
+  padding-left: 20%;
+  background-color: rgba(0, 0, 0, 0.445);
+}
+
+.label-description h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.label-description p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.label-description button {
+  background-color: #c79c3f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 30%;
+}
+
+.label-description button:hover {
+  background-color: #f4c256;
+}

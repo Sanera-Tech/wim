@@ -36,6 +36,7 @@
   display: block;
   border-radius: 8px;
   object-fit: cover;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -60,20 +61,20 @@
   .photos-page {
     width: auto;
   }
-  
+
   .large {
     flex-basis: auto;
   }
-  
+
   .vertical-container {
     flex-direction: row;
   }
-  
+
   .photo-item {
     aspect-ratio: unset;
     width: 100%;
   }
-  
+
   .biggest {
     width: auto;
   }

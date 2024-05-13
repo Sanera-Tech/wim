@@ -1,31 +1,43 @@
-
 .product-info-area {
-    background-color: transparent !important; 
+    background-color: transparent !important;
     text-align: left;
 }
 
-.product-info-area h2{
+.product-info-area h2 {
     margin-bottom: 15px;
+    font-family: alternate-gothic-atf, sans-serif;
     font-size: 28px;
     text-align: left;
 }
 
-.product-info-area p{
+@font-face {
+    font-family: photo_script;
+    src: url('../ps.otf');
+}
+
+.product-info-area h4 {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.2px;
+    margin-bottom: 15px;
+}
+
+.product-info-area p {
     margin-bottom: 15px;
     font-size: 18px;
     text-align: left;
 }
 
 .size-selection {
-    display: flex; 
+    display: flex;
 }
 
 .size-selection button {
-    border: 2px solid black; 
-    padding: 10px 20px; 
+    border: 2px solid black;
+    padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
-    flex: 1; 
+    flex: 1;
     color: black;
     background-color: white;
 }

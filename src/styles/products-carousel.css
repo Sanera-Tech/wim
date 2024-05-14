@@ -43,6 +43,8 @@
   padding-bottom: 40px;
   overflow-x: hidden;
   position: relative;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 
@@ -74,7 +76,7 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 1vh 0;
-
+  justify-content: center;
 
   -ms-overflow-style: none;
   scrollbar-width: none;

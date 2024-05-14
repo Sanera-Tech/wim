@@ -21,36 +21,6 @@ const products = [
     weight: 1,
     servings: 33,
   },
-  {
-    image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
-  },
-  {
-    image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
-  },
-  {
-    image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
-  },
-  {
-    image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
-  },
-  {
-    image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
-  },
 ];
 
 const ProductsCarousel = () => {
@@ -84,7 +54,7 @@ const ProductsCarousel = () => {
   };
 
   return (
-    <div className="main-featured">
+    <div id="products" className="main-featured">
       <h2 className="featured-title">PRODUCTS</h2>
       <div ref={carouselRef} className="card-container small-card-container">
         {products.map((product, index) => (

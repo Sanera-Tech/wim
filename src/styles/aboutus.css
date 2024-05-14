@@ -1,3 +1,9 @@
+.about-us-section {
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 8vh;
+}
+
 .horizontal-info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -6,12 +12,23 @@
     text-align: center;
     justify-items: center;
     align-items: center;
-    padding-top: 160px;
-    padding-bottom: 30px;
+    padding-top: 80px;
+    padding-bottom: 40px;
     padding-right: 100px;
 }
 
 .horizontal-info p {
+    text-align: left;
+}
+
+.horizontal-info h1 {
+    text-align: center;
+    font-family: alternate-gothic-atf, sans-serif;
+}
+
+.brand_name {
+    font-size: 5rem;
+    color: #60c1c9;
     text-align: left;
 }
 
@@ -59,7 +76,7 @@
     align-items: center;
 }
 
-.about-card-info > * {
+.about-card-info>* {
     margin: 10px 0;
 }
 
@@ -68,8 +85,8 @@
         flex-direction: row;
         justify-content: center;
     }
-    
-    .about-card-info > * {
+
+    .about-card-info>* {
         flex: 1;
         margin: 0 10px;
     }
@@ -79,4 +96,28 @@
 .horizontal-info img {
     max-width: 100%;
     height: auto;
+}
+
+.standout_info {
+    background-color: #f6f3dd;
+    padding: 90px 50px;
+    border-radius: 22px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    -ms-border-radius: 22px;
+    -o-border-radius: 22px;
+}
+
+.standout_info p {
+    margin-top: 2vh;
+}
+
+.standout_info img {
+    filter: brightness(0.98);
+    -webkit-filter: brightness(0.98);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }

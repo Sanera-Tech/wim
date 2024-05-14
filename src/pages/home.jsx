@@ -8,11 +8,9 @@ import Footer from "../components/footer";
 const Homepage = () => {
   return (
     <div className="home-container">
-      <Navbar />
       <HomeHeroSection />
       <ProductsCarousel />
       <HomeSection />
-      <Footer />
     </div>
   );
 };

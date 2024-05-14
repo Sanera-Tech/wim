@@ -6,6 +6,7 @@ import ProductInfo from "./pages/product-info";
 import Login from "./pages/login";
 import AboutUsSection from "./pages/aboutus";
 import ContactUs from "./pages/contactus";
+import Layout from "./components/layout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route path="/productos">
             <Route path="/productos/:id">

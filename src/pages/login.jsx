@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/login.css';
+import React from "react";
+import "../styles/general/login.css";
 
 const Login = () => {
   return (
@@ -16,8 +16,13 @@ const Login = () => {
         </div>
         <button type="submit">Login</button>
       </form>
-      <p>Don't have an account? <a href="#">Make an account →</a></p>
-      <p> <a href="#">Forgot password?</a></p>
+      <p>
+        Don't have an account? <a href="#">Make an account →</a>
+      </p>
+      <p>
+        {" "}
+        <a href="#">Forgot password?</a>
+      </p>
     </div>
   );
 };

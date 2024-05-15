@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/homeherosection.css';
+import React from "react";
+import "../../styles/home/homeherosection.css";
 
 const HomeHeroSection = () => {
   return (

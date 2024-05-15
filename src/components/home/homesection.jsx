@@ -1,6 +1,6 @@
-import React from 'react';
-import '../styles/homesection.css';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "../../styles/home/homesection.css";
+import { useNavigate } from "react-router-dom";
 
 const HomeSection = () => {
   const navigate = useNavigate();
@@ -13,7 +13,9 @@ const HomeSection = () => {
           <div className="label-description">
             <h2>THIS IS WHERE THE TITLE GOES</h2>
             <p>The subtitle goes here</p>
-            <button onClick={() => navigate('/nuestra-historia')}>View More →</button>
+            <button onClick={() => navigate("/nuestra-historia")}>
+              View More →
+            </button>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
-import React from 'react';
-import '../styles/aboutcard.css';
+import React from "react";
+import "../../styles/home/aboutcard.css";
 
 const AboutCard = () => {
   return (

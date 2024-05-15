@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import ProductCard from "./product-card";
-import "../styles/products-carousel.css";
+import ProductCard from "../general/product-card";
+import "../../styles/home/products-carousel.css";
 
 const products = [
   {

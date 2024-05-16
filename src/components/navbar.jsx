@@ -69,13 +69,13 @@ const Navbar = () => {
         </div>
         <ul className="navbar-menu">
           <li className="navbar-item">
-            <Link to="/nuestra-historia" className="navbar-link">
-              Nuestra Historia
+            <Link to="/" className="navbar-link">
+               Inicio
             </Link>
           </li>
           <li className="navbar-item">
-            <a href="/#products" className="navbar-link">
-              Our Products
+            <a href="/nuestra-historia" className="navbar-link">
+                Nuestra Historia
             </a>
           </li>
           <li className="navbar-item">

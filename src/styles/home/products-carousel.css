@@ -51,6 +51,8 @@
   overflow-x: hidden;
   position: relative;
   width: 100vw;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(246, 243, 221, 1) 100%);
 }
 
 

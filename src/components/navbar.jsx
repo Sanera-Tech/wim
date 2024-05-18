@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import CartItemCard from "./general/cart-item-card";
 import "../styles/navbar.css";
 import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
+import MainCart from "./cart/MainCart";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -10,29 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHomepage = location.pathname === "/";
-
-  const products = [
-    {
-      title: "PROTEIN ICED COFFEE",
-      amount: 2,
-      price: 40,
-    },
-    {
-      title: "ENERGY DRINK",
-      amount: 1,
-      price: 25,
-    },
-    {
-      title: "PROTEIN BAR",
-      amount: 3,
-      price: 10,
-    },
-    {
-      title: "WHEY PROTEIN POWDER",
-      amount: 1,
-      price: 50,
-    },
-  ];
+  const { cartItemCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,12 +50,12 @@ const Navbar = () => {
         <ul className="navbar-menu">
           <li className="navbar-item">
             <Link to="/" className="navbar-link">
-               Inicio
+              Inicio
             </Link>
           </li>
           <li className="navbar-item">
             <a href="/nuestra-historia" className="navbar-link">
-                Nuestra Historia
+              Nuestra Historia
             </a>
           </li>
           <li className="navbar-item">
@@ -91,23 +71,8 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-      {sidebarVisible && (
-        <Sidebar toggleSidebar={toggleSidebar} products={products} />
-      )}
+      {sidebarVisible && <MainCart toggleSidebar={toggleSidebar} />}
     </section>
-  );
-};
-
-const Sidebar = ({ toggleSidebar, products }) => {
-  return (
-    <div className="sidebar-overlay" onClick={toggleSidebar}>
-      <div className="sidebar">
-        <h2>In Cart Items</h2>
-        {products.map((product, index) => (
-          <CartItemCard key={index} product={product} />
-        ))}
-      </div>
-    </div>
   );
 };
 

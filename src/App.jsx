@@ -9,9 +9,6 @@ import ContactUs from "./pages/contactus";
 import Layout from "./components/layout";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const products = 1;
-
   return (
     <BrowserRouter>
       <Routes>

@@ -1,4 +1,5 @@
 .product-container-main {
+  background-color: #f6f3dd;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +17,7 @@
 
 
 .info-container {
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 .product-details-container {
@@ -48,6 +49,27 @@
 
 .purchase {
   width: 100%;
+  height: 50px;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid black;
+  background-color: #f4c256;
+  margin: 5px;
+  margin-bottom: 30px;
+}
+
+.purchase:hover {
+  border: 2px solid #dd6543;
+}
+
+.purchase:active {
+  border: 2px solid white;
+}
+
+.pricing {
+  font-size: 23px;
+  padding-top: 15px;
+  margin-left: 5px;
 }
 
 
@@ -65,6 +87,7 @@
   }
 
   .product-image-container {
+    padding-top: 50px;
     flex-direction: column;
   }
 }

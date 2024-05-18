@@ -42,31 +42,81 @@
   text-align: left;
   color: #fff;
   z-index: 1;
-  padding-left: 20%;
+  padding: 10%;
   background-color: rgba(0, 0, 0, 0.445);
 }
 
 .label-description h2 {
   font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+
+.label-description h2::first-letter {
+  font-size: 28px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+
 .label-description p {
   font-size: 18px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
 .label-description button {
-  background-color: #c79c3f;
+  background-color: #bd6543;
   color: #fff;
   border: none;
+  border-radius: 5px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   width: 30%;
+  transition: background-color 0.5s ease; 
 }
 
 .label-description button:hover {
   background-color: #f4c256;
+}
+
+@media screen and (max-width: 768px) {
+  .label-section {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+    padding-bottom: 60px;
+  }
+
+  .label-image img {
+    width: 90vw;
+    height: 70vh;
+    object-fit: cover;
+    border-radius: 10px;
+    align-items: flex-start;
+  }
+
+  .label-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the start (top) */
+    align-items: flex-start; /* Align items to the start (left) */
+    height: 100%; /* Ensure the description takes up the full height */
+  }
+
+  .label-description button {
+    width: 50%;
+    align-self: flex-start; /* Align button to the start (left) */
+    margin-top: auto; /* Push button to the bottom */
+  }
+
+  .label-description h2 {
+    text-align: left;
+    margin: 5px 0; /* Adjust margin for h2 elements */
+    
+  }
 }

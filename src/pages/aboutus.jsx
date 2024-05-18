@@ -8,7 +8,7 @@ const AboutUsSection = () => {
     <div className="about-us-section">
       <div className="horizontal-info">
         <h1>
-          WE ARE <br /> <span className="brand_name">WIM</span>
+          WE ARE <span className="brand_name">WIM</span>
         </h1>
         <p>
           We print our nutritional values in ingredients big on the front so

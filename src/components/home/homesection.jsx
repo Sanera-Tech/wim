@@ -11,10 +11,12 @@ const HomeSection = () => {
         <div className="label-image">
           <img src="car.jpg" alt="label-image" />
           <div className="label-description">
-            <h2>THIS IS WHERE THE TITLE GOES</h2>
-            <p>The subtitle goes here</p>
+            <h2>Work</h2>
+            <h2>Inspire</h2>
+            <h2>Motivate</h2>
+            
             <button onClick={() => navigate("/nuestra-historia")}>
-              View More →
+              Nuestra Historia →
             </button>
           </div>
         </div>

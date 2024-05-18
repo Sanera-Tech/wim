@@ -15,7 +15,7 @@ const ProductInfoCard = ({ product }) => {
       <p>
         {product.weight} kg | {product.serving} servings
       </p>
-      <h4>Choose your size:</h4>
+      <h4>Choose your flavor:</h4>
       <div className="size-selection">
         <button
           className={selectedSize === "medium" ? "selected" : ""}
@@ -32,6 +32,7 @@ const ProductInfoCard = ({ product }) => {
           <span>{product.serving}</span>
         </button>
       </div>
+      <h3 className="pricing">Price: ${product.price}</h3>
     </div>
   );
 };

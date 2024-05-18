@@ -8,6 +8,10 @@
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4 {
+  font-family: alternate-gothic-atf, sans-serif !important;
+}
+
 #root {
   margin: 0;
   padding: 0rem;
@@ -35,6 +39,7 @@
 
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+  -webkit-filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {

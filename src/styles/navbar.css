@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 8vw;
   transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10000;
 }
@@ -27,6 +27,8 @@
 .navbar-brand {
   align-items: center;
   display: flex;
+  justify-content: center;
+  gap: 5vw;
 }
 
 .navbar-logo.button {
@@ -59,11 +61,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  justify-content: center;
+  gap: 3vw;
 }
 
-.navbar-item {
-  margin-right: 3rem;
-}
+.navbar-item {}
 
 .navbar-link {
   color: #f6f3dd;
@@ -87,15 +89,18 @@
   cursor: pointer;
   position: relative;
   display: inline-block;
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
+  transition: transform 0.3s ease;
+  /* Smooth transition for scaling */
 }
 
 .navbar-button:hover {
-  transform: scale(1.1); /* Scale up on hover */
+  transform: scale(1.1);
+  /* Scale up on hover */
 }
 
 .navbar-button:active {
-  transform: scale(0.9); /* Scale down when clicked */
+  transform: scale(0.9);
+  /* Scale down when clicked */
 }
 
 .navbar-button::before {
@@ -103,54 +108,70 @@
   position: absolute;
   width: 30px;
   height: 18px;
-  background-color: #00566B; /* Color of the shopping cart */
+  background-color: #f4c256;
+  /* Color of the shopping cart */
   top: 12px;
   left: 10px;
   border-radius: 5px 5px 0 0;
-  transition: background-color 0.3s ease; /* Smooth transition for color */
+  transition: background-color 0.3s ease;
+  /* Smooth transition for color */
 }
 
 .navbar-button:hover::before {
-  background-color: #f6f3dd; /* Change color on hover */
+  background-color: #f6f3dd;
+  /* Change color on hover */
 }
 
 .navbar-button::after {
   content: '';
   position: absolute;
-  width: 10px; /* Width of the handle */
-  height: 5px; /* Height of the handle */
-  background-color: #00566B; /* Color of the handle */
-  top: 7px; /* Position it at the top */
-  left: 5px; /* Align it with the body */
+  width: 10px;
+  /* Width of the handle */
+  height: 5px;
+  /* Height of the handle */
+  background-color: #f4c256;
+  /* Color of the handle */
+  top: 7px;
+  /* Position it at the top */
+  left: 5px;
+  /* Align it with the body */
   border-radius: 5px 5px 0 0;
-  transition: background-color 0.3s ease; /* Smooth transition for color */
+  transition: background-color 0.3s ease;
+  /* Smooth transition for color */
 }
 
 .navbar-button:hover::after {
-  background-color: #f6f3dd; /* Change color on hover */
+  background-color: #f6f3dd;
+  /* Change color on hover */
 }
 
 .wheel1, .wheel2 {
   position: absolute;
   width: 11px;
   height: 11px;
-  background-color: #00566B; /* Color of the wheels */
+  background-color: #f4c256;
+  /* Color of the wheels */
   border-radius: 50%;
-  bottom: 5px; /* Position from the bottom */
-  transition: background-color 0.3s ease; /* Smooth transition for color */
+  bottom: 5px;
+  /* Position from the bottom */
+  transition: background-color 0.3s ease;
+  /* Smooth transition for color */
 }
 
 .navbar-button:hover .wheel1,
 .navbar-button:hover .wheel2 {
-  background-color: #f6f3dd; /* Change color on hover */
+  background-color: #f6f3dd;
+  /* Change color on hover */
 }
 
 .wheel1 {
-  left: 10px; /* Position the first wheel */
+  left: 10px;
+  /* Position the first wheel */
 }
 
 .wheel2 {
-  right: 12px; /* Position the second wheel */
+  right: 12px;
+  /* Position the second wheel */
 }
 
 /* Media Queries for Responsive Design */
@@ -159,26 +180,31 @@
     width: 40px;
     height: 40px;
   }
+
   .navbar-button::before {
     width: 24px;
     height: 14px;
     top: 11px;
     left: 8px;
   }
+
   .navbar-button::after {
     width: 8px;
     height: 4px;
     top: 6px;
     left: 4px;
   }
+
   .wheel1, .wheel2 {
     width: 9px;
     height: 9px;
     bottom: 4px;
   }
+
   .wheel1 {
     left: 8px;
   }
+
   .wheel2 {
     right: 10px;
   }
@@ -189,26 +215,31 @@
     width: 30px;
     height: 30px;
   }
+
   .navbar-button::before {
     width: 18px;
     height: 10px;
     top: 8px;
     left: 6px;
   }
+
   .navbar-button::after {
     width: 6px;
     height: 3px;
     top: 4px;
     left: 3px;
   }
+
   .wheel1, .wheel2 {
     width: 7px;
     height: 7px;
     bottom: 3px;
   }
+
   .wheel1 {
     left: 6px;
   }
+
   .wheel2 {
     right: 7px;
   }

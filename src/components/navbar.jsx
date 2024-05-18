@@ -38,7 +38,16 @@ const Navbar = () => {
         !isHomepage ? "scrolled" : ""
       }`}
     >
-      <nav className="navbar">
+      <nav
+        className="navbar"
+        style={{
+          backgroundColor: `${
+            sidebarVisible || scrolled || !isHomepage
+              ? "#60c1c9"
+              : "transparent"
+          }`,
+        }}
+      >
         <div className="navbar-brand">
           <button className="navbar-logo button" onClick={() => navigate("/")}>
             <span className="navbar-logo">

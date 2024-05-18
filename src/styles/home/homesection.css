@@ -66,7 +66,7 @@
 }
 
 .label-description button {
-  background-color: #bd6543;
+  background-color: #f4c256;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -74,11 +74,11 @@
   font-size: 16px;
   cursor: pointer;
   width: 30%;
-  transition: background-color 0.5s ease; 
+  transition: background-color 0.5s ease;
 }
 
 .label-description button:hover {
-  background-color: #f4c256;
+  background-color: #ffd57b;
 }
 
 @media screen and (max-width: 768px) {
@@ -103,20 +103,26 @@
   .label-description {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the start (top) */
-    align-items: flex-start; /* Align items to the start (left) */
-    height: 100%; /* Ensure the description takes up the full height */
+    justify-content: flex-start;
+    /* Align items to the start (top) */
+    align-items: flex-start;
+    /* Align items to the start (left) */
+    height: 100%;
+    /* Ensure the description takes up the full height */
   }
 
   .label-description button {
     width: 50%;
-    align-self: flex-start; /* Align button to the start (left) */
-    margin-top: auto; /* Push button to the bottom */
+    align-self: flex-start;
+    /* Align button to the start (left) */
+    margin-top: auto;
+    /* Push button to the bottom */
   }
 
   .label-description h2 {
     text-align: left;
-    margin: 5px 0; /* Adjust margin for h2 elements */
-    
+    margin: 5px 0;
+    /* Adjust margin for h2 elements */
+
   }
 }

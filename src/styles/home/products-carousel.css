@@ -1,5 +1,6 @@
 .product-card {
   width: 20vw;
+  height: 50vh;
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -45,7 +46,6 @@
   overflow-x: hidden;
   position: relative;
   width: 100vw;
-  background-color: #f6f3dd;
 }
 
 
@@ -81,7 +81,6 @@
 
   -ms-overflow-style: none;
   scrollbar-width: none;
-  background-color: #f6f3dd;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

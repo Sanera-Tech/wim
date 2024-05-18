@@ -13,8 +13,8 @@ const CartItemCard = ({ product, addFromCart }) => {
       </div>
       <div className="cart_info_box">
         <h2>{product.item.name}</h2>
-        <p>Size : {product.item.size} </p>
-        <p>${product.item.price}</p>
+        <p>Size : {product.item.weight} </p>
+        <p className="cart_price_txt">$ {product.item.price}</p>
       </div>
       <div className="cart_button_box">
         <button onClick={() => addFromCart(product.item, 1)}> + </button>

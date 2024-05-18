@@ -83,9 +83,10 @@
 }
 
 .navbar-button {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background-color: transparent;
+  color: var(--secondary);
   border: none;
   cursor: pointer;
   position: relative;
@@ -96,6 +97,7 @@
 
 .navbar-button:hover {
   transform: scale(1.1);
+  color: var(--accent);
   /* Scale up on hover */
 }
 
@@ -104,78 +106,6 @@
   /* Scale down when clicked */
 }
 
-.navbar-button::before {
-  content: '';
-  position: absolute;
-  width: 30px;
-  height: 18px;
-  background-color: var(--secondary);
-  /* Color of the shopping cart */
-  top: 12px;
-  left: 10px;
-  border-radius: 5px 5px 0 0;
-  transition: background-color 0.3s ease;
-  /* Smooth transition for color */
-}
-
-.navbar-button:hover::before {
-  background-color: var(--accent);
-  /* Change color on hover */
-}
-
-.navbar-button::after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  /* Width of the handle */
-  height: 5px;
-  /* Height of the handle */
-  background-color: var(--secondary);
-  /* Color of the handle */
-  top: 7px;
-  /* Position it at the top */
-  left: 5px;
-  /* Align it with the body */
-  border-radius: 5px 5px 0 0;
-  transition: background-color 0.3s ease;
-  /* Smooth transition for color */
-}
-
-.navbar-button:hover::after {
-  background-color: var(--accent);
-  /* Change color on hover */
-}
-
-.wheel1, .wheel2 {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  background-color: var(--secondary);
-  /*Colorofthewheels*/
-  border-radius: 50%;
-  bottom: 5px;
-  transition: background-color 0.3s ease;
-  -webkit-transition: background-color 0.3s ease;
-  -moz-transition: background-color 0.3s ease;
-  -ms-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-}
-
-.navbar-button:hover .wheel1,
-.navbar-button:hover .wheel2 {
-  background-color: var(--accent);
-  /* Change color on hover */
-}
-
-.wheel1 {
-  left: 10px;
-  /* Position the first wheel */
-}
-
-.wheel2 {
-  right: 12px;
-  /* Position the second wheel */
-}
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {

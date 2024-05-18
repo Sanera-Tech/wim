@@ -10,7 +10,7 @@ const ProductInfoCard = ({ product }) => {
 
   return (
     <div className="product-info-area">
-      <h2>{product.title}</h2>
+      <h2>{product.name}</h2>
       <h4>{product.description}</h4>
       <p>
         {product.weight} kg | {product.serving} servings

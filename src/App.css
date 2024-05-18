@@ -12,6 +12,16 @@ h1, h2, h3, h4 {
   font-family: alternate-gothic-atf, sans-serif !important;
 }
 
+@font-face {
+  font-family: alternate-gothic-atf;
+  src: url('/Alternate-Gothic-No1/alternategothicno1.otf');
+}
+
+@font-face {
+  font-family: futura-pt;
+  src: url('/FUTURA55REGULAR.TTF');
+}
+
 #root {
   margin: 0;
   padding: 0rem;
@@ -22,8 +32,8 @@ h1, h2, h3, h4 {
 }
 
 @font-face {
-  font-family: photo_script;
-  src: url('./ps.otf');
+  font-family: Playlist;
+  src: url('/Shadow_Brush.otf');
 }
 
 .logo {

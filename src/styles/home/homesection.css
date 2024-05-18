@@ -5,7 +5,9 @@
   height: auto;
   flex-direction: row;
   align-items: center;
-  background-color: #f6f3dd;
+  background-color: var(--accent);
+  background: rgb(246, 243, 221);
+  background: linear-gradient(180deg, rgba(246, 243, 221, 1) 0%, rgba(96, 193, 201, 1) 100%);
   width: 100%;
   margin: 0;
   position: relative;
@@ -22,10 +24,14 @@
 
 .label-image img {
   width: 80vw;
-  height: 25vw;
+  height: 60vh;
   object-fit: cover;
   border-radius: 10px;
   align-items: flex-start;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .label-description {
@@ -35,27 +41,39 @@
   left: 0;
   width: 100%;
   height: 100%;
+  gap: 3.5vh;
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
   text-align: left;
   color: #fff;
   z-index: 1;
-  padding: 10%;
+  padding: 3%;
   background-color: rgba(0, 0, 0, 0.445);
 }
 
 .label-description h2 {
-  font-size: 24px;
+  font-size: 5rem;
+  line-height: 5rem;
   font-weight: normal;
   margin-bottom: 0px;
+  margin: 0;
 }
 
-.label-description h2::first-letter {
-  font-size: 28px;
+.label-description h2:first-of-type {
+  margin-top: 2vh;
+}
+
+.first_letters {
+  display: inline-block;
+  font-family: alternate-gothic-atf, sans-serif !important;
+  font-size: 8rem;
+  width: 3.5vw;
+  color: #f4c256;
+  margin-right: 2px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 
@@ -66,14 +84,15 @@
 }
 
 .label-description button {
-  background-color: #f4c256;
+  background-color: var(--primary);
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 16px;
+  margin-top: auto;
   cursor: pointer;
-  width: 30%;
+  width: 15%;
   transition: background-color 0.5s ease;
 }
 

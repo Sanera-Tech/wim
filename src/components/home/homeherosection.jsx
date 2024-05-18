@@ -8,7 +8,10 @@ const HomeHeroSection = () => {
         <div className="product-image">
           <img src="car.jpg" alt="hero-image" />
           <div className="product-description">
-            <h2>Conecta con ese momento del #quécomo de una manera saludable y divertida.</h2>
+            <h2>
+              Conecta con ese momento del #quécomo de una manera saludable y
+              divertida.
+            </h2>
             <p>Celebra tu #momentoWIMdeldía</p>
             <button>Ver productos →</button>
           </div>

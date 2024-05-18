@@ -2,7 +2,7 @@
   display: block;
   box-sizing: border-box;
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   flex-direction: row;
   align-items: center;
   width: 100%;
@@ -12,7 +12,6 @@
 }
 
 .product-image {
-  position: relative;
   max-width: fit-content;
   margin: 0 auto;
   border-radius: 0px 0px 10px 10px;
@@ -51,7 +50,6 @@
   background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
   z-index: 1;
-
   padding-left: 10%;
   padding-right: 10%;
   border-radius: 0px 0px 10px 10px;
@@ -62,28 +60,54 @@
 }
 
 .product-description h2 {
-  font-size: 24px;
+  font-size: 3.2vw;
   font-weight: bold;
   margin-bottom: 10px;
-  max-width: 50%;
+  max-width: 45%;
+}
+
+@media (max-width: 1200px) {
+  .product-description h2 {
+    font-size: 4.2vw;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-description h2 {
+    font-size: 5.2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-description h2 {
+    font-size: 6.2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-description h2 {
+    font-size: 7.2vw;
+  }
 }
 
 .product-description p {
-  font-size: 18px;
+  font-size: 2rem;
   margin-bottom: 20px;
   font-weight: 100;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  font-family: Playlist;
 }
 
 .product-description button {
-  background-color: #f4c256;
+  background-color: var(--primary);
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 10px;
+  font-size: 1.3rem;
   cursor: pointer;
-  width: 30%;
+  width: 15%;
+  margin-top: 2vh;
   transition: background-color 0.5s ease;
 }
 

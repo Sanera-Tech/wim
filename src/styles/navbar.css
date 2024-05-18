@@ -1,5 +1,5 @@
 .navbar-wrapper.scrolled .navbar {
-  background-color: #60c1c9;
+  background-color: var(--primary);
 }
 
 .navbar {
@@ -21,7 +21,7 @@
 }
 
 .navbar:hover {
-  background-color: #60c1c9;
+  background-color: var(--primary);
 }
 
 .navbar-brand {
@@ -68,6 +68,7 @@
 .navbar-item {}
 
 .navbar-link {
+  font-size: clamp(1.3rem, 1vw, 1.8rem);
   color: #f6f3dd;
 }
 
@@ -108,7 +109,7 @@
   position: absolute;
   width: 30px;
   height: 18px;
-  background-color: #f4c256;
+  background-color: var(--secondary);
   /* Color of the shopping cart */
   top: 12px;
   left: 10px;
@@ -118,7 +119,7 @@
 }
 
 .navbar-button:hover::before {
-  background-color: #f6f3dd;
+  background-color: var(--accent);
   /* Change color on hover */
 }
 
@@ -129,7 +130,7 @@
   /* Width of the handle */
   height: 5px;
   /* Height of the handle */
-  background-color: #f4c256;
+  background-color: var(--secondary);
   /* Color of the handle */
   top: 7px;
   /* Position it at the top */
@@ -141,7 +142,7 @@
 }
 
 .navbar-button:hover::after {
-  background-color: #f6f3dd;
+  background-color: var(--accent);
   /* Change color on hover */
 }
 
@@ -149,18 +150,20 @@
   position: absolute;
   width: 11px;
   height: 11px;
-  background-color: #f4c256;
-  /* Color of the wheels */
+  background-color: var(--secondary);
+  /*Colorofthewheels*/
   border-radius: 50%;
   bottom: 5px;
-  /* Position from the bottom */
   transition: background-color 0.3s ease;
-  /* Smooth transition for color */
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -ms-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
 }
 
 .navbar-button:hover .wheel1,
 .navbar-button:hover .wheel2 {
-  background-color: #f6f3dd;
+  background-color: var(--accent);
   /* Change color on hover */
 }
 

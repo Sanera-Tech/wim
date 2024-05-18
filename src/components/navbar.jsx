@@ -43,7 +43,7 @@ const Navbar = () => {
         style={{
           backgroundColor: `${
             sidebarVisible || scrolled || !isHomepage
-              ? "#60c1c9"
+              ? "var(--primary)"
               : "transparent"
           }`,
         }}

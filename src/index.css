@@ -13,6 +13,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --text: #000000;
+  --background: #ffffff;
+  --primary: #60c1c9;
+  --secondary: #F6F3DD;
+  --accent: #f4c256;
+}
+
 a {
   text-decoration: none;
 }

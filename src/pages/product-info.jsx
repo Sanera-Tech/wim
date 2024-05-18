@@ -11,6 +11,7 @@ const ProductInfo = () => {
       "Upfront Protein iced coffee is relatively low in sugar (1g), high in protein (22g per shake!) and contains as much caffeine as a cup of coffee. Great to start your day with, or as a refreshing drink during warm weather.",
     weight: "1",
     serving: "33",
+    price: "54"
   };
 
   return (

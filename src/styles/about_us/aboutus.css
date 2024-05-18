@@ -1,8 +1,10 @@
 .about-us-section {
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     margin-top: 8vh;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    background-color: white;
 }
 
 .horizontal-info {
@@ -16,6 +18,7 @@
     padding-top: 80px;
     padding-bottom: 40px;
     padding-right: 100px;
+    width: 90vw;
 }
 
 .horizontal-info p {
@@ -27,6 +30,11 @@
     font-family: alternate-gothic-atf, sans-serif;
 }
 
+.horizontal-info h1 span {
+    display: block; 
+    line-height: 0.8; 
+}
+
 .brand_name {
     font-size: 5rem;
     color: #60c1c9;
@@ -34,6 +42,21 @@
 }
 
 @media screen and (max-width: 768px) {
+    .about-us-section {
+        padding-top: 50px;
+    }
+
+    .horizontal-info h1 span {
+        display: inline; 
+        line-height: 0.8; 
+        font-size: 3rem;
+    }
+
+    .horizontal-info h1 {
+        font-size: 3rem;
+        text-align: left;
+    }
+    
     .horizontal-info {
         grid-template-columns: 1fr;
         padding-right: 0;
@@ -52,8 +75,8 @@
     text-align: left;
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 40px;
+    padding-right: 40px;
     margin-bottom: 50px;
 }
 
@@ -62,12 +85,23 @@
 }
 
 .horizontal-slider {
-    padding: 100px;
+    padding: 5%;
 }
 
 @media screen and (max-width: 768px) {
     .horizontal-slider {
         padding: 20px;
+    }
+
+    .vertical-info {
+        padding-bottom: 0px;
+        margin-bottom: 50px;
+    }
+
+
+    .vertical-info img{
+        padding-bottom: 0px;
+        margin-bottom: 0px;
     }
 }
 
@@ -75,22 +109,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
+    padding-top: 8vh;
 }
 
-.about-card-info>* {
-    margin: 10px 0;
-}
-
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
     .about-card-info {
         flex-direction: row;
         justify-content: center;
+        gap: 50px;
     }
 
-    .about-card-info>* {
-        flex: 1;
-        margin: 0 10px;
-    }
+
 }
 
 

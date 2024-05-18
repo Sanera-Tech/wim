@@ -10,11 +10,22 @@ function Footer() {
           <h4>Address Line 1</h4>
           <h4>Address Line 2, City, Zip</h4>
           <a href="/returns-warranty"> Become a partner</a>
+          <div>
+            <a href="https://www.instagram.com/"><svg xmlns="http://www.w3.org/2000/svg" width="20px" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="4" stroke="#6B6D76" stroke-width="1.5"></rect>
+              <circle cx="18" cy="6" r="1" fill="#6B6D76"></circle>
+              <circle cx="12" cy="12" r="5" stroke="#6B6D76" stroke-width="1.5"></circle>
+            </svg></a>
+          </div>
         </span>
         <span>
-          <h4>About Us & Help</h4>
-          <a href="/terms-and-conditions">Our Story</a>
-          <a href="/returns-warranty"> Support</a>
+          <h4>Quienes somos & Ayuda</h4>
+          <div>
+            <a href="/terms-and-conditions">Nuestra Historia</a>
+          </div>
+          <div>
+            <a href="/returns-warranty"> Soporte</a>
+          </div>
         </span>
       </div>
       <hr className="line-break"></hr>

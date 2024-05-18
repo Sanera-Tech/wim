@@ -19,12 +19,10 @@
 }
 
   
-  .faq-item {
-    margin-bottom: 15px;
-  }
+
   
   .faq-question {
-    background-color: #f4f4f4;
+    background-color: #f6f3dd;
     padding: 10px;
     cursor: pointer;
     display: flex;
@@ -49,7 +47,7 @@
   }
   
   .faq-question.expanded {
-    background-color: #e0e0e0;
+    background-color: #e1dec8;
     padding: 10px;
   }
   
@@ -62,11 +60,12 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    padding: 5px 10px;
+    padding: 4px 10px;
+    font-size: 13px;
   }
   
   .faq-answer.expanded {
     max-height: 1000px;
     transition: max-height 0.5s ease-in;
-    
+
   }

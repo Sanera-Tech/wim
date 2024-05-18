@@ -5,9 +5,9 @@ import "../../styles/home/products-carousel.css";
 const products = [
   {
     image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
+    title: "WIM The Healthy Bar – Vanilla Chocolate Chip Cookie",
+    weight: 300,
+    servings: 6,
   },
   {
     image: "xd.webp",
@@ -63,12 +63,7 @@ const ProductsCarousel = () => {
           </a>
         ))}
       </div>
-      <button className="scroll-button scroll-left" onClick={scrollLeft}>
-        ←
-      </button>
-      <button className="scroll-button scroll-right" onClick={scrollRight}>
-        →
-      </button>
+
     </div>
   );
 };

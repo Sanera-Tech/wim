@@ -13,9 +13,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: transparent;
-  padding: 0.5rem 8vw;
+  padding: 0.5rem 5vw;
   transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10000;
 }
@@ -29,6 +29,7 @@
   display: flex;
   justify-content: center;
   gap: 5vw;
+  margin-right: auto;
 }
 
 .navbar-logo.button {
@@ -51,9 +52,10 @@
 
 .navbar-title {
   margin-left: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--secondary);
+  font-family: alternate-gothic-atf, sans-serif !important;
 }
 
 .navbar-menu {
@@ -63,6 +65,8 @@
   padding: 0;
   justify-content: center;
   gap: 3vw;
+  justify-self: center;
+  margin-right: 35%;
 }
 
 .navbar-item {}
@@ -86,6 +90,7 @@
   width: 45px;
   height: 45px;
   background-color: transparent;
+  margin-left: auto;
   color: var(--secondary);
   border: none;
   cursor: pointer;
@@ -208,6 +213,8 @@
 
 .sidebar {
   background-color: white;
+  display: flex;
+  flex-direction: column;
   width: 30%;
   /* 30% of the screen width */
   height: 100%;

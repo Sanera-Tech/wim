@@ -53,7 +53,7 @@ const Navbar = () => {
             <span className="navbar-logo">
               <img src="/logo.png" alt="Logo" className="navbar-logo" />
             </span>
-            <span className="navbar-title"></span>
+            <span className="navbar-title">THE HEALTHY BAR</span>
           </button>
         </div>
         <ul className="navbar-menu">

@@ -3,7 +3,13 @@ import { useCart } from "../../contexts/CartContext";
 import CartItemCard from "../general/cart-item-card";
 
 const MainCart = ({ toggleSidebar }) => {
-  const { cart, addToCart } = useCart();
+  const {
+    cart,
+    addToCart,
+    calculateSubtotal,
+    calculateTotal,
+    calculateShippingCost,
+  } = useCart();
   useEffect(() => {
     console.log(cart);
   }, [cart]);
@@ -21,7 +27,21 @@ const MainCart = ({ toggleSidebar }) => {
             />
           ))}
         </div>
-        <div className="order_box"></div>
+        <div className="order_box">
+          <div className="order_number_txt_box">
+            <span>Subtotal</span>
+            <span>$ {calculateSubtotal()}</span>
+          </div>
+          <div className="order_number_txt_box">
+            <span>Shipping Cost</span>
+            <span>$ {calculateShippingCost()}</span>
+          </div>
+          <div className="order_number_txt_box">
+            <span>Total</span>
+            <span>$ {calculateTotal()}</span>
+          </div>
+        </div>
+        <button className="order_btn">Go To Order →</button>
       </div>
     </div>
   );

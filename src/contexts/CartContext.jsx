@@ -10,6 +10,7 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [subTotal, setSubTotal] = useState([]);
   const [cartItemCount, setCartItemCount] = useState(0);
 
   const fetchCart = async () => {
@@ -41,9 +42,37 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
     await addToCartUtil(item, count);
   };
+  const calculateSubtotal = () => {
+    const sub = cart.reduce(
+      (sum, cartItem) => sum + cartItem.item.price * cartItem.count,
+      0
+    );
+    setSubTotal(sub);
+    return sub;
+  };
 
+  const calculateShippingCost = () => {
+    return subTotal > 50 ? 0 : 5.95; // Example logic: free shipping for orders over $50, otherwise $5.95
+  };
+
+  const calculateTotal = () => {
+    const subtotal = calculateSubtotal();
+    const shippingCost = calculateShippingCost(subtotal);
+    console.log(shippingCost);
+    return subtotal + shippingCost;
+  };
   return (
-    <CartContext.Provider value={{ cart, cartItemCount, addToCart, fetchCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        cartItemCount,
+        addToCart,
+        fetchCart,
+        calculateSubtotal,
+        calculateTotal,
+        calculateShippingCost,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

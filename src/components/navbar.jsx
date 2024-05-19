@@ -7,6 +7,7 @@ import MainCart from "./cart/MainCart";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const navigate = useNavigate();
@@ -42,11 +43,13 @@ const Navbar = () => {
         className="navbar"
         style={{
           backgroundColor: `${
-            sidebarVisible || scrolled || !isHomepage
+            sidebarVisible || scrolled || !isHomepage  || isHovered
               ? "var(--primary)"
               : "transparent"
           }`,
         }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <div className="navbar-brand">
           <button className="navbar-logo button" onClick={() => navigate("/")}>
@@ -69,7 +72,7 @@ const Navbar = () => {
           </li>
           <li className="navbar-item">
             <Link to="/contáctanos" className="navbar-link">
-              Contact Us
+              Contáctanos
             </Link>
           </li>
         </ul>

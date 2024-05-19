@@ -26,11 +26,12 @@
 
 
 .product-card h2 {
-  font-size: clamp(1.25rem, 1.5vw, 2rem);
+  font-size: clamp(2.3rem, 1.5vw, 2rem);
   /* Adjusts between 1.25rem and 2rem based on viewport width */
   font-family: alternate-gothic-atf, sans-serif;
   color: #ffffff;
   margin-bottom: 5px;
+  margin-left: 5px;
   text-align: left;
   padding-top: 15px;
 }
@@ -41,6 +42,7 @@
   color: rgb(236, 236, 236);
   margin-bottom: 5px;
   text-align: left;
+  margin-left: 5px;
 }
 
 
@@ -72,9 +74,8 @@
 
 
 .main-featured .featured-title {
-  padding-left: 10%;
   margin-top: 2vh;
-  text-align: left;
+  text-align: center;
   font-size: clamp(2rem, 2vw, 4rem);
   color: black;
 }

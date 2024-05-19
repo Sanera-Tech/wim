@@ -69,8 +69,6 @@
   margin-right: 35%;
 }
 
-.navbar-item {}
-
 .navbar-link {
   font-size: clamp(1.3rem, 1vw, 1.8rem);
   color: #f6f3dd;

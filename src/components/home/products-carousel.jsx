@@ -5,21 +5,15 @@ import "../../styles/home/products-carousel.css";
 const products = [
   {
     image: "xd.webp",
-    title: "WIM The Healthy Bar – Vanilla Chocolate Chip Cookie",
+    title: "Vanilla Chocolate Chip Cookie",
     weight: 300,
     servings: 6,
   },
   {
     image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
-  },
-  {
-    image: "xd.webp",
-    title: "Whey Milkshake",
-    weight: 1,
-    servings: 33,
+    title: "Double Chocolate Brownie",
+    weight: 300,
+    servings: 6,
   },
 ];
 
@@ -55,7 +49,7 @@ const ProductsCarousel = () => {
 
   return (
     <div id="products" className="main-featured">
-      <h2 className="featured-title">PRODUCTS</h2>
+      <h2 className="featured-title">Nuestros Productos</h2>
       <div ref={carouselRef} className="card-container small-card-container">
         {products.map((product, index) => (
           <a href="./productos/23" key={index} className="small-card-link">

@@ -13,7 +13,7 @@ const ProductInfoCard = ({ product }) => {
       <h2>{product.name}</h2>
       <h4>{product.description}</h4>
       <p>
-        {product.weight} kg | {product.serving} servings
+        {product.weight} g | {product.serving} Bares
       </p>
       <h4>Choose your flavor:</h4>
       <div className="size-selection">

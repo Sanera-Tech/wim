@@ -3,18 +3,21 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
+    margin-top: 8vh;
 }
 
 
 .header {
-    margin-top: 80px;
+
+    height: 15vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     background-color: white;
+    color: var(--primary);
     width: 100%;
-    height: 10em;
+    /* height: 10em; */
     background-color: #60c1c9;
     background-image: linear-gradient(180deg, #60c1c9 0%, #80D0C7 100%);
 }
@@ -27,42 +30,38 @@
     object-fit: cover;
 }
 
-h1 {
+.header h1 {
     margin-top: 10px;
-    color: #494949;
+    color: var(--secondary);
 
-    font-size: 36px;
-    
+    font-size: 5vw;
+
 }
 
 .content {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
-    width: 90%;
-
+    padding: 4vh 2vw;
+    width: 100%;
+    background-image: linear-gradient(360deg, #60c1c9 0%, #80D0C7 100%);
 }
 
 .image-section {
-    width: 50%; 
-    margin: auto; 
-    overflow: hidden; 
+    width: 50%;
+
     margin-bottom: 20px;
 }
 
 .image-section img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain; 
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 
 .left-panel, .right-panel {
     width: 48%;
-    /* Adjust based on your layout */
-    padding: 20px;
     /* Padding for spacing */
-    background-color: #fff;
     /* White background for panels */
     border-radius: 5px;
     /* Rounded corners for panels */
@@ -70,55 +69,113 @@ h1 {
     border-radius: 15px;
 }
 
+.left-panel {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.img_and_mail {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2vw;
+}
+
 .right-panel {
-    background: linear-gradient(180deg, rgba(246, 243, 221, 1) 0%, rgba(96, 193, 201, 1) 100%);
+    background: linear-gradient(360deg, rgba(246, 243, 221, 1) 0%, var(--primary) 100%);
+}
+
+.left-panel h2 {
+    font-size: 3vw;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--secondary);
+}
+
+.right-panel h2 {
+    color: var(--secondary);
+    font-size: 3vw;
+}
+
+.left-panel p {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1.2vw;
+}
+
+.extra-methods {
+    text-align: left;
+}
+
+.extra-methods h3 {
+    font-size: 3vw;
+    color: var(--secondary);
+}
+
+.extra-methods p {
+    max-width: 100%;
+    margin: 0;
+    font-size: 1vw;
+}
+
+.whatsapp {
+    background-color: #40C351;
+}
+
+.instagram {
+    background: #833ab4;
+    background: linear-gradient(to top,
+            #833ab4, #fd1d1d, #fcb045);
+}
+
+.email {
+    background-color: #fd1d1d;
 }
 
 .contact-methods {
-    margin-bottom: 20px;
+
     width: 100%;
-    display: flex; 
+    display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     padding: 20px 0;
-
 }
 
 .contact-button {
     margin: 10px;
-
-    padding: 10px 20px;
-    font-size: 16px;
+    width: 6vw;
+    height: 6vw;
+    font-size: 1vw;
     cursor: pointer;
     border: none;
-    border-radius: 2px;
     color: white;
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.whatsapp {
-    background-color: #25d366;
+.contact-button:hover {
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
-.phone {
-    background-color: #007bff;
-}
-
-.email {
-    background-color: #dc3545;
-}
 
 .contact-icon {
     object-fit: contain;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
 .contact-methods img {
-    width: 50px; 
-    height: 50px;
+    width: 3.2vw;
+    height: 3.2vw;
     object-fit: contain;
 }
 
@@ -153,7 +210,7 @@ h1 {
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form input[type="tel"]{
+.contact-form input[type="tel"] {
     width: 100%;
     height: 2.5em;
     padding: 12px;
@@ -182,28 +239,29 @@ h1 {
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form input[type="tel"]:focus,
-.contact-form textarea  {
+.contact-form textarea {
     border: 1px solid transparent;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); 
-    transition: box-shadow 0.3s ease; 
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
 .contact-form select {
-    padding: 8px 20px 8px 12px; 
+    padding: 8px 20px 8px 12px;
     border: 1px solid #ddd;
     border-radius: 50px;
-    font-size: 14px; 
+    font-size: 14px;
     line-height: 1.5;
-    appearance: none; 
-    background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'); /* Custom arrow */
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
+    /* Custom arrow */
     background-repeat: no-repeat;
     background-position: right 10px top 50%;
     background-size: 20px;
 }
 
 .submit-button {
-    padding: 12px 20px; 
-    background-color: #007bff;
+    padding: 12px 20px;
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 50px;
@@ -220,7 +278,7 @@ h1 {
 @media screen and (max-width: 768px) {
     .content {
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         justify-content: space-between;
         margin: 20px;
         width: 90%;
@@ -239,13 +297,13 @@ h1 {
     }
 
     .form-row {
-        grid-template-columns: 1fr ;
+        grid-template-columns: 1fr;
     }
 
     .contact-methods img {
-        width: 30px; 
+        width: 30px;
         height: 30px;
         object-fit: contain;
     }
-    
+
 }

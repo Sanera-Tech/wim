@@ -18,36 +18,64 @@ const ContactUs = () => {
             from the Quest community.
           </p>
           <div className="contact-methods">
-          <a href="https://whatsapp.com/" className="contact-button whatsapp">
-              <img src="social-media-icons/whatsapp.png" alt="WhatsApp Logo" className="contact-icon" /> Whatsapp
-          </a>
-          <a href="https://instagram.com" className="contact-button phone">
-              <img src="social-media-icons/instagram.png" alt="Instagram Logo" className="contact-icon" /> Instagram
-          </a>
-          <a href="mailto:example@example.com" className="contact-button email">
-              <img src="social-media-icons/email.png" alt="Email Logo" className="contact-icon" /> Email
-          </a>
-        </div>
-        <div className="image-section">
-          <img src="exercise.png"></img>
-        </div>
+            <a href="https://whatsapp.com/" className="contact-button whatsapp">
+              <img
+                src="social-media-icons/whatsapp.png"
+                alt="WhatsApp Logo"
+                className="contact-icon"
+              />{" "}
+              Whatsapp
+            </a>
+            <a
+              href="https://instagram.com"
+              className="contact-button instagram"
+            >
+              <img
+                src="social-media-icons/instagram.png"
+                alt="Instagram Logo"
+                className="contact-icon"
+              />{" "}
+              Instagram
+            </a>
+            <a
+              href="mailto:example@example.com"
+              className="contact-button email"
+            >
+              <img
+                src="social-media-icons/email.png"
+                alt="Email Logo"
+                className="contact-icon"
+              />{" "}
+              Email
+            </a>
+          </div>
+          <div className="img_and_mail">
+            <div className="image-section">
+              <img src="/map.jpg"></img>
+            </div>
 
-          <div className="extra-methods">
-            <h3>MAIL US</h3>
-            <p>Quest Nutrition, LLC</p>
-            <p>Attn: Consumer Engagement</p>
-            <p>777 S Aviation Blvd. Ste.100</p>
-            <p>El Segundo, CA, 90245</p>
+            <div className="extra-methods">
+              <h3>MAIL US</h3>
+              <p>Quest Nutrition, LLC</p>
+              <p>Attn: Consumer Engagement</p>
+              <p>777 S Aviation Blvd. Ste.100</p>
+              <p>El Segundo, CA, 90245</p>
+            </div>
           </div>
         </div>
         <div className="right-panel">
           <h2>MESSAGE US</h2>
-          
+
           <form className="contact-form">
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="first-name">First Name: *</label>
-                <input type="text" id="first-name" name="first-name" required></input>
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  required
+                ></input>
               </div>
               <div className="form-group">
                 <label htmlFor="last-name">Last Name:</label>
@@ -74,14 +102,19 @@ const ContactUs = () => {
             </div>
             <div className="form-group">
               <label htmlFor="message">Message: *</label>
-              <textarea type="text" id="message" name="message" rows="4" required></textarea>
+              <textarea
+                type="text"
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
             </div>
             <button type="submit" className="submit-button">
               Send Message
             </button>
           </form>
         </div>
-
       </div>
     </div>
   );

@@ -10,7 +10,15 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [subTotal, setSubTotal] = useState([]);
+  const calculateSubtotal = () => {
+    const sub = cart.reduce(
+      (sum, cartItem) => sum + cartItem.item.price * cartItem.count,
+      0
+    );
+    setSubTotal(sub);
+    return sub;
+  };
+  const [subTotal, setSubTotal] = useState(0);
   const [cartItemCount, setCartItemCount] = useState(0);
 
   const fetchCart = async () => {
@@ -23,6 +31,10 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     fetchCart();
   }, []);
+
+  useEffect(() => {
+    setSubTotal(calculateSubtotal());
+  }, [cart]);
 
   const addToCart = async (item, count) => {
     const updatedCart = [...cart];
@@ -42,17 +54,9 @@ export const CartProvider = ({ children }) => {
     setCart(updatedCart);
     await addToCartUtil(item, count);
   };
-  const calculateSubtotal = () => {
-    const sub = cart.reduce(
-      (sum, cartItem) => sum + cartItem.item.price * cartItem.count,
-      0
-    );
-    setSubTotal(sub);
-    return sub;
-  };
 
   const calculateShippingCost = () => {
-    return subTotal > 50 ? 0 : 5.95; // Example logic: free shipping for orders over $50, otherwise $5.95
+    return subTotal > 50000 ? 0 : 5.95;
   };
 
   const calculateTotal = () => {

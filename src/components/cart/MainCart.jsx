@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useCart } from "../../contexts/CartContext";
 import CartItemCard from "../general/cart-item-card";
 
@@ -10,8 +10,14 @@ const MainCart = ({ toggleSidebar }) => {
     calculateTotal,
     calculateShippingCost,
   } = useCart();
+
+  const [subTotal, setSubTotal] = useState(0);
+  const [shipping, setShipping] = useState(0);
+  const [total, setTotal] = useState(0);
   useEffect(() => {
-    console.log(cart);
+    setSubTotal(calculateSubtotal());
+    setShipping(calculateShippingCost());
+    setTotal(calculateTotal());
   }, [cart]);
 
   return (
@@ -30,15 +36,15 @@ const MainCart = ({ toggleSidebar }) => {
         <div className="order_box">
           <div className="order_number_txt_box">
             <span>Subtotal</span>
-            <span>$ {calculateSubtotal()}</span>
+            <span>$ {subTotal}</span>
           </div>
           <div className="order_number_txt_box">
             <span>Shipping Cost</span>
-            <span>$ {calculateShippingCost()}</span>
+            <span>$ {shipping}</span>
           </div>
           <div className="order_number_txt_box">
             <span>Total</span>
-            <span>$ {calculateTotal()}</span>
+            <span>$ {total}</span>
           </div>
         </div>
         <button className="order_btn">Go To Order →</button>

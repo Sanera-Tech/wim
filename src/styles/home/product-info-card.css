@@ -6,7 +6,7 @@
 .product-info-area h2 {
     margin-bottom: 15px;
     font-family: alternate-gothic-atf, sans-serif;
-    font-size: 28px;
+    font-size: 60px;
     text-align: left;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .product-info-area h4 {
-    font-size: 16px;
+    font-size: 26px;
     font-weight: bold;
     letter-spacing: -0.2px;
     margin-bottom: 15px;
@@ -24,8 +24,13 @@
 
 .product-info-area p {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 26px;
     text-align: left;
+}
+
+.product-info-area .pricing {
+    font-family: futura, sans-serif;
+    font-size: 35px;
 }
 
 .size-selection {
@@ -34,13 +39,14 @@
 
 .size-selection button {
     border: 2px solid black;
-    border-radius: 5px;
     padding: 10px 20px;
+    border-radius: 5px;
     margin: 5px;
     cursor: pointer;
     flex: 1;
     color: black;
     background-color: #f6f3dd;
+    font-size: 18px;
 }
 
 .size-selection button:hover {

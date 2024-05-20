@@ -10,9 +10,6 @@ const PhotosPage = () => {
   return (
     <div className="photos-page">
       <div className="upper-container">
-        <div className="photo-item biggest">
-          <img src={floatingBag} alt="Floating Bag" />
-        </div>
         <div className="vertical-container">
           <div className="photo-item small">
             <img src={powder} alt="Powder" />
@@ -20,6 +17,9 @@ const PhotosPage = () => {
           <div className="photo-item small">
             <img src={labelInfo} alt="Label Info" />
           </div>
+        </div>
+        <div className="photo-item biggest">
+          <img src={floatingBag} alt="Floating Bag" />
         </div>
       </div>
       <div className="lower-container">

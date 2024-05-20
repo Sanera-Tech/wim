@@ -18,6 +18,8 @@
 
 .info-container {
   margin-bottom: 15px;
+  margin-left: 50px;
+  width: 90%;
 }
 
 .product-details-container {
@@ -56,6 +58,7 @@
   background-color: #f4c256;
   margin: 5px;
   margin-bottom: 30px;
+  font-size: 25px;
 }
 
 .purchase:hover {

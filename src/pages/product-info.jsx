@@ -36,7 +36,7 @@ const ProductInfo = () => {
           </div>
           <div className="info-container">
             <button onClick={handleAddToCart} className="purchase">
-              Add to Cart
+              Añadir a la Cesta
             </button>
           </div>
           <div className="info-container">

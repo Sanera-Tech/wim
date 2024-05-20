@@ -48,6 +48,21 @@
   height: auto;
 }
 
+.additional-footer-info, 
+.address, 
+.about-title, 
+.copyright {
+  color: #f6f3dd;
+}
+
+.additional-footer-info .address {
+  font-size: 18px;
+}
+
+.additional-footer-info .about-title {
+  font-size: 22px;
+}
+
 .line-break {
   margin-left: 30px;
   margin-right: 30px;

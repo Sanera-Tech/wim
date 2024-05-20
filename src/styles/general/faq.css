@@ -1,8 +1,8 @@
 .faq-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: black;
@@ -12,6 +12,7 @@
 .faq-container h2{
     margin-bottom: 15px;
     text-align: left;
+    font-size: 40px;
 }
 
 .faq-container hr{
@@ -22,13 +23,14 @@
 
   
   .faq-question {
-    background-color: #f6f3dd;
+    background-color: #ffffff;
     padding: 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    font-size: 20px;
   }
   
   .faq-question::after {
@@ -47,7 +49,7 @@
   }
   
   .faq-question.expanded {
-    background-color: #e1dec8;
+    background-color: #dddddd;
     padding: 10px;
   }
   
@@ -61,7 +63,7 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     padding: 4px 10px;
-    font-size: 13px;
+    font-size: 18px;
   }
   
   .faq-answer.expanded {

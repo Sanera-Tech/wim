@@ -21,15 +21,13 @@ const ProductInfoCard = ({ product }) => {
           className={selectedSize === "medium" ? "selected" : ""}
           onClick={() => handleSizeClick("medium")}
         >
-          <span>Medium</span>
-          <span>{product.serving}</span>
+          <span>{product.name}</span>
         </button>
         <button
           className={selectedSize === "large" ? "selected" : ""}
           onClick={() => handleSizeClick("large")}
         >
-          <span>Large</span>
-          <span>{product.serving}</span>
+          <span>{product.name}</span>
         </button>
       </div>
       <h3 className="pricing">Price: ${product.price}</h3>

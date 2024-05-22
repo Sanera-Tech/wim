@@ -9,7 +9,7 @@ const ContactUs = () => {
   const [phone_number, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [subject, setSubject] = useState("");
+  const [subject, setSubject] = useState("product");
   const [submitMessage, setSubmitMessage] = useState("");
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";

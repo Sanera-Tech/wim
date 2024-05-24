@@ -1,0 +1,108 @@
+.shopping_page {
+    margin-top: 8vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+}
+
+.left_shopping, .right_shopping {
+    width: 40%;
+    color: black;
+}
+
+.right_shopping {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 2vh 1vw;
+}
+
+.coupon_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    padding: 2vh 0vw;
+}
+
+.coupon_box label {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: rgb(185, 185, 185);
+}
+
+.code_input_btn {
+    position: relative;
+}
+
+.coupon_box input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1vh 3vw;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.coupon_box button {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    z-index: 1000;
+    font-size: 2rem;
+    background-color: transparent;
+    color: rgb(182, 182, 182);
+    transform: translate(-0%, -50%);
+    -webkit-transform: translate(-0%, -50%);
+    -moz-transform: translate(-0%, -50%);
+    -ms-transform: translate(-0%, -50%);
+    -o-transform: translate(-0%, -50%);
+}
+
+@media screen and (max-width: 850px) {
+    .shopping_page {
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .left_shopping {
+        width: 90%;
+    }
+
+    .right_shopping {
+        width: 90%;
+    }
+
+    .right_shopping .cart_button_box {
+        gap: 4vw;
+    }
+
+    .right_shopping .cart_button_box button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .right_shopping .order_number_txt_box span {
+        font-size: 1.2rem;
+    }
+
+    .coupon_box button {
+        position: relative;
+        width: 100%;
+        margin-top: 2vh;
+        right: 0;
+        background-color: var(--text);
+        transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+    }
+}

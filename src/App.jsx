@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import AboutUsSection from "./pages/aboutus";
 import ContactUs from "./pages/contactus";
 import Layout from "./components/layout";
+import OrderPage from "./pages/OrderPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/nuestra-historia" element={<AboutUsSection />} />
           <Route path="/contáctanos" element={<ContactUs />} />
+          <Route path="/order" element={<OrderPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

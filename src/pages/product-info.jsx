@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PhotosPage from "../components/product_page/PhotosPage";
 import ProductInfoCard from "../components/product_page/product-info-card";
 import FAQ from "../components/general/faq";
 import "../styles/product_page/product-info.css";
 import { useCart } from "../contexts/CartContext";
+import CartItemCard from "../components/general/cart-item-card";
 
 const ProductInfo = () => {
+  const [showPopup, setShowPopup] = useState(false);
   const product = {
     name: "PROTEIN ICED COFFEE",
     main_image: "/floatingBag.png",
@@ -17,14 +19,31 @@ const ProductInfo = () => {
     price: "54",
   };
 
+  const og_p = {
+    item: product,
+  };
+
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
+    setShowPopup(true);
     addToCart(product, 1);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000);
   };
 
   return (
     <div className="product-container-main">
+      {showPopup && (
+        <div className="item_popup">
+          <CartItemCard
+            product={og_p}
+            addFromCart={handleAddToCart}
+            showCount={false}
+          />
+        </div>
+      )}
       <div className="product-image-container">
         <PhotosPage />
         <div className="product-details-container">

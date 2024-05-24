@@ -238,39 +238,80 @@
   padding-bottom: 1vh;
 }
 
+.order_number_txt_box span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 /* Additional styling for sidebar content */
 .sidebar h2 {
   margin-bottom: 20px;
+}
+
+.order_btn {
+  font-size: 1.2rem;
+  padding: 12px;
+  background-color: var(--text);
+  margin-bottom: 1vh;
+}
+
+.item_popup {
+  position: absolute;
+  top: 8.5vh;
+  right: 1%;
+  width: 20vw;
+  z-index: 999;
+  background-color: #f6f3dd;
+}
+
+.item_popup .cart-product-card {
+  margin-bottom: 0;
+}
+
+.shopping_cart_count {
+  background-color: red;
+  padding: 0.25vw 0.6vw;
+  font-size: 1rem;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  position: absolute;
+  top: -20%;
+  right: -40%;
 }
 
 @media screen and (max-width: 850px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    height: auto;
+    padding: 2vh 5vw;
   }
 
   .navbar-menu {
-    margin-top: 20px;
-    justify-content: center;
-    align-content: center;
-    align-self: center;
+    display: none;
   }
 
   .navbar-actions {
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-left: auto;
+    margin-right: 2vw;
   }
 
+  .sidebar-overlay {
+    top: 2vh;
+  }
+
+  .navbar-logo {
+    height: 5vh;
+  }
 }
 
 
 
 @media screen and (max-width: 850px) {
   .sidebar {
-    width: 75%;
+    width: 100%;
   }
 
 }

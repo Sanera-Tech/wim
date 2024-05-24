@@ -27,7 +27,7 @@
 .cart_price_txt {
   font-weight: bold !important;
   font-family: alternate-gothic-atf, sans-serif !important;
-  font-size: clamp(1rem, 2vw, 2rem) !important;
+  font-size: clamp(1rem, 5vw, 2rem) !important;
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   background-color: var(--background);
   margin-top: 5px;
@@ -93,4 +93,15 @@ button {
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
+}
+
+@media screen and (max-width: 850px) {
+  .cart_button_box {
+    gap: 4vw;
+  }
+
+  .cart_button_box button {
+    width: 38px;
+    height: 38px;
+  }
 }

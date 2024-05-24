@@ -47,7 +47,9 @@ const MainCart = ({ toggleSidebar }) => {
             <span>$ {total}</span>
           </div>
         </div>
-        <button className="order_btn">Go To Order →</button>
+        <a href="/order" className="order_btn">
+          Go To Order →
+        </a>
       </div>
     </div>
   );

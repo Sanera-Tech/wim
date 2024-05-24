@@ -282,6 +282,38 @@
   right: -40%;
 }
 
+.nav_hamburger {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-left: 8%;
+  background-color: transparent;
+}
+
+.mobile_menu {
+  position: fixed;
+  top: 8vh;
+  padding-top: 20vh;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6vh;
+  background-color: var(--accent);
+}
+
+.mobile_menu .navbar-link {
+  color: black;
+  text-align: left !important;
+}
+
+.mobile_menu .navbar-link:hover {
+  color: var(--primary);
+}
+
 @media screen and (max-width: 850px) {
   .navbar {
     flex-direction: column;

@@ -9,6 +9,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,7 +44,11 @@ const Navbar = () => {
         className="navbar"
         style={{
           backgroundColor: `${
-            sidebarVisible || scrolled || !isHomepage || isHovered
+            showMobileMenu ||
+            sidebarVisible ||
+            scrolled ||
+            !isHomepage ||
+            isHovered
               ? "var(--primary)"
               : "transparent"
           }`,
@@ -59,6 +64,25 @@ const Navbar = () => {
             <span className="navbar-title"></span>
           </a>
         </div>
+        <button
+          onClick={() => setShowMobileMenu(!showMobileMenu)}
+          className="nav_hamburger"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
         <ul className="navbar-menu">
           <li className="navbar-item">
             <Link to="/" className="navbar-link">
@@ -97,6 +121,24 @@ const Navbar = () => {
         </div>
       </nav>
       {sidebarVisible && <MainCart toggleSidebar={toggleSidebar} />}
+      {showMobileMenu && (
+        <div className="mobile_menu">
+          <span className="navbar-logo">
+            <img src="/logo.png" alt="Logo" className="navbar-logo" />
+          </span>
+          <Link to="/" className="navbar-link">
+            Inicio
+          </Link>
+
+          <a href="/nuestra-historia" className="navbar-link">
+            Nuestra Historia
+          </a>
+
+          <Link to="/contáctanos" className="navbar-link">
+            Contáctanos
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

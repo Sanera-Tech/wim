@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/home/homeherosection.css";
 
-const HomeHeroSection = () => {
+const HomeHeroSection = ({ scrollToProducts }) => {
   return (
     <section className="product-section">
       <div className="product-container">
@@ -13,7 +13,7 @@ const HomeHeroSection = () => {
               divertida.
             </h2>
             <p>Celebra tu #momentoWIMdeldía</p>
-            <button>Ver productos →</button>
+            <button onClick={scrollToProducts}>Ver productos →</button>
           </div>
         </div>
       </div>

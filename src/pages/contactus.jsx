@@ -58,7 +58,7 @@ const ContactUs = () => {
     <div className="contact-container">
       <div className="header">
         {/* <img src="car.jpg" alt="Quest Products" className="header-image" /> */}
-        <h1 className="main-title">CONTACT US</h1>
+        <h1 className="main-title">CONTÁCTANOS</h1>
       </div>
       <div className="content">
         <div className="left-panel">
@@ -68,7 +68,7 @@ const ContactUs = () => {
             from the Quest community.
           </p>
           <div className="contact-methods">
-            <a href="https://whatsapp.com/" className="contact-button whatsapp">
+            <a href="https://wa.me/+51956249586" target="_blank" className="contact-button whatsapp">
               <img
                 src="social-media-icons/whatsapp.png"
                 alt="WhatsApp Logo"
@@ -77,7 +77,8 @@ const ContactUs = () => {
               Whatsapp
             </a>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/wimnutrition"
+              target="_blank"
               className="contact-button instagram"
             >
               <img
@@ -105,21 +106,20 @@ const ContactUs = () => {
             </div>
 
             <div className="extra-methods">
-              <h3>MAIL US</h3>
-              <p>Quest Nutrition, LLC</p>
-              <p>Attn: Consumer Engagement</p>
-              <p>777 S Aviation Blvd. Ste.100</p>
-              <p>El Segundo, CA, 90245</p>
+              <h3>CORREOS</h3>
+              <p>WIM Nutrition</p>
+              <p>Cal. Breton Nro. 131</p>
+              <p>San Borja</p>
             </div>
           </div>
         </div>
         <div className="right-panel">
-          <h2>MESSAGE US</h2>
+          <h2>ENVÍANOS UN MENSAJE</h2>
 
           <form className="contact-form" action={endpoint} onSubmit={handleSubmit} method="POST">
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="first-name">First Name: *</label>
+                <label htmlFor="first-name">Nombre: *</label>
                 <input
                   type="text"
                   id="first-name"
@@ -130,7 +130,7 @@ const ContactUs = () => {
                 ></input>
               </div>
               <div className="form-group">
-                <label htmlFor="last-name">Last Name:</label>
+                <label htmlFor="last-name">Apellido:</label>
                 <input type="text" id="last-name" name="last-name" value={last_name} onChange={(e) => setLastName(e.target.value)}></input>
               </div>
             </div>
@@ -140,12 +140,12 @@ const ContactUs = () => {
                 <input type="email" id="email" name="email" value={email} required onChange={(e) => setEmail(e.target.value)}></input>
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Phone:</label>
+                <label htmlFor="phone">Teléfono:</label>
                 <input type="tel" id="phone" name="phone" value={phone_number} onChange={(e) => setPhoneNumber(e.target.value)}></input>
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="subject">Subject: *</label>
+              <label htmlFor="subject">Asunto: *</label>
               <select id="subject" name="subject" value={subject} onChange={(e) => setSubject(e.target.value)} required>
                 <option value="product">Product Inquiry</option>
                 <option value="support">Support Request</option>
@@ -153,7 +153,7 @@ const ContactUs = () => {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="message" >Message: *</label>
+              <label htmlFor="message" >Mensaje: *</label>
               <textarea
                 type="text"
                 id="message"
@@ -165,7 +165,7 @@ const ContactUs = () => {
               ></textarea>
             </div>
             <button type="submit" className="submit-button">
-              Send Message
+              Enviar Mensaje
             </button>
           </form>
           {submitMessage && <p>{submitMessage}</p>}

@@ -52,12 +52,12 @@ const Navbar = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="navbar-brand">
-          <button className="navbar-logo button" onClick={() => navigate("/")}>
+        <a href="/" className="navbar-logo button">
             <span className="navbar-logo">
               <img src="/logo.png" alt="Logo" className="navbar-logo" />
             </span>
-            <span className="navbar-title">THE HEALTHY BAR</span>
-          </button>
+            <span className="navbar-title"></span>
+          </a>
         </div>
         <ul className="navbar-menu">
           <li className="navbar-item">

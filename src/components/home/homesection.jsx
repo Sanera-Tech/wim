@@ -21,9 +21,9 @@ const HomeSection = () => {
               <span className="first_letters">M</span>otivate
             </h2>
 
-            <button onClick={() => navigate("/nuestra-historia")}>
+            <a href="/nuestra-historia" className="button-link">
               Nuestra Historia →
-            </button>
+            </a>
           </div>
         </div>
       </div>

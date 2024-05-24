@@ -83,7 +83,7 @@
   margin-bottom: 20px;
 }
 
-.label-description button {
+.button-link {
   background-color: var(--primary);
   color: #fff;
   border: none;
@@ -94,9 +94,10 @@
   cursor: pointer;
   width: 15%;
   transition: background-color 0.5s ease;
+  text-align: center;
 }
 
-.label-description button:hover {
+.button-link:hover {
   background-color: #ffd57b;
 }
 

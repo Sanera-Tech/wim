@@ -134,13 +134,15 @@
 }
 
 .contact-methods {
-
+    gap: 3em;
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 20px 0;
+    padding-top: 2em;
+    padding-bottom: 3em;
 }
 
 .contact-button {
@@ -280,12 +282,34 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin: 20px;
-        width: 90%;
+        margin: 0px;
+        width: 100%;
     }
 
+    .content p {
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .content h2 {
+        text-align: center;
+        color: black;
+        font-size: 22px;
+    }
+
+    .content h3 {
+        text-align: center;
+        color: black;
+        font-size: 18px;
+    }
+
+    .img_and_mail {
+        gap: 5vw;
+    }
+
+
     .header {
-        margin-top: 115px;
+        margin-top: 3em;
     }
 
     .left-panel, .right-panel {
@@ -296,14 +320,43 @@
         border-radius: 15px;
     }
 
+    .left-panel {
+        margin-bottom: 50px;
+    }
+
     .form-row {
         grid-template-columns: 1fr;
     }
 
+
+    .contact-methods {
+        gap: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+
     .contact-methods img {
-        width: 30px;
-        height: 30px;
+        width: 4vw;
+        height: 4vw;
         object-fit: contain;
     }
+
+
+    .contact-button {
+        margin: 10px;
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .contact-icon {
+        object-fit: contain;
+        margin-bottom: 2px;
+    }
+
+    .extra-methods {
+        text-align: center;
+    }
+
 
 }

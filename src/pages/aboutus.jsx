@@ -2,10 +2,12 @@ import React from "react";
 import "../styles/about_us/aboutus.css";
 import AboutCard from "../components/home/aboutcard";
 import CompareSlider from "../components/product_page/image-slider";
+import FadeInObserver from "../components/general/FadeInObserver";
 
 const AboutUsSection = () => {
   return (
     <div className="about-us-section">
+      <FadeInObserver>
       <div className="horizontal-info">
         <h1>
           WE ARE <span className="brand_name">WIM</span>
@@ -38,8 +40,7 @@ const AboutUsSection = () => {
 
       <div className="horizontal-info standout_info">
         <div className="vertical-info">
-          <h1>WE GROW</h1>
-          <h1>TOGETHER</h1>
+          <h1>WE GROW TOGETHER</h1>
           <p>
             Our logo represents our promise to you. We are sincere, and as we
             grow, you grow with us. A friendly bond, and a promise. The left
@@ -55,6 +56,7 @@ const AboutUsSection = () => {
         <AboutCard />
         <AboutCard />
       </div>
+      </FadeInObserver>
     </div>
   );
 };

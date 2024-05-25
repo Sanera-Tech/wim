@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/contact/ContactUs.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import FadeInObserver from "../components/general/FadeInObserver";
 
 const ContactUs = () => {
   const [first_name, setFirstName] = useState("");
@@ -62,6 +63,7 @@ const ContactUs = () => {
       </div>
       <div className="content">
         <div className="left-panel">
+        <FadeInObserver>
           <h2>WE ARE HERE TO HELP YOU ON YOUR QUEST!</h2>
           <p>
             Questions or comments? Reach out and let us know! We love hearing
@@ -112,8 +114,10 @@ const ContactUs = () => {
               <p>San Borja</p>
             </div>
           </div>
+          </FadeInObserver>
         </div>
         <div className="right-panel">
+        <FadeInObserver>
           <h2>ENVÍANOS UN MENSAJE</h2>
 
           <form className="contact-form" action={endpoint} onSubmit={handleSubmit} method="POST">
@@ -169,6 +173,7 @@ const ContactUs = () => {
             </button>
           </form>
           {submitMessage && <p>{submitMessage}</p>}
+          </FadeInObserver>
         </div>
       </div>
     </div>

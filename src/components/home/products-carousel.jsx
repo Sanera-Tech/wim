@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import ProductCard from "../general/product-card";
 import "../../styles/home/products-carousel.css";
+import FadeInObserver from "../general/FadeInObserver";
 
 const products = [
   {
@@ -49,6 +50,7 @@ const ProductsCarousel = () => {
 
   return (
     <div id="products" className="main-featured">
+      <FadeInObserver>
       <h2 className="featured-title">Nuestros Productos</h2>
       <div ref={carouselRef} className="card-container small-card-container">
         {products.map((product, index) => (
@@ -57,7 +59,7 @@ const ProductsCarousel = () => {
           </a>
         ))}
       </div>
-
+      </FadeInObserver>
     </div>
   );
 };

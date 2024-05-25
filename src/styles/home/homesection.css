@@ -131,8 +131,8 @@
     /* Ensure the description takes up the full height */
   }
 
-  .label-description button {
-    width: 50%;
+  .label-description .button-link {
+    width: 40%;
     align-self: flex-start;
     /* Align button to the start (left) */
     margin-top: auto;
@@ -142,7 +142,10 @@
   .label-description h2 {
     text-align: left;
     margin: 5px 0;
-    /* Adjust margin for h2 elements */
 
+  }
+
+  .first_letters {
+    width: 4rem;
   }
 }

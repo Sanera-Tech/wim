@@ -1,12 +1,14 @@
 import React from "react";
 import "../../styles/home/homesection.css";
 import { useNavigate } from "react-router-dom";
+import FadeInObserver from "../general/FadeInObserver";
 
 const HomeSection = () => {
   const navigate = useNavigate();
 
   return (
     <section className="label-section">
+      <FadeInObserver>
       <div className="label-container">
         <div className="label-image">
           <img src="car.jpg" alt="label-image" />
@@ -27,6 +29,7 @@ const HomeSection = () => {
           </div>
         </div>
       </div>
+      </FadeInObserver>
     </section>
   );
 };

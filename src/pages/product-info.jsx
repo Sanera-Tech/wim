@@ -5,6 +5,7 @@ import FAQ from "../components/general/faq";
 import "../styles/product_page/product-info.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
+import FadeInObserver from "../components/general/FadeInObserver";
 
 const ProductInfo = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -47,6 +48,7 @@ const ProductInfo = () => {
       <div className="product-image-container">
         <PhotosPage />
         <div className="product-details-container">
+          <FadeInObserver>
           <div className="info-container">
             <ProductInfoCard
               product={product}
@@ -58,6 +60,7 @@ const ProductInfo = () => {
               Añadir a la Cesta
             </button>
           </div>
+          </FadeInObserver>
           <div className="info-container">
             <FAQ />
           </div>

@@ -4,6 +4,7 @@ import "../styles/navbar.css";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import MainCart from "./cart/MainCart";
+import FadeInObserver from "./general/FadeInObserver";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -32,6 +33,10 @@ const Navbar = () => {
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
+  };
+
+  const handleLinkClick = () => {
+    setShowMobileMenu(false);
   };
 
   return (
@@ -126,15 +131,15 @@ const Navbar = () => {
           <span className="navbar-logo">
             <img src="/logo.png" alt="Logo" className="navbar-logo" />
           </span>
-          <Link to="/" className="navbar-link">
+          <Link to="/" className="navbar-link" onClick={handleLinkClick}>
             Inicio
           </Link>
 
-          <a href="/nuestra-historia" className="navbar-link">
+          <a href="/nuestra-historia" className="navbar-link" onClick={handleLinkClick}>
             Nuestra Historia
           </a>
 
-          <Link to="/contáctanos" className="navbar-link">
+          <Link to="/contáctanos" className="navbar-link" onClick={handleLinkClick}>
             Contáctanos
           </Link>
         </div>

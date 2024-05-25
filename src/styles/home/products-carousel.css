@@ -143,6 +143,11 @@
   .product-card {
     width: 60vw;
     height: auto;
+    min-height: 468px;
+  }
+
+  .product-card p {
+    font-size: 20px;
   }
 
   .product_card_img {

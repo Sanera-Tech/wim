@@ -23,7 +23,7 @@ const MainCart = ({ toggleSidebar }) => {
   return (
     <div className="sidebar-overlay">
       <div className="sidebar">
-        <h2>In Cart Items</h2>
+        <h2>Artículos en la Cesta</h2>
         <div className="cart_item_box">
           {cart.map((product, index) => (
             <CartItemCard
@@ -39,7 +39,7 @@ const MainCart = ({ toggleSidebar }) => {
             <span>$ {subTotal}</span>
           </div>
           <div className="order_number_txt_box">
-            <span>Shipping Cost</span>
+            <span>Gastos de Envío</span>
             <span>$ {shipping}</span>
           </div>
           <div className="order_number_txt_box">
@@ -48,7 +48,7 @@ const MainCart = ({ toggleSidebar }) => {
           </div>
         </div>
         <a href="/order" className="order_btn">
-          Go To Order →
+            Ir a la Caja →
         </a>
       </div>
     </div>

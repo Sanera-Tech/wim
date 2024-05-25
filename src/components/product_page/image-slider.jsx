@@ -19,6 +19,8 @@ const CompareSlider = () => {
     maxheight: '675px',
     overflow: 'hidden', // Optional: to prevent content from overflowing
     position: 'relative', // Optional: if you need to position child elements
+    borderRadius: '20px',
+    border: '2px solid #f6f3dd',
   };
 
   return (

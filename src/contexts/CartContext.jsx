@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
     const { cart, itemInCart } = await getCartUtil();
     console.log(cart);
     setCart(cart);
-    setCartItemCount(itemInCart);
+    setCartItemCount(cart.reduce((total, cartItem) => total + cartItem.count, 0));
   };
 
   useEffect(() => {
@@ -34,6 +34,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     setSubTotal(calculateSubtotal());
+    setCartItemCount(cart.reduce((total, cartItem) => total + cartItem.count, 0));
   }, [cart]);
 
   const addToCart = async (item, count) => {
@@ -52,6 +53,7 @@ export const CartProvider = ({ children }) => {
     }
 
     setCart(updatedCart);
+    setCartItemCount(updatedCart.reduce((total, cartItem) => total + cartItem.count, 0));
     await addToCartUtil(item, count);
   };
 

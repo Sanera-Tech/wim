@@ -221,7 +221,7 @@ const OrderPage = () => {
         </div>
         <div className="order_box">
           <div className="coupon_box">
-            <label htmlFor="coupon">Discount Code</label>
+            <label htmlFor="coupon">Promo Code</label>
             <div className="code_input_btn">
               <input
                 type="text"
@@ -237,7 +237,7 @@ const OrderPage = () => {
             <span>$ {subTotal}</span>
           </div>
           <div className="order_number_txt_box">
-            <span>Shipping Cost</span>
+            <span>Gastos de Envío</span>
             <span>$ {shipping}</span>
           </div>
           <div className="order_number_txt_box">

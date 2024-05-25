@@ -1,0 +1,29 @@
+/* src/styles/general/fade.css */
+
+/* Keyframes for a smooth fade-in and move-up animation */
+@keyframes fadeInMoveUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Applying the animation to the elements */
+  .fade-wrapper > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    animation: fadeInMoveUp 1s ease-out forwards;
+    /* delay only starts animation when show class is added */
+    animation-play-state: paused;
+  }
+  
+  /* When the show class is added, the animation starts */
+  .fade-wrapper > *.show {
+    animation-play-state: running;
+  }
+  

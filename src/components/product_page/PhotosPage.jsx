@@ -8,6 +8,7 @@ import powder from "/powder.png"; // Replace with the actual path
 import labelInfo from "/labelInfo.png"; // Replace with the actual path
 import upfrontBag from "/upfrontBag.png"; // Replace with the actual path
 import womanByPool from "/womanByPool.png"; // Replace with the actual path
+import FadeInObserver from "../general/FadeInObserver";
 
 const PhotosPage = () => {
   const windowWidth = useWindowWidth();

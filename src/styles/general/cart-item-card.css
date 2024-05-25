@@ -95,6 +95,17 @@ button {
   -o-border-radius: 8px;
 }
 
+.sidebar .order_btn {
+  background-color: #f4c256;
+  border-radius: 6px;
+  border: 2px solid black;
+  color: black;
+}
+
+.sidebar h2 {
+  font-size: 30px;
+}
+
 @media screen and (max-width: 850px) {
   .cart_button_box {
     gap: 4vw;

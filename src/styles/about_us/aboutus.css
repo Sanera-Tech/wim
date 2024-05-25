@@ -15,24 +15,29 @@
     text-align: center;
     justify-items: center;
     align-items: center;
-    padding-top: 80px;
-    padding-bottom: 40px;
+    margin-top: 30px;
     padding-right: 100px;
     width: 90vw;
 }
 
 .horizontal-info p {
     text-align: left;
+    font-size: 25px;
+    margin-top: 50px;
+    width: 80%;
 }
 
 .horizontal-info h1 {
     text-align: center;
-    font-family: alternate-gothic-atf, sans-serif;
+    font-size: 60px;
+    margin-left: 400px;
 }
 
 .horizontal-info h1 span {
     display: block; 
-    line-height: 0.8; 
+    line-height: 0.9; 
+    font-family: alternate-gothic-atf, sans-serif;
+    font-size: 200px;
 }
 
 .brand_name {
@@ -47,19 +52,25 @@
     }
 
     .horizontal-info h1 span {
-        display: inline; 
         line-height: 0.8; 
-        font-size: 3rem;
+        font-size: 10rem;
     }
 
     .horizontal-info h1 {
         font-size: 3rem;
         text-align: left;
+        margin-left: -1rem;
+        text-align: center;
+    }
+
+    .horizontal-info p {
+        margin-top: 20px;
     }
     
     .horizontal-info {
         grid-template-columns: 1fr;
         padding-right: 0;
+        flex-direction: column;
     }
 
     .horizontal-info p {
@@ -82,6 +93,22 @@
 
 .vertical-info p {
     text-align: left;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.vertical-info h1 {
+    font-size: 50px;
+}
+
+.horizontal-info .vertical-info h1 {
+    font-size: 80px;
+    margin: 0px;
+    width: 100%;
+}
+
+.horizontal-info .vertical-info p {
+    text-align: right;
 }
 
 .horizontal-slider {
@@ -102,6 +129,15 @@
     .vertical-info img{
         padding-bottom: 0px;
         margin-bottom: 0px;
+    }
+
+    .horizontal-info .vertical-info h1 {
+        text-align: center;
+    }
+
+    .horizontal-info .vertical-info p {
+        text-align: center;
+        width: 300px;
     }
 }
 

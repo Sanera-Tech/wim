@@ -270,7 +270,7 @@
 
 .shopping_cart_count {
   background-color: red;
-  padding: 0.25vw 0.6vw;
+  padding: 0.15vw 0.45vw;
   font-size: 1rem;
   border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -288,6 +288,7 @@
   margin: 0 auto;
   margin-left: 8%;
   background-color: transparent;
+  display: none;
 }
 
 .mobile_menu {
@@ -336,6 +337,15 @@
 
   .navbar-logo {
     height: 5vh;
+  }
+
+  .nav_hamburger {
+    display: block;
+  }
+
+  .shopping_cart_count {
+    margin-right: 6px;
+    width: 55%;
   }
 }
 

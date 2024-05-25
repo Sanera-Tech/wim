@@ -288,19 +288,19 @@
 
     .content p {
         text-align: center;
-        font-size: 11px;
+        font-size: 18px;
     }
 
     .content h2 {
         text-align: center;
         color: black;
-        font-size: 22px;
+        font-size: 28px;
     }
 
     .content h3 {
         text-align: center;
         color: black;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .img_and_mail {
@@ -309,7 +309,7 @@
 
 
     .header {
-        margin-top: 3em;
+        margin-top: 1em;
     }
 
     .left-panel, .right-panel {
@@ -321,6 +321,7 @@
     }
 
     .left-panel {
+        background-color: #f6f3dd;
         margin-bottom: 50px;
     }
 
@@ -337,16 +338,17 @@
 
 
     .contact-methods img {
-        width: 4vw;
-        height: 4vw;
+        width: 5vw;
+        height: 5vw;
         object-fit: contain;
     }
 
 
     .contact-button {
         margin: 10px;
-        width: 8vw;
-        height: 8vw;
+        width: 10vw;
+        height: 10vw;
+        font-size: 8px;
     }
 
     .contact-icon {

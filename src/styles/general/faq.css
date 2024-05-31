@@ -30,7 +30,7 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    font-size: 20px;
+    font-size: 22px;
   }
   
   .faq-question::after {
@@ -63,7 +63,7 @@
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     padding: 4px 10px;
-    font-size: 18px;
+    font-size: 20px;
   }
   
   .faq-answer.expanded {

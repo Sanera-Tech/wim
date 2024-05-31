@@ -10,30 +10,30 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "Why the protein iced coffee?",
+      question: "¿Por qué WIM The Healthy Bar?",
       answer:
-        "Our whey iced coffee is an alternative to all iced coffees on the supermarket shelves. This iced coffee contains as much caffeine per shake as a normal cup of coffee (60 mg), 22 grams of protein and only 1.6 grams of sugar.",
+        "Sabemos que lo primero que buscas cuando tienes un antojo es algo delicioso. WIM busca romper esquemas y ofrecerte la mejor barra del mercado, la más sabrosa, alta en proteína, para que te nutras, y alta en fibra, para que encuentres esa sensación de saciedad que estas buscando. ¡Así que ya sabes! No esperes más, súmate a la comunidad WIM y disfruta de una nueva forma de calmar tus antojos.",
     },
     {
-      question: "How do I prepare the whey iced coffee?",
+      question: "¿Cómo consumir la barra?",
       answer:
-        "To prepare the whey iced coffee, simply mix one scoop of the powder with 250ml of cold water or milk and shake well. You can also blend it with ice for a thicker consistency.",
+        "Puedes disfrutar tu WIM The Healthy Bar de diferentes maneras según tu preferencia. Disfrútala a temperatura ambiente, refrigérala para una textura más firme o caliéntala unos segundos en el microondas para una experiencia más suave. ¡Encuentra tu #momentoWIMdeldía y hazlo único!",
     },
     {
-      question: "When do I use the protein iced coffee?",
+      question: "¿Cuándo la consumo?",
       answer:
-        "The protein iced coffee can be used as a post-workout recovery drink, a meal replacement, or a snack. It is a convenient way to get your daily dose of protein and caffeine.",
+        "Nuestras barras están pensadas para cualquier momento del día. Son perfectas para esos momentos del #quécomo, cuando necesitas un snack saludable y delicioso. Ya sea en el desayuno, después del ejercicio, o como un antojo entre comidas ¡WIM The Healthy Bar es tu mejor compañía!",
     },
     {
-      question: "Allergens & Warnings",
+      question: "¿Por qué la barra lleva un octógono de alto en grasas saturadas?",
       answer:
-        "This product contains milk and soy. It is not suitable for people with milk or soy allergies. If you are pregnant, breastfeeding, or taking medication, please consult your doctor before using this product.",
+        "WIM The Healthy Bar lleva un octógono de alto en grasas saturadas, este se da como consecuencia de una regulación peruana que debemos cumplir. Sin embargo, es importante mencionar que en WIM utilizamos almendras y manteca de cacao, grasas 100% naturales y beneficiosas para tu salud. Así que quédate tranquilo y celebra tu #momentoWIMdeldía sin preocupaciones.",
     },
   ];
 
   return (
     <div className="faq-container">
-      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+      <h2>PREGUNTAS FRECUENTES</h2>
       <hr></hr>
       {faqs.map((faq, index) => (
         <div key={index} className="faq-item">

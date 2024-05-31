@@ -64,10 +64,9 @@ const ContactUs = () => {
       <div className="content">
         <div className="left-panel">
         <FadeInObserver>
-          <h2>WE ARE HERE TO HELP YOU ON YOUR QUEST!</h2>
+          <h2>ESTAMOS AQUI PARA TI</h2>
           <p>
-            Questions or comments? Reach out and let us know! We love hearing
-            from the Quest community.
+          Preguntas o comentarios? Comunícate con nosotros. Nos encanta escuchar a la comunidad WIM.
           </p>
           <div className="contact-methods">
             <a href="https://wa.me/+51956249586" target="_blank" className="contact-button whatsapp">
@@ -104,14 +103,7 @@ const ContactUs = () => {
           </div>
           <div className="img_and_mail">
             <div className="image-section">
-              <img src="/map.jpg"></img>
-            </div>
-
-            <div className="extra-methods">
-              <h3>CORREOS</h3>
-              <p>WIM Nutrition</p>
-              <p>Cal. Breton Nro. 131</p>
-              <p>San Borja</p>
+              <img src="/exercise.png"></img>
             </div>
           </div>
           </FadeInObserver>
@@ -151,9 +143,9 @@ const ContactUs = () => {
             <div className="form-group">
               <label htmlFor="subject">Asunto: *</label>
               <select id="subject" name="subject" value={subject} onChange={(e) => setSubject(e.target.value)} required>
-                <option value="product">Product Inquiry</option>
-                <option value="support">Support Request</option>
-                <option value="general">General Inquiry</option>
+                <option value="product">Preguntas/Comentarios relacionados al producto</option>
+                <option value="support">Preguntas/Comentarios relacionados al envío</option>
+                <option value="general">Preguntas/Comentarios en general</option>
               </select>
             </div>
             <div className="form-group">

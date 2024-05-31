@@ -10,43 +10,47 @@ const AboutUsSection = () => {
       <FadeInObserver>
       <div className="horizontal-info">
         <h1>
-          WE ARE <span className="brand_name">WIM</span>
+          SOMOS <span className="brand_name">WIM</span>
         </h1>
         <p>
-          We print our nutritional values in ingredients big on the front so
-          that you get control over your health. Hence our name. Together we are
-          making the food industry simple and functional again, rather than
-          incomprehensible and addictive. Together we build a new Dutch
-          standard.
+        Ofrecemos snacks saludables, altos en proteína y fibra, sin azúcares añadidos
+         y, lo más importante, ¡deliciosos! Nuestro objetivo es conectar tus antojos 
+         con opciones balanceadas. ¡Sí, esos antojos!, aquellos que saltan entre comidas, 
+         mientras estudias o trabajas, después de hacer ejercicio o en las noches cuando 
+         no sabes qué comer. Queremos que te diviertas, comer sano no tiene por qué ser 
+         aburrido, y en WIM hacemos de cada bocado una experiencia placentera y nutritiva.
         </p>
       </div>
-
+      </FadeInObserver>
       <div className="horizontal-slider">
         <CompareSlider />
       </div>
-
+      <FadeInObserver>
       <div className="vertical-info">
-        <h1>WE BELIEVE THAT</h1>
-        <h1>WHAT IS SINCERE WINS.</h1>
+        <h1>Creemos en una alimentación saludable sin restricciones.</h1>
         <p>
-          People want to know what the truth is. You, me, all of us. - that's
-          why we have such an aversion to liars and hypocrites. You can't build
-          on lies - The truth provides a hold, and a hold is needed for
-          progression. That's why we at Upfront work to be as sincere and honest
-          as possible, our search for the truth is never over. What is sincere
-          wins.
+        ¡Es posible disfrutar de tus snacks favoritos sin culpas! 
+        En WIM Nutrition promovemos un estilo de vida activo, 
+        balanceado y accesible para todos, por eso, utilizamos 
+        productos naturales, altos en proteína y fibra, para una 
+        alimentación verdadera y nutritiva. 
         </p>
       </div>
 
       <div className="horizontal-info standout_info">
         <div className="vertical-info">
-          <h1>WE GROW TOGETHER</h1>
+          <h1>El momento WIM del día</h1>
           <p>
-            Our logo represents our promise to you. We are sincere, and as we
-            grow, you grow with us. A friendly bond, and a promise. The left
-            hand is us, the right hand is you. We own 100% of our own shares,
-            which is why we are free to do independently what we need to do to
-            accomplish our mission.
+          ¡Es ese instante especial que transforma tu día! Ese 
+          momento en el que te permites un antojo delicioso y 
+          saludable sin remordimientos. Una celebración de la 
+          libertad de elegir un snack que no solo te llena de 
+          alegría, sino también de  bienestar. 
+          </p>
+          <p>
+          Con WIM, cada bocado es una fiesta para tus sentidos. Estamos aquí 
+          para acompañarte a disfrutar de esos momentos tan 
+          especiales ¡Celebra tu #momentoWIMdeldía!
           </p>
         </div>
         <img src="car.jpg"></img>

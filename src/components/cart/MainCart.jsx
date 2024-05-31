@@ -39,7 +39,7 @@ const MainCart = ({ toggleSidebar }) => {
             <span>$ {subTotal}</span>
           </div>
           <div className="order_number_txt_box">
-            <span>Gastos de Envío</span>
+            <span>Delivery</span>
             <span>$ {shipping}</span>
           </div>
           <div className="order_number_txt_box">

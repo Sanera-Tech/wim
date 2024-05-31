@@ -7,7 +7,7 @@ function Footer() {
       <div className="additional-footer-info">
         <span>
           <img src="/logo.png" altenative="logo-image"></img>
-          <h4 className="address">Cal. Breton Nro. 131, San Borja</h4>
+          <h4 className="address">San Borja</h4>
           <h4 className="address">Lima, Peru</h4>
           <div>
             <a

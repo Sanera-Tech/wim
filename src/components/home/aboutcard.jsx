@@ -8,7 +8,7 @@ const AboutCard = () => {
         <div className="about-label-image">
           <img src="REEP_WEB.jpg" alt="about-label-image" />
           <div className="about-label-description">
-            <button>View More →</button>
+            <button>Ver el Producto →</button>
           </div>
         </div>
       </div>

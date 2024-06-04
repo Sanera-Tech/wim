@@ -7,11 +7,13 @@ import FadeInObserver from "../components/general/FadeInObserver";
 const AboutUsSection = () => {
   return (
     <div className="about-us-section">
-      <FadeInObserver>
       <div className="horizontal-info">
+        <FadeInObserver>
         <h1>
           SOMOS <span className="brand_name">WIM</span>
         </h1>
+        </FadeInObserver>
+        <FadeInObserver>
         <p>
         Ofrecemos snacks saludables, altos en proteína y fibra, sin azúcares añadidos
          y, lo más importante, ¡deliciosos! Nuestro objetivo es conectar tus antojos 
@@ -20,8 +22,8 @@ const AboutUsSection = () => {
          no sabes qué comer. Queremos que te diviertas, comer sano no tiene por qué ser 
          aburrido, y en WIM hacemos de cada bocado una experiencia placentera y nutritiva.
         </p>
+        </FadeInObserver>
       </div>
-      </FadeInObserver>
       <div className="horizontal-slider">
         <CompareSlider />
       </div>
@@ -36,7 +38,7 @@ const AboutUsSection = () => {
         alimentación verdadera y nutritiva. 
         </p>
       </div>
-
+      </FadeInObserver>
       <div className="horizontal-info standout_info">
         <div className="vertical-info">
           <h1>El momento WIM del día</h1>
@@ -55,7 +57,7 @@ const AboutUsSection = () => {
         </div>
         <img src="car.jpg"></img>
       </div>
-
+      <FadeInObserver>
       <div className="about-card-info">
         <AboutCard />
         <AboutCard />

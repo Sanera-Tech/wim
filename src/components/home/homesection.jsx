@@ -8,7 +8,6 @@ const HomeSection = () => {
 
   return (
     <section className="label-section">
-      <FadeInObserver>
       <div className="label-container">
         <div className="label-image">
           <img src="car.jpg" alt="label-image" />
@@ -29,7 +28,6 @@ const HomeSection = () => {
           </div>
         </div>
       </div>
-      </FadeInObserver>
     </section>
   );
 };

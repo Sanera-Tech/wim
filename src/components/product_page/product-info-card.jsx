@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "../../styles/home/product-info-card.css";
+import products from "../general/products";
 
-const ProductInfoCard = ({ product }) => {
-  const [selectedSize, setSelectedSize] = useState(null);
+const ProductInfoCard = ({ product, index }) => {
 
-  const handleSizeClick = (size) => {
-    setSelectedSize(size === selectedSize ? null : size);
+  const handleSizeClick = (clickIndex) => {
+    <a href={"./productos/"+products.at(clickIndex).carouselLink} className="small-card-link">
+      <ProductInfo index={clickIndex} />
+    </a>
   };
 
   return (
@@ -17,20 +19,17 @@ const ProductInfoCard = ({ product }) => {
       </p>
       <h4>Choose your flavor:</h4>
       <div className="size-selection">
+        {products.map((product, thisIndex) => (
         <button
-          className={selectedSize === "medium" ? "selected" : ""}
-          onClick={() => handleSizeClick("medium")}
+          className={window.location.href.endsWith(`/productos/${product.carouselLink}`) ? "selected" : ""}
+          onClick={() => { window.location.href = `/productos/${product.carouselLink}`; }}
+          key={thisIndex}
         >
           <span>{product.name}</span>
         </button>
-        <button
-          className={selectedSize === "large" ? "selected" : ""}
-          onClick={() => handleSizeClick("large")}
-        >
-          <span>{product.name}</span>
-        </button>
+      ))}
       </div>
-      <h3 className="pricing">Price: ${product.price}</h3>
+      <h3 className="pricing">Price: S/{product.price}</h3>
     </div>
   );
 };

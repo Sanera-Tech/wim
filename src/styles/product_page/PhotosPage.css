@@ -41,7 +41,7 @@
 }
 
 .photo-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .large {
@@ -53,7 +53,7 @@
 }
 
 .biggest {
-  width: 800%;
+  width: 130%;
   aspect-ratio: 1 / 1;
 }
 

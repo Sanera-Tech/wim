@@ -8,6 +8,7 @@ import AboutUsSection from "./pages/aboutus";
 import ContactUs from "./pages/contactus";
 import Layout from "./components/layout";
 import OrderPage from "./pages/OrderPage";
+import products from "./components/general/products";
 
 function App() {
   return (
@@ -15,11 +16,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
-          <Route path="/productos">
-            <Route path="/productos/:id">
-              <Route index element={<ProductInfo />} />
-            </Route>
-          </Route>
+          {products.map((product, index) => (
+            <Route path={"/productos/"+product.carouselLink} key={index}>
+              <Route index element={<ProductInfo index={index} key={index}/>} />
+           </Route>
+          ))}
           <Route path="/nuestra-historia" element={<AboutUsSection />} />
           <Route path="/contáctanos" element={<ContactUs />} />
           <Route path="/order" element={<OrderPage />} />

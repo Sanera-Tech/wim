@@ -2,21 +2,7 @@ import React, { useRef } from "react";
 import ProductCard from "../general/product-card";
 import "../../styles/home/products-carousel.css";
 import FadeInObserver from "../general/FadeInObserver";
-
-const products = [
-  {
-    image: "xd.webp",
-    title: "Vanilla Chocolate Chip Cookie",
-    weight: 300,
-    servings: 6,
-  },
-  {
-    image: "xd.webp",
-    title: "Double Chocolate Brownie",
-    weight: 300,
-    servings: 6,
-  },
-];
+import products from "../general/products";
 
 const ProductsCarousel = () => {
   const carouselRef = useRef(null);
@@ -54,7 +40,7 @@ const ProductsCarousel = () => {
       <h2 className="featured-title">Nuestros Productos</h2>
       <div ref={carouselRef} className="card-container small-card-container">
         {products.map((product, index) => (
-          <a href="./productos/23" key={index} className="small-card-link">
+          <a href={"./productos/"+product.carouselLink} key={index} className="small-card-link">
             <ProductCard product={product} />
           </a>
         ))}

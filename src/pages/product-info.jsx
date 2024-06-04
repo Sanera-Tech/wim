@@ -6,22 +6,13 @@ import "../styles/product_page/product-info.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
 import FadeInObserver from "../components/general/FadeInObserver";
+import products from "../components/general/products";
 
-const ProductInfo = () => {
+const ProductInfo = ( {index} ) => {
   const [showPopup, setShowPopup] = useState(false);
-  const product = {
-    name: "PROTEIN ICED COFFEE",
-    main_image: "/floatingBag.png",
-    id: "1021021",
-    description:
-      "Upfront Protein iced coffee is relatively low in sugar (1g), high in protein (22g per shake!) and contains as much caffeine as a cup of coffee. Great to start your day with, or as a refreshing drink during warm weather.",
-    weight: "1",
-    serving: "33",
-    price: "54",
-  };
 
   const og_p = {
-    item: product,
+    item: products.at(index).product,
   };
 
   const { addToCart } = useCart();
@@ -46,13 +37,14 @@ const ProductInfo = () => {
         </div>
       )}
       <div className="product-image-container">
-        <PhotosPage />
+        <PhotosPage photoIndex={index} />
         <div className="product-details-container">
           <FadeInObserver>
           <div className="info-container">
             <ProductInfoCard
-              product={product}
+              product={products.at(index)}
               addToShoppingCart={handleAddToCart}
+              index = {index}
             />
           </div>
           <div className="info-container">

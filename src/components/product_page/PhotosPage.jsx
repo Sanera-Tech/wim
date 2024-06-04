@@ -3,14 +3,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import useWindowWidth from "./useWindowWidth";
 import "../../styles/product_page/PhotosPage.css";
-import floatingBag from "/floatingBag.png"; // Replace with the actual path
-import powder from "/powder.png"; // Replace with the actual path
-import labelInfo from "/labelInfo.png"; // Replace with the actual path
-import upfrontBag from "/upfrontBag.png"; // Replace with the actual path
-import womanByPool from "/womanByPool.png"; // Replace with the actual path
-import FadeInObserver from "../general/FadeInObserver";
+import products from "../general/products";
 
-const PhotosPage = () => {
+const PhotosPage = ( {photoIndex} ) => {
   const windowWidth = useWindowWidth();
   const isMobile = windowWidth <= 768;
 
@@ -19,19 +14,19 @@ const PhotosPage = () => {
       <div className="photos-page">
         <Carousel showArrows={false} showThumbs={false} infiniteLoop={true} autoPlay={true} showStatus={false} interval={3000}>
           <div className="photo-item biggest">
-            <img src={floatingBag} alt="Floating Bag" />
+            <img src={products.at(photoIndex).bigimage} alt="Main Image" />
           </div>
           <div className="photo-item">
-            <img src={powder} alt="Powder" />
+            <img src={products.at(photoIndex).smallimage1} alt="Small Image Top" />
           </div>
           <div className="photo-item">
-            <img src={labelInfo} alt="Label Info" />
+            <img src={products.at(photoIndex).smallimage2} alt="Small Image Bottom" />
           </div>
           <div className="photo-item">
-            <img src={upfrontBag} alt="Upfront Bag" />
+            <img src={products.at(photoIndex).bottomimage1} alt="Bottom Image First" />
           </div>
           <div className="photo-item">
-            <img src={womanByPool} alt="Woman by Pool" />
+            <img src={products.at(photoIndex).bottomimage2} alt="Bottom Image Second" />
           </div>
         </Carousel>
       </div>
@@ -43,22 +38,22 @@ const PhotosPage = () => {
       <div className="upper-container">
         <div className="vertical-container">
           <div className="photo-item small">
-            <img src={powder} alt="Powder" />
+            <img src={products.at(photoIndex).smallimage1} alt="Small Image Top" />
           </div>
           <div className="photo-item small">
-            <img src={labelInfo} alt="Label Info" />
+            <img src={products.at(photoIndex).smallimage2} alt="Small Image Bottom" />
           </div>
         </div>
         <div className="photo-item biggest">
-          <img src={floatingBag} alt="Floating Bag" />
+          <img src={products.at(photoIndex).bigimage} alt="Main Image" />
         </div>
       </div>
       <div className="lower-container">
         <div className="photo-item large">
-          <img src={upfrontBag} alt="Upfront Bag" />
+          <img src={products.at(photoIndex).bottomimage1} alt="Bottom Image First" />
         </div>
         <div className="photo-item large">
-          <img src={womanByPool} alt="Woman by Pool" />
+          <img src={products.at(photoIndex).bottomimage2} alt="Bottom Image Second" />
         </div>
       </div>
     </div>

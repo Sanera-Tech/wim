@@ -10,6 +10,8 @@
     text-align: left;
 }
 
+
+
 @font-face {
     font-family: photo_script;
     src: url('../ps.otf');
@@ -47,7 +49,7 @@
     flex: 1;
     color: black;
     background-color: #f6f3dd;
-    font-size: 18px;
+    font-size: 21px;
 }
 
 .size-selection button:hover {
@@ -60,4 +62,10 @@
 
 .size-selection button span {
     display: block;
+}
+
+@media screen and (max-width: 800px) {
+    .size-selection button {
+        font-size: 19px;
+    }
 }

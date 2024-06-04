@@ -93,7 +93,7 @@
 }
 
 .vertical-info p {
-    text-align: left;
+    text-align: center;
     font-size: 25px;
     margin-top: 30px;
     width: 100%;
@@ -101,12 +101,12 @@
 
 .vertical-info h1 {
     font-size: 50px;
-    text-align: right;
+    text-align: left;
 }
 
 .vertical-info.show h1 {
-    font-size: 50px;
-    text-align: left;
+    font-size: 70px;
+    text-align: center;
 }
 
 .horizontal-info .vertical-info h1 {
@@ -117,7 +117,7 @@
 
 .horizontal-info .vertical-info p {
     margin: 0;
-    text-align: right;
+    text-align: left;
 }
 
 .horizontal-slider {

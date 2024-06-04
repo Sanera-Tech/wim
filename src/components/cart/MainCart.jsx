@@ -26,14 +26,14 @@ const MainCart = ({ toggleSidebar }) => {
   }, [cart]);
 
   function formatCurrency(amount) {
-    return amount.toFixed(2).replace(/\.(\d)$/, '.$10');
+    return amount.toFixed(2);
   }
 
   return (
     <div className="sidebar-overlay">
       <div className="sidebar">
         <h2>Artículos en la Cesta</h2>
-        <div className="cart_item_box" style={{ maxHeight: "300px", overflowY: "auto" }}>
+        <div className="cart_item_box" style={{ overflowY: "auto" }}>
           {cart.map((product, index) => (
             <CartItemCard
               key={index}

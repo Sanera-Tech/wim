@@ -65,6 +65,11 @@
     -o-transform: translate(-0%, -50%);
 }
 
+.strikethrough {
+    text-decoration: line-through;
+}
+  
+
 @media screen and (max-width: 850px) {
     .shopping_page {
         width: 100%;

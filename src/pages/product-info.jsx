@@ -48,7 +48,7 @@ const ProductInfo = ( {index} ) => {
           </div>
           <div className="info-container">
             <button onClick={handleAddToCart} className="purchase">
-              Añadir a la Cesta
+              Añadir al Carrito
             </button>
           </div>
           </FadeInObserver>

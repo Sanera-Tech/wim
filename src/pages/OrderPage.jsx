@@ -25,6 +25,7 @@ const OrderPage = () => {
   const [message, setMessage] = useState("");
   const [country, setCountry] = useState("Spain");
   const [submitMessage, setSubmitMessage] = useState("");
+  const [couponCode, setCouponCode] = useState('');
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
 
@@ -89,6 +90,38 @@ const OrderPage = () => {
       });
   };
 
+  const handleChange = (event) => {
+    // Update the coupon code state whenever the input changes
+    setCouponCode(event.target.value);
+  };
+
+  const couponEffects = {
+    MomentoWIM: {
+      removeDelivery: true
+    },
+    // Add other coupon codes and their effects here
+  };
+
+  const handlePromoActivate = () => {
+  if (couponCode in couponEffects) {
+    const effects = couponEffects[couponCode];
+    if (effects.removeDelivery) {
+      const newTotal = subTotal; // Remove delivery price
+      setTotal(newTotal);
+    }
+    // Add other effects here if needed
+    // You might want to reset or clear the coupon code field after applying it
+    setCouponCode('');
+  } else {
+    // Handle invalid coupon codes here
+    console.log("Invalid coupon code");
+  }
+};
+
+  function formatCurrency(amount) {
+    return amount.toFixed(2);
+  }
+
   return (
     <div className="shopping_page">
       <div className="left_shopping">
@@ -144,7 +177,7 @@ const OrderPage = () => {
             ></input>
           </div>
           <div className="form-group">
-            <label htmlFor="subject">Country: *</label>
+            <label htmlFor="subject">País: *</label>
             <select
               id="subject"
               name="subject"
@@ -152,13 +185,13 @@ const OrderPage = () => {
               onChange={(e) => setCountry(e.target.value)}
               required
             >
-              <option value="Spain">Spain</option>
+              <option value="Peru">Peru</option>
               <option value="Netherlands">Netherlands</option>
               <option value="Other">Other</option>
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="address">Address: *</label>
+            <label htmlFor="address">Dirección: *</label>
             <input
               type="text"
               id="address"
@@ -181,7 +214,7 @@ const OrderPage = () => {
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="city">City: *</label>
+              <label htmlFor="city">Ciudad: *</label>
               <input
                 type="text"
                 id="city"
@@ -192,7 +225,7 @@ const OrderPage = () => {
               ></input>
             </div>
             <div className="form-group">
-              <label htmlFor="postalCode">Postal Code:</label>
+              <label htmlFor="postalCode">Distrito:</label>
               <input
                 type="text"
                 id="postalCode"
@@ -204,7 +237,7 @@ const OrderPage = () => {
           </div>
 
           <button type="submit" className="submit-button">
-            Purchase Items
+            Comprar Artículos
           </button>
           {submitMessage && <p className="submit-message">{submitMessage}</p>}
         </form>
@@ -221,28 +254,32 @@ const OrderPage = () => {
         </div>
         <div className="order_box">
           <div className="coupon_box">
-            <label htmlFor="coupon">Promo Code</label>
+            <label htmlFor="coupon">Código Promocional</label>
             <div className="code_input_btn">
               <input
                 type="text"
                 name="coupon"
                 id="coupon"
                 className="code_input"
+                onChange={handleChange}
+                value={couponCode}
               />
-              <button>→ </button>
+              <button
+                onClick={handlePromoActivate}
+              >→ </button>
             </div>
           </div>
           <div className="order_number_txt_box">
             <span>Subtotal</span>
-            <span>$ {subTotal}</span>
+            <span>S/{formatCurrency(subTotal)}</span>
           </div>
           <div className="order_number_txt_box">
             <span>Gastos de Envío</span>
-            <span>$ {shipping}</span>
+            <span class="${couponEffects.MomentoWIM && couponEffects.MomentoWIM.removeDelivery ? 'strikethrough' : ''}">S/{formatCurrency(shipping)}</span>
           </div>
           <div className="order_number_txt_box">
             <span>Total</span>
-            <span>$ {total}</span>
+            <span>S/{formatCurrency(total)}</span>
           </div>
         </div>
       </div>

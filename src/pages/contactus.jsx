@@ -103,7 +103,7 @@ const ContactUs = () => {
           </div>
           <div className="img_and_mail">
             <div className="image-section">
-              <img src="/exercise.png"></img>
+              <img src="/contactus.jpg"></img>
             </div>
           </div>
           </FadeInObserver>

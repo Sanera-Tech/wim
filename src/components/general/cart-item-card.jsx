@@ -13,8 +13,8 @@ const CartItemCard = ({ product, addFromCart, showCount = true }) => {
       </div>
       <div className="cart_info_box">
         <h2>{product?.item.name}</h2>
-        <p>{product?.item.weight} gr.</p>
-        <p>{product?.item.serving} Bares</p>
+        <p>{product?.item.weight}</p>
+        <p>{product?.item.serving}</p>
         <p className="cart_price_txt">S/{product?.item.price}</p>
       </div>
       {showCount && (

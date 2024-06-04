@@ -5,7 +5,6 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: var(--primary);
   /* background: rgb(131, 205, 206);
   background: linear-gradient(180deg, rgba(131, 205, 206, 1) 0%, rgba(246, 243, 221, 1) 15%, rgba(246, 243, 221, 1) 35%, rgba(96, 193, 201, 1) 100%); */
   transition: all 0.5s ease;
@@ -26,14 +25,29 @@
 
 
 .product-card h2 {
-  font-size: clamp(2.3rem, 1.5vw, 2rem);
+  font-size: clamp(3rem, 1.5vw, 2rem);
   /* Adjusts between 1.25rem and 2rem based on viewport width */
   font-family: alternate-gothic-atf, sans-serif;
   color: #ffffff;
-  margin-bottom: 5px;
   margin-left: 5px;
   text-align: left;
   padding-top: 15px;
+  margin-bottom: -10px;
+}
+
+@font-face {
+  font-family: 'Shadow_Brush';
+  src: url('/Shadow_Brush.otf') format('opentype');
+}
+
+.product-card h3 {
+  font-size: clamp(2.3rem, 1.5vw, 2rem);
+  /* Adjusts between 1.25rem and 2rem based on viewport width */
+  font-family: 'Shadow_Brush', sans-serif !important;
+  color: #ffffff;
+  margin-left: 5px;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 .product-card p {

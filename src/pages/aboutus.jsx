@@ -55,12 +55,12 @@ const AboutUsSection = () => {
           especiales ¡Celebra tu #momentoWIMdeldía!
           </p>
         </div>
-        <img src="car.jpg"></img>
+        <img src="aboutussection.jpg"></img>
       </div>
       <FadeInObserver>
       <div className="about-card-info">
-        <AboutCard />
-        <AboutCard />
+        <AboutCard index={0} />
+        <AboutCard index={1}/>
       </div>
       </FadeInObserver>
     </div>

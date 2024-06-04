@@ -10,7 +10,7 @@ const HomeSection = () => {
     <section className="label-section">
       <div className="label-container">
         <div className="label-image">
-          <img src="car.jpg" alt="label-image" />
+          <img src="workinspiremotivate.png" alt="label-image" />
           <div className="label-description">
             <h2>
               <span className="first_letters">W</span>ork

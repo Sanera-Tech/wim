@@ -9,12 +9,13 @@ const CartItemCard = ({ product, addFromCart, showCount = true }) => {
   return (
     <div className="cart-product-card">
       <div className="cart_img_box">
-        <img src={product?.item.main_image} alt="Product Image" />
+        <img src={product?.item.bigimage} alt="Product Image" />
       </div>
       <div className="cart_info_box">
         <h2>{product?.item.name}</h2>
-        <p>Talla : {product?.item.weight} </p>
-        <p className="cart_price_txt">$ {product?.item.price}</p>
+        <p>{product?.item.weight} gr.</p>
+        <p>{product?.item.serving} Bares</p>
+        <p className="cart_price_txt">S/{product?.item.price}</p>
       </div>
       {showCount && (
         <div className="cart_button_box">

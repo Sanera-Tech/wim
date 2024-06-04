@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
       <img src={product.carouselImage} className="product_card_img" />
       <h2>{product.carouselTitle}</h2>
       <p>
-        {product.weight} g | {product.servings} Bares
+        {product.weight} gr. | {product.serving} Bares
       </p>
     </div>
   );

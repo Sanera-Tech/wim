@@ -12,14 +12,14 @@ const ProductInfo = ( {index} ) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const og_p = {
-    item: products.at(index).product,
+    item: products.at(index),
   };
 
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
     setShowPopup(true);
-    addToCart(product, 1);
+    addToCart(products.at(index), 1);
     setTimeout(() => {
       setShowPopup(false);
     }, 2000);
@@ -44,7 +44,6 @@ const ProductInfo = ( {index} ) => {
             <ProductInfoCard
               product={products.at(index)}
               addToShoppingCart={handleAddToCart}
-              index = {index}
             />
           </div>
           <div className="info-container">

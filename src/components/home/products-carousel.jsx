@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import ProductCard from "../general/product-card";
 import "../../styles/home/products-carousel.css";
 import FadeInObserver from "../general/FadeInObserver";

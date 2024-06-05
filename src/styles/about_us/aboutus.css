@@ -61,11 +61,12 @@
         font-size: 3rem;
         text-align: left;
         margin-left: -1rem;
-        text-align: center;
+        text-align: left;
     }
 
     .horizontal-info p {
         margin-top: 20px;
+        margin-left: 0;
     }
     
     .horizontal-info {
@@ -77,6 +78,11 @@
     .horizontal-info p {
         text-align: left;
         padding: 30px;
+    }
+    .vertical-info p {
+        padding: 0px;
+        margin-top: 50px;
+        text-align: left;
     }
 }
 
@@ -110,7 +116,7 @@
 }
 
 .horizontal-info .vertical-info h1 {
-    font-size: 80px;
+    font-size:4.2rem;
     margin: 0px;
     width: 100%;
 }
@@ -141,12 +147,21 @@
     }
 
     .horizontal-info .vertical-info h1 {
-        text-align: center;
+        text-align: left;
     }
 
     .horizontal-info .vertical-info p {
-        text-align: center;
         width: 100%;
+    }
+    .horizontal-info p{
+        text-align: left;
+    }
+    .vertical-info p{
+        margin-top: 2.5vh !important;
+        text-align: left;
+    }
+    h1.show{
+        text-align: center !important;
     }
 }
 
@@ -164,7 +179,11 @@
         justify-content: center;
         gap: 50px;
     }
+    .vertical-info {
+        padding: 0;
+    }
 
+   
 
 }
 

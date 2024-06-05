@@ -34,6 +34,12 @@ const ProductsCarousel = () => {
     }
   };
 
+  useEffect(() => {
+    if (window.matchMedia("(max-width: 768px)").matches && carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div id="products" className="main-featured">
       <FadeInObserver>

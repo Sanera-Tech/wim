@@ -1,5 +1,5 @@
 .product-card {
-  width: 20vw;
+  min-width: 20vw;
   height: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -151,9 +151,18 @@
 .product_card_img {
   width: 20vw;
   border-radius: 5px;
+  align-self: center;
 }
 
 @media screen and (max-width: 800px) {
+  .card-container {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .card-container .small-card-link:first-child {
+    scroll-snap-align: start;
+  }
+
   .product-card {
     width: 60vw;
     height: auto;

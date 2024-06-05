@@ -5,7 +5,6 @@
     height: auto; /* Adjust the height as needed */
     width: 90vw;
     margin: 0;
-
 }
 
 .about-label-container {
@@ -29,7 +28,6 @@
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
-
 
 .about-label-image:hover img {
     transform: scale(1.1);
@@ -81,5 +79,45 @@
 
     .about-label-description button {
         background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1919px) {
+    .about-label-section {
+        width: 80vw;
+    }
+
+    .about-label-container {
+        max-width: 800px;
+    }
+
+    .about-label-description {
+        bottom: 15%;
+        left: 15%;
+    }
+
+    .about-label-description button {
+        padding: 25px 25px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .about-label-section {
+        width: 70vw;
+    }
+
+    .about-label-container {
+        max-width: 1000px;
+    }
+
+    .about-label-description {
+        bottom: 20%;
+        left: 20%;
+    }
+
+    .about-label-description button {
+        padding: 30px 30px;
+        font-size: 20px;
     }
 }

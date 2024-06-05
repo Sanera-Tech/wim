@@ -26,6 +26,7 @@ const OrderPage = () => {
   const [country, setCountry] = useState("Spain");
   const [submitMessage, setSubmitMessage] = useState("");
   const [couponCode, setCouponCode] = useState('');
+  const [deliveryFree, setDeliveryFree] = useState(false);
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
 
@@ -97,7 +98,7 @@ const OrderPage = () => {
 
   const couponEffects = {
     MomentoWIM: {
-      removeDelivery: true
+      removeDelivery: true,
     },
     // Add other coupon codes and their effects here
   };
@@ -108,6 +109,7 @@ const OrderPage = () => {
     if (effects.removeDelivery) {
       const newTotal = subTotal; // Remove delivery price
       setTotal(newTotal);
+      setDeliveryFree(true);
     }
     // Add other effects here if needed
     // You might want to reset or clear the coupon code field after applying it
@@ -275,7 +277,9 @@ const OrderPage = () => {
           </div>
           <div className="order_number_txt_box">
             <span>Gastos de Envío</span>
-            <span class="${couponEffects.MomentoWIM && couponEffects.MomentoWIM.removeDelivery ? 'strikethrough' : ''}">S/{formatCurrency(shipping)}</span>
+            <span className={deliveryFree ? 'strikethrough' : ''}>
+              {formatCurrency(shipping)}
+            </span>
           </div>
           <div className="order_number_txt_box">
             <span>Total</span>

@@ -7,7 +7,6 @@ function Footer() {
       <div className="additional-footer-info">
         <span>
           <img src="/logo.png" altenative="logo-image"></img>
-          <h4 className="address">San Borja</h4>
           <h4 className="address">Lima, Peru</h4>
           <div>
             <a
@@ -34,9 +33,11 @@ function Footer() {
       <hr className="line-break"></hr>
       <div className="additional-footer-info">
         <span>
-          <a href="/privacy-policy">Política de Privacidad</a> |
-          <a href="/terms-and-conditions"> Condiciones Generales</a> |
-          <a href="/returns-warranty"> Devoluciones y Garantía</a>
+          <a href="/política-de-privacidad">Política de Privacidad</a> |
+          <a href="/política-de-cambios-y-devoluciones"> ⁠Política de Cambios y/o Devoluciones</a> |
+          <a href="/política-de-envíos"> Política de Envíos</a> |
+          <a href="/términos-y-condiciones"> Términos y Condiciones</a>
+          {/**this is for the reclaimation policy which is a bit different: <a href="/libro-de-reclamaciones"> Reclaimation Policy</a> */}
         </span>
         <span classname="copyright">
           Copyright © {new Date().getFullYear()} WIM | Todos los derechos

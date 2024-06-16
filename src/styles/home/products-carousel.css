@@ -157,6 +157,10 @@
 @media screen and (max-width: 800px) {
   .card-container {
     scroll-snap-type: x mandatory;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
   }
   
   .card-container .small-card-link:first-child {

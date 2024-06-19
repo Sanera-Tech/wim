@@ -30,9 +30,9 @@ function App() {
           <Route path="/contáctanos" element={<ContactUs />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/política-de-privacidad" element={<PrivacyPolicy />} />
-          <Route path="/⁠política-de-cambios-y-devoluciones" element={<CambiosPolicy />} />
+          <Route path="/política-de-cambios-y-devoluciones" element={<CambiosPolicy />} />
           <Route path="/política-de-envíos" element={<DeliveryPolicy />} />
-          <Route path="/⁠términos-y-condiciones" element={<TermsAndConditions />} />
+          <Route path="/términos-y-condiciones" element={<TermsAndConditions />} />
           <Route path="/libro-de-reclamaciones" element={<ReclaimationPolicy />} />
         </Route>
       </Routes>

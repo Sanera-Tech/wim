@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import HomeHeroSection from "../components/home/homeherosection";
 import ProductsCarousel from "../components/home/products-carousel";
 import HomeSection from "../components/home/homesection";
-import FadeInObserver from "../components/general/FadeInObserver";
 import '../styles/general/fade.css';
 
 const Homepage = () => {

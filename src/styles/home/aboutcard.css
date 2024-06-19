@@ -35,8 +35,8 @@
 
 .about-label-description {
     position: absolute;
-    bottom: 10%;
-    left: 10%;
+    bottom: 5% !important;
+    left: 5% !important;
 }
 
 .about-label-description button {
@@ -45,8 +45,8 @@
     border: none;
     border-radius: 5px;
     margin-top: 50px;
-    padding: 20px 20px;
-    font-size: 16px;
+    padding: 30px 50px !important;
+    font-size: 20px !important;
     cursor: pointer;
     transition: background-color 0.3s ease; 
 }
@@ -82,7 +82,7 @@
     }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1919px) {
+@media screen and (min-width: 769px) {
     .about-label-section {
         width: 80vw;
     }
@@ -93,31 +93,11 @@
 
     .about-label-description {
         bottom: 15%;
-        left: 15%;
+        left: 10%;
     }
 
     .about-label-description button {
         padding: 25px 25px;
         font-size: 18px;
-    }
-}
-
-@media screen and (min-width: 1920px) {
-    .about-label-section {
-        width: 70vw;
-    }
-
-    .about-label-container {
-        max-width: 1000px;
-    }
-
-    .about-label-description {
-        bottom: 20%;
-        left: 20%;
-    }
-
-    .about-label-description button {
-        padding: 30px 30px;
-        font-size: 20px;
     }
 }

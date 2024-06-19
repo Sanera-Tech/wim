@@ -3,6 +3,7 @@ import "../styles/contact/ContactUs.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import FadeInObserver from "../components/general/FadeInObserver";
+import ContactCard from "../components/general/contact-card";
 
 const ContactUs = () => {
   const [first_name, setFirstName] = useState("");
@@ -68,39 +69,7 @@ const ContactUs = () => {
           <p>
           Preguntas o comentarios? Comunícate con nosotros. Nos encanta escuchar a la comunidad WIM.
           </p>
-          <div className="contact-methods">
-            <a href="https://wa.me/+51956249586" target="_blank" className="contact-button whatsapp">
-              <img
-                src="social-media-icons/whatsapp.png"
-                alt="WhatsApp Logo"
-                className="contact-icon"
-              />{" "}
-              Whatsapp
-            </a>
-            <a
-              href="https://instagram.com/wimnutrition"
-              target="_blank"
-              className="contact-button instagram"
-            >
-              <img
-                src="social-media-icons/instagram.png"
-                alt="Instagram Logo"
-                className="contact-icon"
-              />{" "}
-              Instagram
-            </a>
-            <a
-              href="mailto:wimnutritionsoporte@gmail.com"
-              className="contact-button email"
-            >
-              <img
-                src="social-media-icons/email.png"
-                alt="Email Logo"
-                className="contact-icon"
-              />{" "}
-              Email
-            </a>
-          </div>
+          <ContactCard />
           <div className="img_and_mail">
             <div className="image-section">
               <img src="/contactus.jpg"></img>

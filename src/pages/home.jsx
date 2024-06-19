@@ -3,6 +3,7 @@ import HomeHeroSection from "../components/home/homeherosection";
 import ProductsCarousel from "../components/home/products-carousel";
 import HomeSection from "../components/home/homesection";
 import '../styles/general/fade.css';
+import ReclamationPolicy from "../regulations/ReclaimationPolicy";
 
 
 const Homepage = () => {
@@ -25,6 +26,7 @@ const Homepage = () => {
         <ProductsCarousel />
       </div>
       <HomeSection />
+      <ReclamationPolicy />
     </div>
   );
 };

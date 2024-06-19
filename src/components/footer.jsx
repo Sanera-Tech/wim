@@ -28,6 +28,9 @@ function Footer() {
           <div>
             <a href="/contáctanos"> Soporte</a>
           </div>
+          <a href="/libro-de-reclamaciones"> 
+            <img src="./libro-de-reclamaciones.png" alt="Reclaimation Policy" style={{ width: '100px', height: 'auto'}}></img>
+          </a>
         </span>
       </div>
       <hr className="line-break"></hr>

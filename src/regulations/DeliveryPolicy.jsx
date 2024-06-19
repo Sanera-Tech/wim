@@ -51,7 +51,7 @@ const DeliveryPolicy = () => {
       </ul>
 
       <h2>Importante</h2>
-      <ul>
+      <ul className="importante">
         <li>Las entregas en los días señalados se harán dentro del horario siguiente: 9:00 hasta las 20:00.</li>
         <li>De no encontrarse el cliente en su domicilio en el rango horario estipulado, WIM NUTRITION se reserva el derecho de reprogramar la hora/fecha de despacho. Un representante de la empresa se pondrá en contacto para definir esta reprogramación.</li>
         <li>WIM NUTRITION se reserva el derecho de cambiar la hora/fecha de entrega por motivos de fuerza mayor. En tal caso, un representante de WIM NUTRITION se pondrá en contacto con el cliente para coordinar una nueva fecha/hora de despacho.</li>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/regulations/reclamationPolicy.css";
+import "../styles/regulations/reclaimationPolicy.css";
 
 const ReclamationPolicy = () => {
   const [name, setName] = useState("");

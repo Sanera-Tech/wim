@@ -40,7 +40,7 @@
   }
   
   .terms-and-conditions ul {
-    list-style-type: disc;
+    list-style-type: decimal;
     margin-left: 20px;
     font-size: 18px;
     text-align: left; /* Keep the list items text aligned to the left */
@@ -53,5 +53,6 @@
   
   .terms-and-conditions p {
     margin-bottom: 10px;
+    font-size: 18px;
   }
   

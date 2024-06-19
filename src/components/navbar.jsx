@@ -22,14 +22,24 @@ const Navbar = () => {
       const isScrolled = window.scrollY > 0;
       setScrolled(isScrolled);
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
+    function handleClickOutside(event) {
+      if (sidebarVisible && !event.target.closest('.sidebar') &&
+      !event.target.closest('.navbar-button')) {
+        setSidebarVisible(false);
+      }
+    }
+  
+    document.addEventListener("mousedown", handleClickOutside);
+  
     // Cleanup
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []); // Empty dependency array means this effect runs only once after initial render
+  }, [sidebarVisible]);
 
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);

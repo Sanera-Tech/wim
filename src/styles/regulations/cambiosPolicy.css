@@ -1,3 +1,59 @@
-.cambios-policy {
-    
-}
+.cambios-policy-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    padding-top: 100px;
+  }
+  
+  .cambios-policy {
+    max-width: 1000px; /* Set a max-width for better readability */
+    width: 100%;
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: black;
+  }
+  
+  .cambios-policy h1 {
+    font-size: 33px;
+    margin-bottom: 10px;
+  }
+  
+  .cambios-policy h2 {
+    font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .cambios-policy h3 {
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .cambios-policy h4 {
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .cambios-policy ul {
+    list-style-type: decimal;
+    margin-left: 20px;
+    font-size: 18px;
+    text-align: center; /* Keep the list items text aligned to the left */
+    display: inline-block; /* This ensures the list is centered properly */
+  }
+  
+  .cambios-policy ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+  }
+  
+  .cambios-policy p {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  

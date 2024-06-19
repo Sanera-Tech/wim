@@ -241,21 +241,18 @@ const ReclamationPolicy = () => {
                 onChange={(e) => setClaimDate(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="claimAmount">Monto a reclamar</label>
-              <input
-                type="text"
-                className="form-control"
-                id="claimAmount"
-                value={claimAmount}
-                onChange={(e) => setClaimAmount(e.target.value)}
-              />
-              {claimType === "Queja" && (
-                <small className="form-text text-muted">
-                  If Motivo: Queja (N.A.)
-                </small>
-              )}
-            </div>
+            {claimType !== "Queja" && (
+              <div className="form-group">
+                <label htmlFor="claimAmount">Monto a reclamar</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="claimAmount"
+                  value={claimAmount}
+                  onChange={(e) => setClaimAmount(e.target.value)}
+                />
+              </div>
+            )}
           </div>
 
           <div className="form-group">

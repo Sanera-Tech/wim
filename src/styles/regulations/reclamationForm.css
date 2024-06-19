@@ -65,7 +65,7 @@
   
   .input-group {
     display: flex;
-    align-items: stretch;
+    align-items: center;
   }
   
   .input-group-prepend {

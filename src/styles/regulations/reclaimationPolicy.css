@@ -26,15 +26,21 @@
   
   .reclamation-form-container .form-row {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    gap: 5%;
+  }
+
+
+  .reclamation-form-container label {
+    text-align: left;
   }
   
   .form-group {
-    width: 48%;
+    width: 100%;
     padding: 10px;
   }
+
   
   .form-group label {
     display: block;

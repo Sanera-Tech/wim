@@ -146,7 +146,7 @@ const ReclamationPolicy = () => {
             </div>
           </div>
 
-          <div className="form-row">
+          
             <div className="form-group">
               <label htmlFor="phoneNumber">Celular:</label>
               <div className="input-group">
@@ -162,7 +162,7 @@ const ReclamationPolicy = () => {
                 />
               </div>
             </div>
-          </div>
+          
 
           <div className="form-row">
             <div className="form-group">

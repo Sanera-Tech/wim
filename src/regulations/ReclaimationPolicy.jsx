@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import "../styles/regulations/reclaimationPolicy.css";
 
+const countryCodes = [
+  { code: '+1', name: 'United States' },
+  { code: '+44', name: 'United Kingdom' },
+  { code: '+51', name: 'Peru' },
+  { code: '+91', name: 'India' },
+  // Add more country codes as needed
+];
+
 const ReclamationPolicy = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -9,6 +17,7 @@ const ReclamationPolicy = () => {
   const [documentNumber, setDocumentNumber] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [countryCode, setCountryCode] = useState("+51");
   const [claimType, setClaimType] = useState("");
   const [claimDescription, setClaimDescription] = useState("");
   const [relatedTo, setRelatedTo] = useState("");
@@ -25,7 +34,7 @@ const ReclamationPolicy = () => {
       documentType,
       documentNumber,
       email,
-      phoneNumber,
+      phoneNumber: `${countryCode} ${phoneNumber}`,
       claimType,
       claimDescription,
       relatedTo,
@@ -78,50 +87,49 @@ const ReclamationPolicy = () => {
           </div>
 
           <div className="form-group">
-    <label>Opciones de documento:</label>
-    <div className="form-row">
-      <div className="form-check">
-        <input
-          type="radio"
-          className="form-check-input"
-          id="documentTypeDNI"
-          value="DNI"
-          checked={documentType === "DNI"}
-          onChange={(e) => setDocumentType(e.target.value)}
-        />
-        <label className="form-check-label" htmlFor="documentTypeDNI">
-          DNI
-        </label>
-      </div>
-      <div className="form-check">
-        <input
-          type="radio"
-          className="form-check-input"
-          id="documentTypeCE"
-          value="CE"
-          checked={documentType === "CE"}
-          onChange={(e) => setDocumentType(e.target.value)}
-        />
-        <label className="form-check-label" htmlFor="documentTypeCE">
-          CE
-        </label>
-      </div>
-      <div className="form-check">
-        <input
-          type="radio"
-          className="form-check-input"
-          id="documentTypeRUC"
-          value="RUC"
-          checked={documentType === "RUC"}
-          onChange={(e) => setDocumentType(e.target.value)}
-        />
-        <label className="form-check-label" htmlFor="documentTypeRUC">
-          RUC
-        </label>
-      </div>
-    </div>
-  </div>
-
+            <label>Opciones de documento:</label>
+            <div className="form-row">
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  id="documentTypeDNI"
+                  value="DNI"
+                  checked={documentType === "DNI"}
+                  onChange={(e) => setDocumentType(e.target.value)}
+                />
+                <label className="form-check-label" htmlFor="documentTypeDNI">
+                  DNI
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  id="documentTypeCE"
+                  value="CE"
+                  checked={documentType === "CE"}
+                  onChange={(e) => setDocumentType(e.target.value)}
+                />
+                <label className="form-check-label" htmlFor="documentTypeCE">
+                  CE
+                </label>
+              </div>
+              <div className="form-check">
+                <input
+                  type="radio"
+                  className="form-check-input"
+                  id="documentTypeRUC"
+                  value="RUC"
+                  checked={documentType === "RUC"}
+                  onChange={(e) => setDocumentType(e.target.value)}
+                />
+                <label className="form-check-label" htmlFor="documentTypeRUC">
+                  RUC
+                </label>
+              </div>
+            </div>
+          </div>
 
           <div className="form-row">
             <div className="form-group">
@@ -146,54 +154,62 @@ const ReclamationPolicy = () => {
             </div>
           </div>
 
-          
-            <div className="form-group">
-              <label htmlFor="phoneNumber">Celular:</label>
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text">Peru +51</span>
-                </div>
-                <input
-                  type="text"
-                  className="form-control-phone"
-                  id="phoneNumber"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                />
+          <div className="form-group">
+            <label htmlFor="phoneNumber">Celular:</label>
+            <div className="input-group">
+              <div className="input-group-prepend select-wrapper">
+                <select
+                  className="form-control"
+                  value={countryCode}
+                  onChange={(e) => setCountryCode(e.target.value)}
+                >
+                  {countryCodes.map((country) => (
+                    <option key={country.code} value={country.code}>
+                      {country.name} ({country.code})
+                    </option>
+                  ))}
+                </select>
               </div>
+              <input
+                type="text"
+                className="form-control-phone"
+                id="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
             </div>
-          
+          </div>
 
           <div className="form-row">
             <div className="form-group">
               <label>Motivo</label>
               <div className="form-row">
-              <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  id="claimTypeReclamo"
-                  value="Reclamo"
-                  checked={claimType === "Reclamo"}
-                  onChange={(e) => setClaimType(e.target.value)}
-                />
-                <label className="form-check-label" htmlFor="claimTypeReclamo">
-                  Reclamo*
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  type="radio"
-                  className="form-check-input"
-                  id="claimTypeQueja"
-                  value="Queja"
-                  checked={claimType === "Queja"}
-                  onChange={(e) => setClaimType(e.target.value)}
-                />
-                <label className="form-check-label" htmlFor="claimTypeQueja">
-                  Queja**
-                </label>
-              </div>
+                <div className="form-check">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    id="claimTypeReclamo"
+                    value="Reclamo"
+                    checked={claimType === "Reclamo"}
+                    onChange={(e) => setClaimType(e.target.value)}
+                  />
+                  <label className="form-check-label" htmlFor="claimTypeReclamo">
+                    Reclamo*
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input
+                    type="radio"
+                    className="form-check-input"
+                    id="claimTypeQueja"
+                    value="Queja"
+                    checked={claimType === "Queja"}
+                    onChange={(e) => setClaimType(e.target.value)}
+                  />
+                  <label className="form-check-label" htmlFor="claimTypeQueja">
+                    Queja**
+                  </label>
+                </div>
               </div>
             </div>
 
@@ -241,18 +257,21 @@ const ReclamationPolicy = () => {
                 onChange={(e) => setClaimDate(e.target.value)}
               />
             </div>
-            {claimType !== "Queja" && (
-              <div className="form-group">
-                <label htmlFor="claimAmount">Monto a reclamar</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="claimAmount"
-                  value={claimAmount}
-                  onChange={(e) => setClaimAmount(e.target.value)}
-                />
-              </div>
-            )}
+            <div className="form-group">
+              <label htmlFor="claimAmount">Monto a reclamar</label>
+              <input
+                type="text"
+                className="form-control"
+                id="claimAmount"
+                value={claimAmount}
+                onChange={(e) => setClaimAmount(e.target.value)}
+              />
+              {claimType === "Queja" && (
+                <small className="form-text text-muted">
+                  If Motivo: Queja (N.A.)
+                </small>
+              )}
+            </div>
           </div>
 
           <div className="form-group">

@@ -58,7 +58,27 @@
     box-sizing: border-box;
     font-size: 14px;
   }
-  
+
+  .form-control, select {
+  appearance: none; /* Removes default styles in modern browsers */
+  -moz-appearance: none; /* Removes default styles in Firefox */
+  -webkit-appearance: none; /* Removes default styles in Safari and Chrome */
+}
+
+/*
+.select-wrapper::after {
+  content: "▼";
+  font-size: 20px;
+  color: #000;
+  position: relative;
+  top: 60%;
+  right: 12%;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+*/
+
+
   .form-check {
     display: flex;
     align-items: center;

@@ -295,6 +295,7 @@ const ReclamationPolicy = () => {
                 onChange={(e) => setClaimDate(e.target.value)}
               />
             </div>
+            {claimType !== "Queja" && (
             <div className="form-group">
               <label htmlFor="claimAmount">Monto a reclamar</label>
               <input
@@ -304,12 +305,8 @@ const ReclamationPolicy = () => {
                 value={claimAmount}
                 onChange={(e) => setClaimAmount(e.target.value)}
               />
-              {claimType === "Queja" && (
-                <small className="form-text text-muted">
-                  If Motivo: Queja (N.A.)
-                </small>
-              )}
             </div>
+            )}
           </div>
 
           <div className="form-group">

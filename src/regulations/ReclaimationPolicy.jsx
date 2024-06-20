@@ -45,6 +45,7 @@ const countryCodes = [
   { code: '+1', name: 'United States' },
   { code: '+58', name: 'Venezuela' },
   { code: '+84', name: 'Vietnam' },
+  { code: '+95', name: 'Myanmar' },
 ];
 
 const ReclamationPolicy = () => {

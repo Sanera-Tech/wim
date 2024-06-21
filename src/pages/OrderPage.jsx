@@ -11,6 +11,7 @@ const OrderPage = () => {
     calculateTotal,
     calculateShippingCost,
   } = useCart();
+  const [token, setToken] = useState("");
   const [subTotal, setSubTotal] = useState(0);
   const [shipping, setShipping] = useState(0);
   const [total, setTotal] = useState(0);
@@ -41,6 +42,67 @@ const OrderPage = () => {
       window.Culqi.publicKey = 'pk_test_eef864e6088fcee3'; // Replace with your Culqi public key
     }
   }, []);
+
+  window.culqi = function () {
+    console.log("culqi function");
+    if (Culqi.token) {
+        const token = Culqi.token.id;
+        setToken(token);
+        console.log("Se ha creado un Token: ", token);
+
+        const data = JSON.stringify({
+          "amount": total,
+          "currency_code": "PEN",
+          "email": email,
+          "source_id": token,
+          "capture": true,
+          "description": "WIM Nutrition Item",
+          "installments": 0,
+          "metadata": {
+            "dni": "70202170"
+          },
+          "antifraud_details": {
+            "address": address,
+            "address_city": city,
+            "country_code": "PE",
+            "first_name": first_name,
+            "last_name": last_name,
+            "phone_number": phone_number
+          },
+          "authentication_3DS": {
+            "xid": "Y2FyZGluYWxjb21tZXJjZWF1dGg=",
+            "cavv": "AAABAWFlmQAAAABjRWWZEEFgFz+=",
+            "directoryServerTransactionId": "88debec7-a798-46d1-bcfb-db3075fedb82",
+            "eci": "06",
+            "protocolVersion": "2.1.0"
+          }
+        });
+        
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            console.log(this.responseText);
+          }
+        });
+        
+        xhr.open("POST", "https://api.culqi.com/v2/charges");
+        xhr.setRequestHeader("Authorization", "Bearer pk_test_eef864e6088fcee3");
+        xhr.setRequestHeader("content-type", "application/json");
+        
+        xhr.send(data);
+
+        window.Culqi.close();
+    } else if (Culqi.order) {
+        const order = Culqi.order;
+        console.log("Se ha creado el objeto Order: ", order);
+        window.Culqi.close();
+    } else {
+        console.log("Error : ", Culqi.error);
+        window.Culqi.close();
+    }
+}
 
   const handleSubmit = (e) => {
     e.preventDefault();

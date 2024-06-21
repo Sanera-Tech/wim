@@ -36,63 +36,108 @@ const OrderPage = () => {
     setTotal(calculateTotal());
   }, [cart]);
 
+  useEffect(() => {
+    if (window.Culqi) {
+      window.Culqi.publicKey = 'pk_test_eef864e6088fcee3'; // Replace with your Culqi public key
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      first_name,
-      last_name,
-      email,
-      phone_number,
-      address,
-      poBox,
-      city,
-      postalCode,
-      message,
-      subject: country,
-    };
 
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPhoneNumber("");
-    setAddress("");
-    setPoBox("");
-    setCity("");
-    setPostalCode("");
-    setMessage("");
-    setCountry("");
+    if (!window.Culqi) {
+      console.error('Culqi is not loaded');
+      return;
+    }
 
-    fetch(endpoint, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (response.ok) {
-          setSubmitMessage("Message successfully sent!");
-        } else {
-          setSubmitMessage("Error encountered while sending message.");
-        }
-        setTimeout(() => {
-          setSubmitMessage("");
-        }, 10000);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        setSubmitMessage("Error encountered while sending message.");
-        setTimeout(() => {
-          setSubmitMessage("");
-        }, 10000);
-      });
+    window.Culqi.settings({
+      title: 'WIM Nutrition',
+      currency: 'PEN',
+      description: 'Purchase',
+      amount: total * 100, // Amount in cents
+    });
+
+    window.Culqi.options({
+      lang: "auto",
+      installments: false, // Habilitar o deshabilitar el campo de cuotas
+      paymentMethods: {
+        tarjeta: true,
+        yape: true,
+        bancaMovil: true,
+        agente: true,
+        billetera: true,
+        cuotealo: true,
+      },
+      style: {
+            logo: "https://wimnutrition.com/logo.png",
+            bannerColor: '#60c1c9',
+            buttonBackground: '#f4c256', // hexadecimal
+            menuColor: '#f6f3dd', // hexadecimal
+      }
+    });
+
+    window.Culqi.open();
   };
 
+  const handleCulqiEvent = () => {
+    if (window.Culqi.token) {
+      const token = window.Culqi.token.id;
+      const data = {
+        first_name,
+        last_name,
+        email,
+        phone_number,
+        address,
+        poBox,
+        city,
+        postalCode,
+        message,
+        subject: country,
+        token,
+      };
+
+      fetch(endpoint, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (response.ok) {
+            setSubmitMessage("Message successfully sent!");
+          } else {
+            setSubmitMessage("Error encountered while sending message.");
+          }
+          setTimeout(() => {
+            setSubmitMessage("");
+          }, 10000);
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setSubmitMessage("Error encountered while sending message.");
+          setTimeout(() => {
+            setSubmitMessage("");
+          }, 10000);
+        });
+
+      window.Culqi.close();
+    } else {
+      console.error(window.Culqi.error);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('culqi.event', handleCulqiEvent);
+    return () => {
+      window.removeEventListener('culqi.event', handleCulqiEvent);
+    };
+  }, [total, first_name, last_name, email, phone_number, address, poBox, city, postalCode, message, country]);
+
   const handleChange = (event) => {
-    // Update the coupon code state whenever the input changes
     setCouponCode(event.target.value);
   };
 
@@ -100,25 +145,21 @@ const OrderPage = () => {
     MomentoWIM: {
       removeDelivery: true,
     },
-    // Add other coupon codes and their effects here
   };
 
   const handlePromoActivate = () => {
-  if (couponCode in couponEffects) {
-    const effects = couponEffects[couponCode];
-    if (effects.removeDelivery) {
-      const newTotal = subTotal; // Remove delivery price
-      setTotal(newTotal);
-      setDeliveryFree(true);
+    if (couponCode in couponEffects) {
+      const effects = couponEffects[couponCode];
+      if (effects.removeDelivery) {
+        const newTotal = subTotal;
+        setTotal(newTotal);
+        setDeliveryFree(true);
+      }
+      setCouponCode('');
+    } else {
+      console.log("Invalid coupon code");
     }
-    // Add other effects here if needed
-    // You might want to reset or clear the coupon code field after applying it
-    setCouponCode('');
-  } else {
-    // Handle invalid coupon codes here
-    console.log("Invalid coupon code");
-  }
-};
+  };
 
   function formatCurrency(amount) {
     return amount.toFixed(2);
@@ -127,12 +168,7 @@ const OrderPage = () => {
   return (
     <div className="shopping_page">
       <div className="left_shopping">
-        <form
-          className="contact-form"
-          action={endpoint}
-          onSubmit={handleSubmit}
-          method="POST"
-        >
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="first-name">Nombre: *</label>
@@ -167,7 +203,6 @@ const OrderPage = () => {
               onChange={(e) => setEmail(e.target.value)}
             ></input>
           </div>
-
           <div className="form-group">
             <label htmlFor="phone">Teléfono:</label>
             <input
@@ -237,7 +272,6 @@ const OrderPage = () => {
               ></input>
             </div>
           </div>
-
           <button type="submit" className="submit-button">
             Comprar Artículos
           </button>
@@ -266,9 +300,7 @@ const OrderPage = () => {
                 onChange={handleChange}
                 value={couponCode}
               />
-              <button
-                onClick={handlePromoActivate}
-              >→ </button>
+              <button onClick={handlePromoActivate}>→</button>
             </div>
           </div>
           <div className="order_number_txt_box">

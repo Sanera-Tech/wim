@@ -69,7 +69,7 @@ const OrderPage = () => {
         cuotealo: true,
       },
       style: {
-            logo: "https://wimnutrition.com/logo.png",
+            logo: "https://wimnutrition.com/LogoWithBackground.png",
             bannerColor: '#60c1c9',
             buttonBackground: '#f4c256', // hexadecimal
             menuColor: '#f6f3dd', // hexadecimal

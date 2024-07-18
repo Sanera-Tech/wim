@@ -40,7 +40,7 @@ const OrderPage = () => {
 
   useEffect(() => {
     if (window.Culqi) {
-      window.Culqi.publicKey = 'pk_test_eef864e6088fcee3'; // Replace with your Culqi public key
+      window.Culqi.publicKey = 'sk_test_5c846c08af137425'; // Replace with your Culqi public key
     }
   }, []);
 

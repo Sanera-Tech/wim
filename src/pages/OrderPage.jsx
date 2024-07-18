@@ -52,6 +52,7 @@ const OrderPage = () => {
         console.log("Se ha creado un Token: ", token);
 
         const test = async () => {
+          const formData = new FormData();
             const values = {
                 amount: 10000,
                 currency_code: 'PEN',
@@ -73,9 +74,10 @@ const OrderPage = () => {
 
             try {
                 console.log("starting");
+                formData.append("values", JSON.stringify(values));
                 const response = await axios.post(
                     "https://wim-backend.onrender.com/test/",
-                    values,
+                    formData,
                     {
                         headers: {
                             "Content-Type": "application/json",

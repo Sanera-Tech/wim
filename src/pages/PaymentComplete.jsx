@@ -1,13 +1,73 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom'; // Assuming you are using React Router
 import '../styles/PaymentComplete.css';
 
-const PaymentComplete = ({ trackingId, receiptUrl }) => {
+const PaymentComplete = () => {
+  const location = useLocation();
+  const {
+    trackingId,
+    receiptUrl,
+    cart,
+    subTotal,
+    total,
+    shipping,
+    first_name,
+    last_name,
+    phone_number,
+    email,
+    address,
+    poBox,
+    city,
+    country
+  } = location.state;
+
   return (
     <div className="payment-complete-container">
-      <h2>Payment Complete</h2>
+      <h1>Payment Complete</h1>
       <div className="order-details">
         <p>Order Tracking ID: <strong>{trackingId}</strong></p>
         <p>Receipt: <a href={receiptUrl} target="_blank" rel="noopener noreferrer">View Receipt</a></p>
+        {/* Display additional cart information */}
+        <div className="customer-info">
+              <div className="customer-info-block">
+                <h2 className='customer-title'>Customer Details:</h2>
+                  <p>Name: {first_name} {last_name}</p>
+                  <p>Phone Number: {phone_number}</p>
+                  <p>Email: {email}</p>
+              </div>
+              
+              <div className="customer-info-block">
+                <h2 className='customer-title'>Billing Information:</h2>  
+                <p>Address: {address}</p>
+                <p>PO Box: {poBox}</p>
+                <p>Location: {city}, {country}</p>
+              </div>
+        </div>
+        <div className="cart-details">
+          <h2 >Order Details:</h2>
+          {cart.map((cartItem, index) => (
+            <div key={index} className="cart-item">
+              <div className="item-info">
+                <div className="item-name">{cartItem.item.name}</div>
+                <div className="item-meta">
+                  <p>Weight: {cartItem.item.weight}</p>
+                  <p>Title: {cartItem.item.title}</p>
+                </div>
+              </div>
+              <div className="item-price">
+                  x {cartItem.count} <span className="price-separator">S/{cartItem.item.price}</span>
+              </div>
+
+            </div>
+          ))}
+           <div className="cart-summary">
+              <p>Subtotal: S/{subTotal}</p>
+              <p>Shipping Cost: S/{shipping}</p>
+              <p>Total: <strong>S/{total}</strong></p>
+            </div>
+        </div>
+
+        
       </div>
     </div>
   );

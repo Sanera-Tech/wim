@@ -1,0 +1,62 @@
+/* payment-failed.css */
+.payment-failed-container {
+    margin-top: 10vh;
+    padding: 20px;
+    height: 60vh;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+  
+  .payment-failed-header {
+    margin-top: 10vh;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: red;
+  }
+  
+  .payment-failed-details {
+    margin-top: 20px;
+  }
+  
+  .payment-failed-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .payment-failed-details li {
+    margin-bottom: 10px;
+  }
+  
+  .payment-failed-details li:before {
+    font-size: 18px;
+    color: #666;
+    margin-right: 10px;
+  }
+
+
+  .payment-failed-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust margin as needed */
+  }
+  
+  .back-to-home-button {
+    margin-top: 7em;
+    display: inline-block;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px; /* Make the button round */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-to-home-button:hover {
+    background-color: #0056b3; /* Darker shade of the primary color on hover */
+  }

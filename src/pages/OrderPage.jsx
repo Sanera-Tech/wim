@@ -5,6 +5,7 @@ import CartItemCard from "../components/general/cart-item-card";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
+
 const OrderPage = () => {
 
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const OrderPage = () => {
   const [city, setCity] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [message, setMessage] = useState("");
-  const [country, setCountry] = useState("Spain");
+  const [country, setCountry] = useState("PERU");
   const [countryCode, setCountryCode] = useState('PE');
   const [submitMessage, setSubmitMessage] = useState("");
   const [couponCode, setCouponCode] = useState('');
@@ -38,10 +39,14 @@ const OrderPage = () => {
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
 
+    function formatCurrencyAuto(amount) {
+      return parseFloat(amount.toFixed(2));
+    }
+    
   useEffect(() => {
-    setSubTotal(calculateSubtotal());
-    setShipping(calculateShippingCost());
-    setTotal(calculateTotal());
+    setSubTotal(formatCurrencyAuto(calculateSubtotal()));
+    setShipping(formatCurrencyAuto(calculateShippingCost()));
+    setTotal(formatCurrencyAuto(calculateTotal()));
   }, [cart]);
 
   useEffect(() => {
@@ -95,13 +100,16 @@ const OrderPage = () => {
                 console.log(response);
                 if (response.status === 201) {
                     console.log("complete");
-                    navigate('/payment-complete');
+                    handlePaymentComplete();
                     return true;
-                } if (response.status === 200) {
+                } else if (response.status === 200) {
                   console.log("complete 200");
+                  handlePaymentAwait();
                   return true;
-                } else {
+                } 
+                else {
                     console.log("error");
+                    handlePaymentFailed();
                 } 
             } catch (error) {
                 console.error("Error:", error);
@@ -125,6 +133,35 @@ const OrderPage = () => {
 };
 
       
+  const handlePaymentComplete = (e) => {
+    navigate('/payment-complete', {
+      state: {
+        trackingId: 'I9NA294NKV',
+        receiptUrl: 'https://example.com/receipt-url', // Replace with your actual receipt URL
+        cart: cart,
+        subTotal: subTotal,
+        total: total,
+        shipping: shipping,
+
+        first_name: first_name,
+        last_name: last_name,
+        phone_number: phone_number,
+        email: email,
+        address: address,
+        poBox: poBox,
+        city: city,
+        country: country
+      },
+    });
+  }
+
+  const handlePaymentFailed = (e) => {
+    navigate('/payment-failed')
+  }
+
+  const handlePaymentAwait = (e) => {
+    navigate('/payment-await')
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -15,6 +15,8 @@ import DeliveryPolicy from "./regulations/DeliveryPolicy";
 import TermsAndConditions from "./regulations/TermsAndConditions";
 import ReclaimationPolicy from "./regulations/ReclaimationPolicy";
 import PaymentComplete from "./pages/PaymentComplete";
+import PaymentFailed from "./pages/PaymentFailed";
+import PaymentAwait from "./pages/PaymentAwait";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/contáctanos" element={<ContactUs />} />
           <Route path="/order" element={<OrderPage />} />
           <Route path="/payment-complete" element={<PaymentComplete />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
+          <Route path="/payment-await" element={<PaymentAwait />} />
           <Route path="/política-de-privacidad" element={<PrivacyPolicy />} />
           <Route path="/política-de-cambios-y-devoluciones" element={<CambiosPolicy />} />
           <Route path="/política-de-envíos" element={<DeliveryPolicy />} />

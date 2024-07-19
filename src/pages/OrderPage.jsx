@@ -3,11 +3,8 @@ import "../styles/order_page.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
 
 const OrderPage = () => {
-
-  const history = useHistory();
 
 
   const {
@@ -31,7 +28,7 @@ const OrderPage = () => {
   const [postalCode, setPostalCode] = useState("");
   const [message, setMessage] = useState("");
   const [country, setCountry] = useState("Spain");
-  const [countryCode, setCountryCode] = useState('SP');
+  const [countryCode, setCountryCode] = useState('PE');
   const [submitMessage, setSubmitMessage] = useState("");
   const [couponCode, setCouponCode] = useState('');
   const [deliveryFree, setDeliveryFree] = useState(false);
@@ -96,7 +93,6 @@ const OrderPage = () => {
                 console.log(response);
                 if (response.status === 201) {
                     console.log("complete");
-                    history.push('/payment-complete'); 
                     return true;
                 } if (response.status === 200) {
                   console.log("complete 200");

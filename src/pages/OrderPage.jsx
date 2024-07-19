@@ -3,9 +3,11 @@ import "../styles/order_page.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const OrderPage = () => {
 
+  const navigate = useNavigate();
 
   const {
     cart,
@@ -93,6 +95,7 @@ const OrderPage = () => {
                 console.log(response);
                 if (response.status === 201) {
                     console.log("complete");
+                    navigate('/payment-complete');
                     return true;
                 } if (response.status === 200) {
                   console.log("complete 200");

@@ -59,7 +59,7 @@ const OrderPage = () => {
           setIsLoading(true);
           const formData = new FormData();
             const values = {
-                amount: total,
+                amount: total * 100,
                 currency_code: 'PEN',
                 email: email,
                 source_id: token,

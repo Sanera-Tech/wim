@@ -3,8 +3,13 @@ import "../styles/order_page.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 const OrderPage = () => {
+
+  const history = useHistory();
+
+
   const {
     cart,
     addToCart,
@@ -26,9 +31,11 @@ const OrderPage = () => {
   const [postalCode, setPostalCode] = useState("");
   const [message, setMessage] = useState("");
   const [country, setCountry] = useState("Spain");
+  const [countryCode, setCountryCode] = useState('SP');
   const [submitMessage, setSubmitMessage] = useState("");
   const [couponCode, setCouponCode] = useState('');
   const [deliveryFree, setDeliveryFree] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
 
@@ -52,23 +59,24 @@ const OrderPage = () => {
         console.log("Se ha creado un Token: ", token);
 
         const test = async () => {
+          setIsLoading(true);
           const formData = new FormData();
             const values = {
-                amount: 10000,
+                amount: total,
                 currency_code: 'PEN',
-                email: 'richard@piedpiper.com',
+                email: email,
                 source_id: token,
                 capture: true,
                 description: 'Prueba',
-                installments: 2,
+                installments: 0,
                 metadata: { dni: '70202170' },
                 antifraud_details: {
-                    address: 'Avenida Lima 213',
-                    address_city: 'Lima',
-                    country_code: 'PE',
-                    first_name: 'Richard',
-                    last_name: 'Hendricks',
-                    phone_number: '999999987'
+                    address: address,
+                    address_city: city,
+                    country_code: countryCode,
+                    first_name: first_name,
+                    last_name: last_name,
+                    phone_number: phone_number
                 }
             };
 
@@ -88,15 +96,18 @@ const OrderPage = () => {
                 console.log(response);
                 if (response.status === 201) {
                     console.log("complete");
+                    history.push('/payment-complete'); 
                     return true;
                 } if (response.status === 200) {
                   console.log("complete 200");
                   return true;
                 } else {
                     console.log("error");
-                }
+                } 
             } catch (error) {
                 console.error("Error:", error);
+            } finally {
+              setIsLoading(false); 
             }
         };
 
@@ -293,7 +304,18 @@ const OrderPage = () => {
               id="subject"
               name="subject"
               value={country}
-              onChange={(e) => setCountry(e.target.value)}
+              onChange={(e) => {
+                const selectedCountry = e.target.value;
+                setCountry(selectedCountry);
+                // Set countryCode based on selectedCountry
+                if (selectedCountry === 'Peru') {
+                  setCountryCode('PE');
+                } else if (selectedCountry === 'Netherlands') {
+                  setCountryCode('NL');
+                } else {
+                  setCountryCode(''); // Handle 'Other' or default case
+                }
+              }}
               required
             >
               <option value="Peru">Peru</option>

@@ -14,6 +14,7 @@ import CambiosPolicy from "./regulations/CambiosPolicy";
 import DeliveryPolicy from "./regulations/DeliveryPolicy";
 import TermsAndConditions from "./regulations/TermsAndConditions";
 import ReclaimationPolicy from "./regulations/ReclaimationPolicy";
+import PaymentComplete from "./pages/PaymentComplete";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/nuestra-historia" element={<AboutUsSection />} />
           <Route path="/contáctanos" element={<ContactUs />} />
           <Route path="/order" element={<OrderPage />} />
+          <Route path="/payment-complete" component={PaymentComplete} />
           <Route path="/política-de-privacidad" element={<PrivacyPolicy />} />
           <Route path="/política-de-cambios-y-devoluciones" element={<CambiosPolicy />} />
           <Route path="/política-de-envíos" element={<DeliveryPolicy />} />

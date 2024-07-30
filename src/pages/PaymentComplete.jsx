@@ -33,6 +33,7 @@ const PaymentComplete = () => {
       <div className="order-details">
         <p>Order Tracking ID: <strong>{trackingId}</strong></p>
         <button className="print-button" onClick={handlePrint}>Print Receipt</button>
+        <p>A confirmation email containing your receipt has been sent to your inbox. Should you not find it in your inbox, kindly check your spam or junk folder.</p>
         <p>Your order has been placed. Thank you for your purchase! To ensure you have all the necessary details, please save a copy of your receipt by either downloading it or taking a screenshot. Don’t forget to keep your tracking number for future reference.</p>
         <p></p>
         <p>If you have any questions or need further assistance, feel free to reach out.</p>

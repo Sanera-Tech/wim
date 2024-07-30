@@ -42,7 +42,7 @@ const OrderPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
-  const sesEndpoint = "https://ilggphnitn6tams777qkw7wbq40vrtff.lambda-url.eu-north-1.on.aws/";
+  const sesEndpoint = "https://sbzb436vud5v72mpbkhnfxivpi0lsreo.lambda-url.eu-north-1.on.aws/";
 
     function formatCurrencyAuto(amount) {
       return parseFloat(amount.toFixed(2));
@@ -165,16 +165,13 @@ useEffect(() => {
 const handleEmailSend = (e, data) => {
   e.preventDefault();
 
-  // Serialize data using flatted
-  const serializedData = stringify(data);
+  const serializedData = JSON.stringify(data);
+  console.log(serializedData);
 
   const fetchPromise = fetch(sesEndpoint, {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
-    headers: {
-      "Content-Type": "application/json"
-    },
     body: serializedData,
   });
 
@@ -213,7 +210,7 @@ const handleEmailSend = (e, data) => {
       name: cartItem.item.name,
       weight: cartItem.item.weight,
       title: cartItem.item.title,
-      price: cartItem.item.price,
+      price: parseFloat(cartItem.item.price),
       count: cartItem.count
     }));
     console.log("CART", cart_mini);
@@ -224,12 +221,12 @@ const handleEmailSend = (e, data) => {
       email, 
       phone_number, 
       cart_mini,
-      subject, 
       subTotal, 
       total, 
       shipping, 
       newTrackingId 
     };
+    console.log("Data Receipt:", dataReceipt);
 
     // You can call handleEmailSend with the event and data object
     handleEmailSend(e, dataReceipt);

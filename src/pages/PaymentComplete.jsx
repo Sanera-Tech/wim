@@ -21,13 +21,23 @@ const PaymentComplete = () => {
     country
   } = location.state;
 
+  const handlePrint = () => {
+    window.print();
+  };
+  
+
   return (
     <div className="payment-complete-container">
       <h1>Payment Complete</h1>
+      
       <div className="order-details">
         <p>Order Tracking ID: <strong>{trackingId}</strong></p>
-        <p>Receipt: <a href={receiptUrl} target="_blank" rel="noopener noreferrer">View Receipt</a></p>
-        {/* Display additional cart information */}
+        <button className="print-button" onClick={handlePrint}>Print Receipt</button>
+        <p>Your order has been placed. Thank you for your purchase! To ensure you have all the necessary details, please save a copy of your receipt by either downloading it or taking a screenshot. Don’t forget to keep your tracking number for future reference.</p>
+        <p></p>
+        <p>If you have any questions or need further assistance, feel free to reach out.</p>
+
+        
         <div className="customer-info">
               <div className="customer-info-block">
                 <h2 className='customer-title'>Customer Details:</h2>
@@ -43,7 +53,7 @@ const PaymentComplete = () => {
                 <p>Location: {city}, {country}</p>
               </div>
         </div>
-        <div className="cart-details">
+        <div className="cart-details" id="receipt-section">
           <h2 >Order Details:</h2>
           {cart.map((cartItem, index) => (
             <div key={index} className="cart-item">

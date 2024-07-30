@@ -64,18 +64,45 @@
   padding-right: 20%;
 }
 .customer-title {
-  text-align: right; /* Ensures titles are left-aligned */
+  text-align: right; 
 }
 
 .customer-info {
-  justify-content: right; /* Center the entire flex container */
-  width: 100%; /* Optional: full width */
-  text-align: right; /* Ensure text inside flex container is left-aligned */
+  justify-content: right; 
+  width: 100%;
+  text-align: right; 
   gap: 20%;
 }
 
 .price-separator {
-  margin-left: 20px; /* Adjust spacing as needed */
+  margin-left: 20px; 
+}
+
+
+.print-button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(236, 196, 104);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: rgb(232, 178, 53);
+}
+
+
+@media print {
+  .print-button {
+    display: none;
+  }
+
+
+  .navbar {
+    display: none;
+  }
 }
 
 

@@ -3,11 +3,13 @@ import "../styles/order_page.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { stringify, parse } from 'flatted';
+
 
 
 const OrderPage = () => {
-
+  const { orderNumber } = useParams(); 
   const navigate = useNavigate();
 
   const {
@@ -16,6 +18,7 @@ const OrderPage = () => {
     calculateSubtotal,
     calculateTotal,
     calculateShippingCost,
+    setCart,
   } = useCart();
   const [token, setToken] = useState("");
   const [subTotal, setSubTotal] = useState(0);
@@ -35,9 +38,11 @@ const OrderPage = () => {
   const [submitMessage, setSubmitMessage] = useState("");
   const [couponCode, setCouponCode] = useState('');
   const [deliveryFree, setDeliveryFree] = useState(false);
+  const [trackingId, setTrackingId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
+  const sesEndpoint = "https://ilggphnitn6tams777qkw7wbq40vrtff.lambda-url.eu-north-1.on.aws/";
 
     function formatCurrencyAuto(amount) {
       return parseFloat(amount.toFixed(2));
@@ -132,17 +137,112 @@ const OrderPage = () => {
 
 };
 
+const generateTrackingId = (first_name, last_name) => {
+  const now = new Date();
+  
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, '0'); 
+  const year = now.getFullYear();
+  const dateFormatted = `${day}${month}${year}`;
+  
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const timeFormatted = `${hours}${minutes}`;
+  
+  const firstInitial = first_name.charAt(0).toUpperCase();
+  const lastInitial = last_name.charAt(0).toUpperCase();
+  
+  const newTrackingId = `${dateFormatted}${timeFormatted}${firstInitial}${lastInitial}`;
+  setTrackingId(newTrackingId);
+  return newTrackingId;
+}
+
+useEffect(() => {
+  console.log(trackingId); // This will log the updated trackingId whenever it changes
+}, [trackingId]);
+
+
+const handleEmailSend = (e, data) => {
+  e.preventDefault();
+
+  // Serialize data using flatted
+  const serializedData = stringify(data);
+
+  const fetchPromise = fetch(sesEndpoint, {
+    method: "POST",
+    mode: "cors",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: serializedData,
+  });
+
+  fetchPromise
+    .then((response) => {
+      if (response.ok) {
+        setSubmitMessage("Message successfully sent!");
+      } else {
+        setSubmitMessage("Error encountered while sending message.");
+      }
+      setTimeout(() => {
+        setSubmitMessage("");
+      }, 10000);
+      return response.json();
+    })
+    .then((responseData) => {
+      console.log(responseData);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      setSubmitMessage("Error encountered while sending message.");
+      setTimeout(() => {
+        setSubmitMessage("");
+      }, 10000);
+    });
+};
+
+
+
+
       
   const handlePaymentComplete = (e) => {
-    navigate('/payment-complete', {
+    const newTrackingId = generateTrackingId(first_name, last_name);
+
+    const cart_mini = cart.map(cartItem => ({
+      name: cartItem.item.name,
+      weight: cartItem.item.weight,
+      title: cartItem.item.title,
+      price: cartItem.item.price,
+      count: cartItem.count
+    }));
+    console.log("CART", cart_mini);
+    // Example usage of the function
+    const dataReceipt = { 
+      first_name, 
+      last_name, 
+      email, 
+      phone_number, 
+      cart_mini,
+      subject, 
+      subTotal, 
+      total, 
+      shipping, 
+      newTrackingId 
+    };
+
+    // You can call handleEmailSend with the event and data object
+    handleEmailSend(e, dataReceipt);
+
+    navigate(`/payment-complete/${newTrackingId}`, {
       state: {
-        trackingId: 'I9NA294NKV',
-        receiptUrl: 'https://example.com/receipt-url', // Replace with your actual receipt URL
+        trackingId: newTrackingId,
+        receiptUrl: '', 
         cart: cart,
         subTotal: subTotal,
         total: total,
         shipping: shipping,
-
+        
         first_name: first_name,
         last_name: last_name,
         phone_number: phone_number,
@@ -289,7 +389,7 @@ const OrderPage = () => {
   return (
     <div className="shopping_page">
       <div className="left_shopping">
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handlePaymentComplete}>
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="first-name">Nombre: *</label>

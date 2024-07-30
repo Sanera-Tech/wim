@@ -32,7 +32,7 @@ function App() {
           <Route path="/nuestra-historia" element={<AboutUsSection />} />
           <Route path="/contáctanos" element={<ContactUs />} />
           <Route path="/order" element={<OrderPage />} />
-          <Route path="/payment-complete" element={<PaymentComplete />} />
+          <Route path="/payment-complete/:orderNumber" element={<PaymentComplete />} />
           <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="/payment-await" element={<PaymentAwait />} />
           <Route path="/política-de-privacidad" element={<PrivacyPolicy />} />

@@ -387,7 +387,7 @@ const handleEmailSend = (e, data) => {
   return (
     <div className="shopping_page">
       <div className="left_shopping">
-        <form className="contact-form" onSubmit={handlePaymentComplete}>
+        <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="first-name">Nombre: *</label>

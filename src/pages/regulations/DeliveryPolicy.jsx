@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/regulations/deliveryPolicy.css";
+import "../../styles/regulations/deliveryPolicy.css";
 
 const DeliveryPolicy = () => {
   return (

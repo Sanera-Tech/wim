@@ -105,6 +105,7 @@ const OrderPage = () => {
                 console.log(response);
                 if (response.status === 201) {
                     console.log("complete");
+                    await 
                     handlePaymentComplete();
                     return true;
                 } else if (response.status === 200) {

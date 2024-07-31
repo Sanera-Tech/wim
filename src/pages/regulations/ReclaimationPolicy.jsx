@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/regulations/reclaimationPolicy.css";
+import "../../styles/regulations/reclaimationPolicy.css";
 
 const countryCodes = [
   { code: '+61', name: 'Australia' },

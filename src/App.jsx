@@ -9,11 +9,11 @@ import ContactUs from "./pages/contactus";
 import Layout from "./components/layout";
 import OrderPage from "./pages/OrderPage";
 import products from "./components/general/products";
-import PrivacyPolicy from "./regulations/PrivacyPolicy";
-import CambiosPolicy from "./regulations/CambiosPolicy";
-import DeliveryPolicy from "./regulations/DeliveryPolicy";
-import TermsAndConditions from "./regulations/TermsAndConditions";
-import ReclaimationPolicy from "./regulations/ReclaimationPolicy";
+import PolicyTextP from "./pages/regulations/PolicyTextP";
+import CambiosPolicy from "./pages/regulations/CambiosPolicy";
+import DeliveryPolicy from "./pages/regulations/DeliveryPolicy";
+import TermsAndConditions from "./pages/regulations/TermsAndConditions";
+import ReclaimationPolicy from "./pages/regulations/ReclaimationPolicy";
 import PaymentComplete from "./pages/PaymentComplete";
 import PaymentFailed from "./pages/PaymentFailed";
 import PaymentAwait from "./pages/PaymentAwait";
@@ -35,7 +35,7 @@ function App() {
           <Route path="/payment-complete/:orderNumber" element={<PaymentComplete />} />
           <Route path="/payment-failed" element={<PaymentFailed />} />
           <Route path="/payment-await" element={<PaymentAwait />} />
-          <Route path="/política-de-privacidad" element={<PrivacyPolicy />} />
+          <Route path="/política-de-privacidad" element={<PolicyTextP />} />
           <Route path="/política-de-cambios-y-devoluciones" element={<CambiosPolicy />} />
           <Route path="/política-de-envíos" element={<DeliveryPolicy />} />
           <Route path="/términos-y-condiciones" element={<TermsAndConditions />} />

@@ -73,6 +73,8 @@ const OrderPage = () => {
       const test = async () => {
         setIsLoading(true);
         const formData = new FormData();
+        const inTotal = total * 100
+        console.log(inTotal)
         const values = {
           amount: total * 100,
           currency_code: "PEN",

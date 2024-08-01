@@ -159,8 +159,7 @@ const OrderPage = () => {
     console.log(trackingId); // This will log the updated trackingId whenever it changes
   }, [trackingId]);
 
-  const handleEmailSend = (e, data) => {
-    e.preventDefault();
+  const handleEmailSend = ( data) => {
 
     const serializedData = JSON.stringify(data);
     console.log(serializedData);
@@ -197,7 +196,7 @@ const OrderPage = () => {
   };
   const handleOrderSubmission = async (newOrder) => {
     try {
-      console.log("starting");
+      console.log("rqwewqkejwkjk");
 
       const response = await axios.post(URI + "order/", newOrder, {
         headers: {
@@ -217,7 +216,7 @@ const OrderPage = () => {
       console.error("Error:", error);
     }
   };
-  const handlePaymentComplete = async (e) => {
+  const handlePaymentComplete = async () => {
     const newTrackingId = generateTrackingId(first_name, last_name);
     const dDate = await getDeliveryDate();
     const newOrderObj = {
@@ -265,7 +264,7 @@ const OrderPage = () => {
     console.log("Data Receipt:", dataReceipt);
 
     // You can call handleEmailSend with the event and data object
-    handleEmailSend(e, dataReceipt);
+    handleEmailSend( dataReceipt);
 
     navigate(`/payment-complete/${newTrackingId}`, {
       state: {
@@ -288,11 +287,11 @@ const OrderPage = () => {
     });
   };
 
-  const handlePaymentFailed = (e) => {
+  const handlePaymentFailed = () => {
     navigate("/payment-failed");
   };
 
-  const handlePaymentAwait = async (e) => {
+  const handlePaymentAwait = async () => {
     const newTrackingId = generateTrackingId(first_name, last_name);
     const dDate = await getDeliveryDate();
     const newOrderObj = {

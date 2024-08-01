@@ -73,10 +73,10 @@ const OrderPage = () => {
       const test = async () => {
         setIsLoading(true);
         const formData = new FormData();
-        const inTotal = total * 100
+        const inTotal = int(total * 100)
         console.log(inTotal)
         const values = {
-          amount: total * 100,
+          amount: inTotal,
           currency_code: "PEN",
           email: email,
           source_id: token,
@@ -327,7 +327,8 @@ const OrderPage = () => {
       console.error("Culqi is not loaded");
       return;
     }
-
+    const intoal = int(total * 100)
+    console.log(intoal)
     window.Culqi.settings({
       title: "WIM Nutrition",
       currency: "PEN",

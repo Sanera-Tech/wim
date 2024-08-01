@@ -35,6 +35,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     setSubTotal(calculateSubtotal());
     setCartItemCount(cart.reduce((total, cartItem) => total + cartItem.count, 0));
+    console.log(cart)
   }, [cart]);
 
   const addToCart = async (item, count) => {

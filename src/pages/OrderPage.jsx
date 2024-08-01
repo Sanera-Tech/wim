@@ -3,13 +3,12 @@ import "../styles/order_page.css";
 import { useCart } from "../contexts/CartContext";
 import CartItemCard from "../components/general/cart-item-card";
 import axios from "axios";
-import { useNavigate, useParams } from 'react-router-dom';
-import { stringify, parse } from 'flatted';
-
-
+import { useNavigate, useParams } from "react-router-dom";
+import { stringify, parse } from "flatted";
+import { getDeliveryDate } from "../utils/calculateDelivery";
 
 const OrderPage = () => {
-  const { orderNumber } = useParams(); 
+  const { orderNumber } = useParams();
   const navigate = useNavigate();
 
   const {
@@ -34,20 +33,21 @@ const OrderPage = () => {
   const [postalCode, setPostalCode] = useState("");
   const [message, setMessage] = useState("");
   const [country, setCountry] = useState("PERU");
-  const [countryCode, setCountryCode] = useState('PE');
+  const [countryCode, setCountryCode] = useState("PE");
   const [submitMessage, setSubmitMessage] = useState("");
-  const [couponCode, setCouponCode] = useState('');
+  const [couponCode, setCouponCode] = useState("");
   const [deliveryFree, setDeliveryFree] = useState(false);
   const [trackingId, setTrackingId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const endpoint =
     "https://w6e3ol5nlnx5zov7ed5nmxv7la0felyk.lambda-url.eu-north-1.on.aws/";
-  const sesEndpoint = "https://sbzb436vud5v72mpbkhnfxivpi0lsreo.lambda-url.eu-north-1.on.aws/";
+  const sesEndpoint =
+    "https://sbzb436vud5v72mpbkhnfxivpi0lsreo.lambda-url.eu-north-1.on.aws/";
 
-    function formatCurrencyAuto(amount) {
-      return parseFloat(amount.toFixed(2));
-    }
-    
+  function formatCurrencyAuto(amount) {
+    return parseFloat(amount.toFixed(2));
+  }
+
   useEffect(() => {
     setSubTotal(formatCurrencyAuto(calculateSubtotal()));
     setShipping(formatCurrencyAuto(calculateShippingCost()));
@@ -56,176 +56,213 @@ const OrderPage = () => {
 
   useEffect(() => {
     if (window.Culqi) {
-      window.Culqi.publicKey = 'pk_test_eef864e6088fcee3'; // Replace with your Culqi public key
+      window.Culqi.publicKey = "pk_test_eef864e6088fcee3"; // Replace with your Culqi public key
     }
   }, []);
 
   window.culqi = function () {
     console.log("culqi function");
     if (Culqi.token) {
-        const token = Culqi.token.id;
-        setToken(token);
-        console.log("Se ha creado un Token: ", token);
+      const token = Culqi.token.id;
+      setToken(token);
+      console.log("Se ha creado un Token: ", token);
 
-        const test = async () => {
-          setIsLoading(true);
-          const formData = new FormData();
-            const values = {
-                amount: total * 100,
-                currency_code: 'PEN',
-                email: email,
-                source_id: token,
-                capture: true,
-                description: 'Prueba',
-                installments: 0,
-                metadata: { dni: '70202170' },
-                antifraud_details: {
-                    address: address,
-                    address_city: city,
-                    country_code: countryCode,
-                    first_name: first_name,
-                    last_name: last_name,
-                    phone_number: phone_number
-                }
-            };
-
-            try {
-                console.log("starting");
-                formData.append("values", JSON.stringify(values));
-                const response = await axios.post(
-                    "https://wim-backend.onrender.com/test/",
-                    formData,
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
-
-                console.log(response);
-                if (response.status === 201) {
-                    console.log("complete");
-                    await 
-                    handlePaymentComplete();
-                    return true;
-                } else if (response.status === 200) {
-                  console.log("complete 200");
-                  handlePaymentAwait();
-                  return true;
-                } 
-                else {
-                    console.log("error");
-                    handlePaymentFailed();
-                } 
-            } catch (error) {
-                console.error("Error:", error);
-            } finally {
-              setIsLoading(false); 
-            }
+      const test = async () => {
+        setIsLoading(true);
+        const formData = new FormData();
+        const values = {
+          amount: total * 100,
+          currency_code: "PEN",
+          email: email,
+          source_id: token,
+          capture: true,
+          description: "Prueba",
+          installments: 0,
+          metadata: { dni: "70202170" },
+          antifraud_details: {
+            address: address,
+            address_city: city,
+            country_code: countryCode,
+            first_name: first_name,
+            last_name: last_name,
+            phone_number: phone_number,
+          },
         };
 
-        
-        test();
-        window.Culqi.close();
+        try {
+          console.log("starting");
+          formData.append("values", JSON.stringify(values));
+          const response = await axios.post(
+            "https://wim-backend.onrender.com/test/",
+            formData,
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          console.log(response);
+          if (response.status === 201) {
+            console.log("complete");
+            await handlePaymentComplete();
+            return true;
+          } else if (response.status === 200) {
+            console.log("complete 200");
+            handlePaymentAwait();
+            return true;
+          } else {
+            console.log("error");
+            handlePaymentFailed();
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      test();
+      window.Culqi.close();
     } else if (Culqi.order) {
-        const order = Culqi.order;
-        console.log("Se ha creado el objeto Order: ", order);
-        window.Culqi.close();
+      const order = Culqi.order;
+      console.log("Se ha creado el objeto Order: ", order);
+      window.Culqi.close();
     } else {
-        console.log("Error : ", Culqi.error);
-        window.Culqi.close();
+      console.log("Error : ", Culqi.error);
+      window.Culqi.close();
     }
+  };
 
-};
+  const generateTrackingId = (first_name, last_name) => {
+    const now = new Date();
 
-const generateTrackingId = (first_name, last_name) => {
-  const now = new Date();
-  
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0'); 
-  const year = now.getFullYear();
-  const dateFormatted = `${day}${month}${year}`;
-  
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const timeFormatted = `${hours}${minutes}`;
-  
-  const firstInitial = first_name.charAt(0).toUpperCase();
-  const lastInitial = last_name.charAt(0).toUpperCase();
-  
-  const newTrackingId = `${dateFormatted}${timeFormatted}${firstInitial}${lastInitial}`;
-  setTrackingId(newTrackingId);
-  return newTrackingId;
-}
+    const day = String(now.getDate()).padStart(2, "0");
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const year = now.getFullYear();
+    const dateFormatted = `${day}${month}${year}`;
 
-useEffect(() => {
-  console.log(trackingId); // This will log the updated trackingId whenever it changes
-}, [trackingId]);
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const timeFormatted = `${hours}${minutes}`;
 
+    const firstInitial = first_name.charAt(0).toUpperCase();
+    const lastInitial = last_name.charAt(0).toUpperCase();
 
-const handleEmailSend = (e, data) => {
-  e.preventDefault();
+    const newTrackingId = `${dateFormatted}${timeFormatted}${firstInitial}${lastInitial}`;
+    setTrackingId(newTrackingId);
+    return newTrackingId;
+  };
 
-  const serializedData = JSON.stringify(data);
-  console.log(serializedData);
+  useEffect(() => {
+    console.log(trackingId); // This will log the updated trackingId whenever it changes
+  }, [trackingId]);
 
-  const fetchPromise = fetch(sesEndpoint, {
-    method: "POST",
-    mode: "cors",
-    cache: "no-cache",
-    body: serializedData,
-  });
+  const handleEmailSend = (e, data) => {
+    e.preventDefault();
 
-  fetchPromise
-    .then((response) => {
-      if (response.ok) {
-        setSubmitMessage("Message successfully sent!");
-      } else {
-        setSubmitMessage("Error encountered while sending message.");
-      }
-      setTimeout(() => {
-        setSubmitMessage("");
-      }, 10000);
-      return response.json();
-    })
-    .then((responseData) => {
-      console.log(responseData);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      setSubmitMessage("Error encountered while sending message.");
-      setTimeout(() => {
-        setSubmitMessage("");
-      }, 10000);
+    const serializedData = JSON.stringify(data);
+    console.log(serializedData);
+
+    const fetchPromise = fetch(sesEndpoint, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      body: serializedData,
     });
-};
 
+    fetchPromise
+      .then((response) => {
+        if (response.ok) {
+          setSubmitMessage("Message successfully sent!");
+        } else {
+          setSubmitMessage("Error encountered while sending message.");
+        }
+        setTimeout(() => {
+          setSubmitMessage("");
+        }, 10000);
+        return response.json();
+      })
+      .then((responseData) => {
+        console.log(responseData);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setSubmitMessage("Error encountered while sending message.");
+        setTimeout(() => {
+          setSubmitMessage("");
+        }, 10000);
+      });
+  };
+  const handleOrderSubmission = async (newOrder)=>{
 
-
-
+    try {
+      console.log("starting");
       
-  const handlePaymentComplete = (e) => {
-    const newTrackingId = generateTrackingId(first_name, last_name);
+      const response = await axios.post(
+        "https://wim-backend.onrender.com/order/",
+        newOrder,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-    const cart_mini = cart.map(cartItem => ({
+      console.log(response);
+      if (response.status === 201) {
+        console.log("complete");
+        return true;
+      } else {
+        console.log("error"); 
+        return false
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+  const handlePaymentComplete = async (e) => {
+    const newTrackingId = generateTrackingId(first_name, last_name);
+    const dDate = await getDeliveryDate()
+    const newOrder = new FormData ({
+      order_id: newTrackingId,
+      order_details: cart,
+      customer_details: {
+        first_name,
+        last_name,
+        phone_number,
+        email,
+        address,
+        poBox,
+        city,
+        postalCode,
+        country,
+      },
+      delivery_date: dDate,
+      payment_status:"paid",
+      shipping_status:"processing",
+      tracking_number:""
+    });
+    await handleOrderSubmission(newOrder)
+    const cart_mini = cart.map((cartItem) => ({
       name: cartItem.item.name,
       weight: cartItem.item.weight,
       title: cartItem.item.title,
       price: parseFloat(cartItem.item.price),
-      count: cartItem.count
+      count: cartItem.count,
     }));
     console.log("CART", cart_mini);
     // Example usage of the function
-    const dataReceipt = { 
-      first_name, 
-      last_name, 
-      email, 
-      phone_number, 
+    const dataReceipt = {
+      first_name,
+      last_name,
+      email,
+      phone_number,
       cart_mini,
-      subTotal, 
-      total, 
-      shipping, 
-      newTrackingId 
+      subTotal,
+      total,
+      shipping,
+      newTrackingId,
     };
     console.log("Data Receipt:", dataReceipt);
 
@@ -235,12 +272,12 @@ const handleEmailSend = (e, data) => {
     navigate(`/payment-complete/${newTrackingId}`, {
       state: {
         trackingId: newTrackingId,
-        receiptUrl: '', 
+        receiptUrl: "",
         cart: cart,
         subTotal: subTotal,
         total: total,
         shipping: shipping,
-        
+
         first_name: first_name,
         last_name: last_name,
         phone_number: phone_number,
@@ -248,31 +285,31 @@ const handleEmailSend = (e, data) => {
         address: address,
         poBox: poBox,
         city: city,
-        country: country
+        country: country,
       },
     });
-  }
+  };
 
   const handlePaymentFailed = (e) => {
-    navigate('/payment-failed')
-  }
+    navigate("/payment-failed");
+  };
 
   const handlePaymentAwait = (e) => {
-    navigate('/payment-await')
-  }
+    navigate("/payment-await");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!window.Culqi) {
-      console.error('Culqi is not loaded');
+      console.error("Culqi is not loaded");
       return;
     }
 
     window.Culqi.settings({
-      title: 'WIM Nutrition',
-      currency: 'PEN',
-      description: 'Purchase',
+      title: "WIM Nutrition",
+      currency: "PEN",
+      description: "Purchase",
       amount: total * 100, // Amount in cents
     });
 
@@ -288,11 +325,11 @@ const handleEmailSend = (e, data) => {
         cuotealo: true,
       },
       style: {
-            logo: "https://wimnutrition.com/LogoWithBackground.png",
-            bannerColor: '#60c1c9',
-            buttonBackground: '#f4c256', // hexadecimal
-            menuColor: '#f6f3dd', // hexadecimal
-      }
+        logo: "https://wimnutrition.com/LogoWithBackground.png",
+        bannerColor: "#60c1c9",
+        buttonBackground: "#f4c256", // hexadecimal
+        menuColor: "#f6f3dd", // hexadecimal
+      },
     });
 
     window.Culqi.open();
@@ -350,11 +387,23 @@ const handleEmailSend = (e, data) => {
   };
 
   useEffect(() => {
-    window.addEventListener('culqi.event', handleCulqiEvent);
+    window.addEventListener("culqi.event", handleCulqiEvent);
     return () => {
-      window.removeEventListener('culqi.event', handleCulqiEvent);
+      window.removeEventListener("culqi.event", handleCulqiEvent);
     };
-  }, [total, first_name, last_name, email, phone_number, address, poBox, city, postalCode, message, country]);
+  }, [
+    total,
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    address,
+    poBox,
+    city,
+    postalCode,
+    message,
+    country,
+  ]);
 
   const handleChange = (event) => {
     setCouponCode(event.target.value);
@@ -374,7 +423,7 @@ const handleEmailSend = (e, data) => {
         setTotal(newTotal);
         setDeliveryFree(true);
       }
-      setCouponCode('');
+      setCouponCode("");
     } else {
       console.log("Invalid coupon code");
     }
@@ -442,12 +491,12 @@ const handleEmailSend = (e, data) => {
                 const selectedCountry = e.target.value;
                 setCountry(selectedCountry);
                 // Set countryCode based on selectedCountry
-                if (selectedCountry === 'Peru') {
-                  setCountryCode('PE');
-                } else if (selectedCountry === 'Netherlands') {
-                  setCountryCode('NL');
+                if (selectedCountry === "Peru") {
+                  setCountryCode("PE");
+                } else if (selectedCountry === "Netherlands") {
+                  setCountryCode("NL");
                 } else {
-                  setCountryCode(''); // Handle 'Other' or default case
+                  setCountryCode(""); // Handle 'Other' or default case
                 }
               }}
               required
@@ -539,7 +588,7 @@ const handleEmailSend = (e, data) => {
           </div>
           <div className="order_number_txt_box">
             <span>Gastos de Envío</span>
-            <span className={deliveryFree ? 'strikethrough' : ''}>
+            <span className={deliveryFree ? "strikethrough" : ""}>
               {formatCurrency(shipping)}
             </span>
           </div>

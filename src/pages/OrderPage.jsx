@@ -6,11 +6,14 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { stringify, parse } from "flatted";
 import { getDeliveryDate } from "../utils/calculateDelivery";
+import { objectToFormData } from "../utils/objToForm";
 
 const OrderPage = () => {
   const { orderNumber } = useParams();
   const navigate = useNavigate();
-
+  const prodURI = "https://wim-backend.onrender.com/";
+  const devURI = "http://localhost:3500/";
+  const URI = prodURI;
   const {
     cart,
     addToCart,
@@ -92,15 +95,11 @@ const OrderPage = () => {
         try {
           console.log("starting");
           formData.append("values", JSON.stringify(values));
-          const response = await axios.post(
-            "https://wim-backend.onrender.com/test/",
-            formData,
-            {
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const response = await axios.post(URI + "test/", formData, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
           console.log(response);
           if (response.status === 201) {
@@ -194,37 +193,32 @@ const OrderPage = () => {
         }, 10000);
       });
   };
-  const handleOrderSubmission = async (newOrder)=>{
-
+  const handleOrderSubmission = async (newOrder) => {
     try {
       console.log("starting");
-      
-      const response = await axios.post(
-        "https://wim-backend.onrender.com/order/",
-        newOrder,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+
+      const response = await axios.post(URI + "order/", newOrder, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       console.log(response);
       if (response.status === 201) {
         console.log("complete");
         return true;
       } else {
-        console.log("error"); 
-        return false
+        console.log("error");
+        return false;
       }
     } catch (error) {
       console.error("Error:", error);
     }
-  }
+  };
   const handlePaymentComplete = async (e) => {
     const newTrackingId = generateTrackingId(first_name, last_name);
-    const dDate = await getDeliveryDate()
-    const newOrder = new FormData ({
+    const dDate = await getDeliveryDate();
+    const newOrderObj = {
       order_id: newTrackingId,
       order_details: cart,
       customer_details: {
@@ -239,11 +233,13 @@ const OrderPage = () => {
         country,
       },
       delivery_date: dDate,
-      payment_status:"paid",
-      shipping_status:"processing",
-      tracking_number:""
-    });
-    await handleOrderSubmission(newOrder)
+      payment_status: "paid",
+      shipping_status: "processing",
+      tracking_number: "",
+    };
+
+    const newOrderFormData = await objectToFormData(newOrderObj);
+    await handleOrderSubmission(newOrderFormData);
     const cart_mini = cart.map((cartItem) => ({
       name: cartItem.item.name,
       weight: cartItem.item.weight,
@@ -294,11 +290,35 @@ const OrderPage = () => {
     navigate("/payment-failed");
   };
 
-  const handlePaymentAwait = (e) => {
+  const handlePaymentAwait = async (e) => {
+    const newTrackingId = generateTrackingId(first_name, last_name);
+    const dDate = await getDeliveryDate();
+    const newOrderObj = {
+      order_id: newTrackingId,
+      order_details: cart,
+      customer_details: {
+        first_name,
+        last_name,
+        phone_number,
+        email,
+        address,
+        poBox,
+        city,
+        postalCode,
+        country,
+      },
+      delivery_date: dDate,
+      payment_status: "under review",
+      shipping_status: "on hold",
+      tracking_number: "",
+    };
+
+    const newOrderFormData = await objectToFormData(newOrderObj);
+    await handleOrderSubmission(newOrderFormData);
     navigate("/payment-await");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!window.Culqi) {

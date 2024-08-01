@@ -137,6 +137,15 @@
     width: 100%;
     margin-top: 20px;
   }
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade of the button color */
+}
+
+.btn:active {
+  background-color: #004494; /* Even darker shade for click effect */
+  transform: scale(0.98); /* Slightly shrink the button */
+}
   
   .form-text {
     font-size: 12px;

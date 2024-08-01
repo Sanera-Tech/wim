@@ -6,7 +6,8 @@ const countryCodes = [
   { code: '+43', name: 'Austria' },
   { code: '+32', name: 'Belgium' },
   { code: '+55', name: 'Brazil' },
-  { code: '+1', name: 'Canada' },
+  { code: '+1-CAN', name: 'Canada' }, 
+  { code: '+1-US', name: 'United States' },  
   { code: '+56', name: 'Chile' },
   { code: '+57', name: 'Colombia' },
   { code: '+420', name: 'Czech Republic' },
@@ -42,7 +43,6 @@ const countryCodes = [
   { code: '+66', name: 'Thailand' },
   { code: '+90', name: 'Turkey' },
   { code: '+44', name: 'United Kingdom' },
-  { code: '+1', name: 'United States' },
   { code: '+58', name: 'Venezuela' },
   { code: '+84', name: 'Vietnam' },
   { code: '+95', name: 'Myanmar' },
@@ -62,25 +62,58 @@ const ReclamationPolicy = () => {
   const [relatedTo, setRelatedTo] = useState("");
   const [claimAmount, setClaimAmount] = useState("");
   const [claimDate, setClaimDate] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // State for success message
+  const endpoint = "https://kvmw4umflsmijxt34bfkyxevba0emwju.lambda-url.eu-north-1.on.aws/";
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted with data:", {
+    
+    const formData = {
       name,
       lastName,
       address,
       documentType,
       documentNumber,
       email,
-      phoneNumber: `${countryCode} ${phoneNumber}`,
+      phoneNumber,
+      countryCode,
       claimType,
       claimDescription,
       relatedTo,
       claimAmount,
       claimDate,
-    });
+    };
+    
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+  
+      const result = await response.json();
+      console.log('Form submission result:', result);
+      // Clear form fields
+      setName("");
+      setLastName("");
+      setAddress("");
+      setDocumentType("");
+      setDocumentNumber("");
+      setEmail("");
+      setPhoneNumber("");
+      setCountryCode("+51");
+      setClaimType("");
+      setClaimDescription("");
+      setRelatedTo("");
+      setClaimAmount("");
+      setClaimDate("");
+      // Set success message
+      setSuccessMessage("Reclamation has been filed successfully!");
+    } catch (error) {
+      console.error('Form submission error:', error);
+      // Handle error, e.g., show an error message to the user
+    }
   };
+  
 
   return (
     <div className="reclamation-form-container-wrapper">
@@ -333,6 +366,13 @@ const ReclamationPolicy = () => {
           <button type="submit" className="btn btn-primary">
             Enviar
           </button>
+
+          {/* Display success message */}
+          {successMessage && (
+            <div className="success-message">
+              {successMessage}
+            </div>
+          )}
         </form>
       </div>
     </div>

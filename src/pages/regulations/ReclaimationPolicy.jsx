@@ -74,19 +74,19 @@ const ReclamationPolicy = () => {
     event.preventDefault();
   
     const formData = {
-      name,
-      lastName,
-      address,
-      documentType,
-      documentNumber,
-      email,
-      phoneNumber,
-      countryCode,
-      claimType,
-      claimDescription,
-      relatedTo,
-      claimAmount,
-      claimDate,
+      name: name,
+      lastName: lastName,
+      address:address,
+      documentType:documentType,
+      documentNumber: documentNumber,
+      email: email,
+      phoneNumber: phoneNumber,
+      countryCode: countryCode,
+      claimType: claimType,
+      claimDescription: claimDescription,
+      relatedTo: relatedTo,
+      claimAmount: claimAmount,
+      claimDate: claimDate,
     };
   
     try {
@@ -101,10 +101,10 @@ const ReclamationPolicy = () => {
   
       const result = await response.json();
       const newOrderFormData = await objectToFormData(formData);
-  
+      console.log(newOrderFormData)
       const axiosResponse = await axios.post(`${URI}claim/`, newOrderFormData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
       });
   

@@ -269,12 +269,13 @@ const OrderPage = () => {
 
     // You can call handleEmailSend with the event and data object
     handleEmailSend( dataReceipt);
-
+    const oldCart = [...cart]
+    setCart([])
     navigate(`/payment-complete/${newTrackingId}`, {
       state: {
         trackingId: newTrackingId,
         receiptUrl: "",
-        cart: cart,
+        cart: oldCart,
         subTotal: subTotal,
         total: total,
         shipping: shipping,
@@ -323,6 +324,7 @@ const OrderPage = () => {
 
     const newOrderFormData = await objectToFormData(newOrderObj);
     await handleOrderSubmission(newOrderFormData);
+    setCart([])
     navigate("/payment-await");
   };
 

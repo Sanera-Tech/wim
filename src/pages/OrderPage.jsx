@@ -39,6 +39,7 @@ const OrderPage = () => {
   const [countryCode, setCountryCode] = useState("PE");
   const [submitMessage, setSubmitMessage] = useState("");
   const [couponCode, setCouponCode] = useState("");
+  const [usedCouponCode, setUsedCouponCode] = useState("");
   const [deliveryFree, setDeliveryFree] = useState(false);
   const [trackingId, setTrackingId] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -238,7 +239,8 @@ const OrderPage = () => {
       shipping_status: "processing",
       tracking_number: "",
       subTotal: subTotal,
-      total: total
+      total: total,
+      couponCode:usedCouponCode
     };
 
     const newOrderFormData = await objectToFormData(newOrderObj);
@@ -311,9 +313,12 @@ const OrderPage = () => {
         country,
       },
       delivery_date: dDate,
-      payment_status: "under review",
-      shipping_status: "on hold",
+      payment_status: "underReview",
+      shipping_status: "reportedPending",
       tracking_number: "",
+      subTotal: subTotal,
+      total: total,
+      couponCode:usedCouponCode
     };
 
     const newOrderFormData = await objectToFormData(newOrderObj);
@@ -447,6 +452,7 @@ const OrderPage = () => {
         const newTotal = subTotal;
         setTotal(newTotal);
         setDeliveryFree(true);
+        setUsedCouponCode(couponCode)
       }
       setCouponCode("");
     } else {

@@ -237,6 +237,8 @@ const OrderPage = () => {
       payment_status: "paid",
       shipping_status: "processing",
       tracking_number: "",
+      subTotal: subTotal,
+      total: total
     };
 
     const newOrderFormData = await objectToFormData(newOrderObj);

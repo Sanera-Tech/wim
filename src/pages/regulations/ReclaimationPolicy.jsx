@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/regulations/reclaimationPolicy.css";
 import axios from "axios";
+import { objectToFormData } from "../../utils/objToForm";
 
 const countryCodes = [
   { code: '+61', name: 'Australia' },
@@ -51,6 +52,7 @@ const countryCodes = [
 
 const ReclamationPolicy = () => {
   const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [documentType, setDocumentType] = useState("");

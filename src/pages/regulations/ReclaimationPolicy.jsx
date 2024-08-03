@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/regulations/reclaimationPolicy.css";
+import axios from "axios";
 
 const countryCodes = [
   { code: '+61', name: 'Australia' },
@@ -64,10 +65,12 @@ const ReclamationPolicy = () => {
   const [claimDate, setClaimDate] = useState("");
   const [successMessage, setSuccessMessage] = useState(""); // State for success message
   const endpoint = "https://kvmw4umflsmijxt34bfkyxevba0emwju.lambda-url.eu-north-1.on.aws/";
-
+  const prodURI = "https://wim-backend.onrender.com/";
+  const devURI = "http://localhost:3500/";
+  const URI = prodURI;
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+  
     const formData = {
       name,
       lastName,
@@ -83,15 +86,35 @@ const ReclamationPolicy = () => {
       claimAmount,
       claimDate,
     };
-    
+  
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(formData),
       });
   
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+  
       const result = await response.json();
+      const newOrderFormData = await objectToFormData(formData);
+  
+      const axiosResponse = await axios.post(`${URI}claim/`, newOrderFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      if (axiosResponse.status !== 200 && axiosResponse.status !== 201) {
+        throw new Error(`Error: ${axiosResponse.status} ${axiosResponse.statusText}`);
+      }
+  
       console.log('Form submission result:', result);
+  
       // Clear form fields
       setName("");
       setLastName("");
@@ -106,11 +129,14 @@ const ReclamationPolicy = () => {
       setRelatedTo("");
       setClaimAmount("");
       setClaimDate("");
+  
       // Set success message
       setSuccessMessage("Reclamation has been filed successfully!");
     } catch (error) {
       console.error('Form submission error:', error);
+  
       // Handle error, e.g., show an error message to the user
+      setErrorMessage("There was an error submitting the form. Please try again.");
     }
   };
   

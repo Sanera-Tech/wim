@@ -249,7 +249,7 @@ const OrderPage = () => {
       name: cartItem.item.name,
       weight: cartItem.item.weight,
       title: cartItem.item.title,
-      price: parseFloat(cartItem.item.price),
+      price: cartItem.item.price,
       count: cartItem.count,
     }));
     console.log("CART", cart_mini);
@@ -269,8 +269,8 @@ const OrderPage = () => {
 
     // You can call handleEmailSend with the event and data object
     handleEmailSend( dataReceipt);
-    const oldCart = [...cart]
-    setCart([])
+    const oldCart = JSON.parse(JSON.stringify(cart));
+   
     navigate(`/payment-complete/${newTrackingId}`, {
       state: {
         trackingId: newTrackingId,
@@ -289,7 +289,7 @@ const OrderPage = () => {
         city: city,
         country: country,
       },
-    });
+    }); 
   };
 
   const handlePaymentFailed = () => {
@@ -469,7 +469,7 @@ const OrderPage = () => {
   return (
     <div className="shopping_page">
       <div className="left_shopping">
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form className="contact-form" onSubmit={handlePaymentComplete}>
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="first-name">Nombre: *</label>

@@ -74,6 +74,7 @@ export const CartProvider = ({ children }) => {
         cart,
         cartItemCount,
         addToCart,
+        setCart,
         fetchCart,
         calculateSubtotal,
         calculateTotal,

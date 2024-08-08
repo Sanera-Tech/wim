@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; // Assuming you are using React Router
 import '../styles/PaymentComplete.css';
+import { useCart } from '../contexts/CartContext';
 
 const PaymentComplete = () => {
+  const {
+    setCart,
+  } = useCart();
   const location = useLocation();
   const {
     trackingId,
@@ -20,11 +24,13 @@ const PaymentComplete = () => {
     city,
     country
   } = location.state;
-
   const handlePrint = () => {
     window.print();
   };
-  
+  useEffect(() => {
+    // Clear the cart
+    setCart([]);
+  }, []); // Empty dependency array means this runs only once after the initial render
 
   return (
     <div className="payment-complete-container">

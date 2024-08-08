@@ -160,7 +160,7 @@ const OrderPage = () => {
     console.log(trackingId); // This will log the updated trackingId whenever it changes
   }, [trackingId]);
 
-  const handleEmailSend = ( data) => {
+  const handleEmailSend = async ( data) => {
 
     const serializedData = JSON.stringify(data);
     console.log(serializedData);
@@ -268,7 +268,7 @@ const OrderPage = () => {
     console.log("Data Receipt:", dataReceipt);
 
     // You can call handleEmailSend with the event and data object
-    handleEmailSend( dataReceipt);
+    await handleEmailSend( dataReceipt);
     const oldCart = JSON.parse(JSON.stringify(cart));
    
     navigate(`/payment-complete/${newTrackingId}`, {

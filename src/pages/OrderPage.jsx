@@ -472,7 +472,7 @@ const OrderPage = () => {
         <form className="contact-form" onSubmit={handlePaymentComplete}>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="first-name">Nombre: *</label>
+              <label htmlFor="first-name">Nombre:</label>
               <input
                 type="text"
                 id="first-name"
@@ -494,7 +494,7 @@ const OrderPage = () => {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email: *</label>
+            <label htmlFor="email">Email:</label>
             <input
               type="email"
               id="email"
@@ -515,7 +515,7 @@ const OrderPage = () => {
             ></input>
           </div>
           <div className="form-group">
-            <label htmlFor="subject">País: *</label>
+            <label htmlFor="subject">País:</label>
             <select
               id="subject"
               name="subject"
@@ -526,21 +526,18 @@ const OrderPage = () => {
                 // Set countryCode based on selectedCountry
                 if (selectedCountry === "Peru") {
                   setCountryCode("PE");
-                } else if (selectedCountry === "Netherlands") {
-                  setCountryCode("NL");
                 } else {
                   setCountryCode(""); // Handle 'Other' or default case
                 }
               }}
               required
             >
-              <option value="Peru">Peru</option>
-              <option value="Netherlands">Netherlands</option>
-              <option value="Other">Other</option>
+              <option value="Perú">Perú</option>
+              <option value="Otro">Otro</option>
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="address">Dirección: *</label>
+            <label htmlFor="address">Dirección:</label>
             <input
               type="text"
               id="address"
@@ -550,20 +547,9 @@ const OrderPage = () => {
               onChange={(e) => setAddress(e.target.value)}
             ></input>
           </div>
-          <div className="form-group">
-            <label htmlFor="poBox">PO Box: *</label>
-            <input
-              type="text"
-              id="poBox"
-              name="poBox"
-              value={poBox}
-              required
-              onChange={(e) => setPoBox(e.target.value)}
-            ></input>
-          </div>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="city">Ciudad: *</label>
+              <label htmlFor="city">Ciudad:</label>
               <input
                 type="text"
                 id="city"
@@ -575,17 +561,32 @@ const OrderPage = () => {
             </div>
             <div className="form-group">
               <label htmlFor="postalCode">Distrito:</label>
-              <input
-                type="text"
+              <select
                 id="postalCode"
                 name="postalCode"
                 value={postalCode}
                 onChange={(e) => setPostalCode(e.target.value)}
-              ></input>
+              >
+                <option value="">Seleccionar Distrito</option>
+                <option value="Barranco">Barranco</option>
+                <option value="Chorrillos">Chorrillos</option>
+                <option value="Jesús María">Jesús María</option>
+                <option value="La Molina">La Molina</option>
+                <option value="La Victoria">La Victoria</option>
+                <option value="Lince">Lince</option>
+                <option value="Magdalena">Magdalena</option>
+                <option value="Miraflores">Miraflores</option>
+                <option value="Pueblo Libre">Pueblo Libre</option>
+                <option value="San Borja">San Borja</option>
+                <option value="San Isidro">San Isidro</option>
+                <option value="San Miguel">San Miguel</option>
+                <option value="Surco">Surco</option>
+                <option value="Surquillo">Surquillo</option>
+              </select>
             </div>
           </div>
           <button type="submit" className="submit-button">
-            Comprar Artículos
+            Pagar
           </button>
           {submitMessage && <p className="submit-message">{submitMessage}</p>}
         </form>
@@ -620,7 +621,7 @@ const OrderPage = () => {
             <span>S/{formatCurrency(subTotal)}</span>
           </div>
           <div className="order_number_txt_box">
-            <span>Gastos de Envío</span>
+            <span>Delivery</span>
             <span className={deliveryFree ? "strikethrough" : ""}>
               {formatCurrency(shipping)}
             </span>

@@ -3,6 +3,7 @@ import {
   addToCart as addToCartUtil,
   getCart as getCartUtil,
 } from "../utils/cart";
+import { shipping } from "../components/general/products";
 
 const CartContext = createContext();
 
@@ -59,7 +60,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const calculateShippingCost = () => {
-    return subTotal > 50000 ? 0 : 5.95;
+    return subTotal > 50000 ? 0 : shipping;
   };
 
   const calculateTotal = () => {

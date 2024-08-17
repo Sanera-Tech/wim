@@ -9,6 +9,7 @@ const MainCart = ({ toggleSidebar }) => {
     calculateSubtotal,
     calculateTotal,
     calculateShippingCost,
+    cartItemCount,
   } = useCart();
 
   const [subTotal, setSubTotal] = useState(0);
@@ -32,7 +33,10 @@ const MainCart = ({ toggleSidebar }) => {
   return (
     <div className="sidebar-overlay">
       <div className="sidebar">
-        <h2>Artículos en la Cesta</h2>
+        <h2>Mi Carrito ({cartItemCount})</h2>
+        <div className="free-delivery-banner" style={{ backgroundColor: "#333", color: "#fff", padding: "10px", borderRadius: "5px", marginBottom: "10px", textAlign: "center" }}>
+          Te faltan S/. 90.00 para delivery gratis.
+        </div>
         <div className="cart_item_box" style={{ overflowY: "auto" }}>
           {cart.map((product, index) => (
             <CartItemCard

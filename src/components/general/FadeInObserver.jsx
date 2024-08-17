@@ -7,7 +7,7 @@ const FadeInObserver = ({ children }) => {
     const faders = document.querySelectorAll('.fade-wrapper > *');
 
     const appearOptions = {
-      threshold: 0.5,
+      threshold: 0.05,
       rootMargin: "0px 0px -50px 0px"
     };
 

@@ -16,6 +16,11 @@
 .right_shopping {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     padding: 2vh 1vw;
+    border-radius: 5px;
+    position: sticky;
+    top: 10vh; /* Adjust this value to position the right side as desired */
+    max-height: 60vh; /* Adjust this value according to your needs */
+    overflow-y: auto;
 }
 
 .coupon_box {
@@ -67,6 +72,11 @@
 
 .strikethrough {
     text-decoration: line-through;
+}
+
+.submit-button {
+    font-size: 20px;
+    font-weight: bold;
 }
   
 

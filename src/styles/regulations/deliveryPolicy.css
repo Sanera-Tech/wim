@@ -12,7 +12,7 @@
     width: 100%;
     line-height: 1.6;
     font-family: Arial, sans-serif;
-    text-align: center;
+    text-align: left;
     color: black;
   }
   
@@ -43,7 +43,7 @@
     list-style-type: disc;
     margin-left: 20px;
     font-size: 18px;
-    text-align: center;
+    text-align: left;
     display: inline-block;
   }
   

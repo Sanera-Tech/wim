@@ -43,7 +43,7 @@
     list-style-type: disc;
     margin-left: 20px;
     font-size: 18px;
-    text-align: center; /* Keep the list items text aligned to the left */
+    text-align: left; /* Keep the list items text aligned to the left */
     display: inline-block; /* This ensures the list is centered properly */
   }
   

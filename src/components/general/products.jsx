@@ -5,7 +5,7 @@ const products = [
         id: "203",
         description:
       "Disfruta de ese irresistible sabor que todos aman, una galleta de vainilla con chispas de chocolate recién salida del horno. Con 15 gramos de proteína, 8 gramos de fibra y solo 1 gramo de azúcar, esta barra es la opción perfecta para esos momentos del #quécomo ¡Celebra tu #momentoWIMdeldía con una WIM The Healthy Bar!",
-        price: "49.90 ",
+        price: "47.90 ",
         weight: "300gr.",
         serving: "6 Barras (50gr. c/u)",
         carouselImage: "/vanilla chocolate chip.png",
@@ -24,7 +24,7 @@ const products = [
         id: "204",
         description:
       "Para los fieles amantes del chocolate,  una experiencia indulgente que solo el brownie más amelcochado puede brindar; una explosión de sabor en cada bocado. Con 15 gramos de proteína, 7 gramos de fibra y solo 1 gramo de azúcar, esta barra es la opción perfecta para esos momentos del #quécomo ¡Celebra tu #momentoWIMdeldía con una WIM The Healthy Bar!",
-        price: "49.90 ",
+        price: "47.90 ",
         weight: "300gr.",
         serving: "6 Barras (50gr. c/u)",
         carouselImage: "/double chocolate brownie.png",
@@ -38,5 +38,7 @@ const products = [
         color: "#dd6543",
       },
 ];
+
+export const shipping = 5.00;
 
 export default products;

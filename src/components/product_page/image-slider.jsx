@@ -26,8 +26,8 @@ const CompareSlider = () => {
   return (
     <div ref={sliderRef} style={sliderStyle}>
       <ReactCompareSlider
-        itemOne={<ReactCompareSliderImage src="orange slider.png" alt="Opened" />}
-        itemTwo={<ReactCompareSliderImage src="blue slider1.png" alt="Unopened" />}
+        itemOne={<ReactCompareSliderImage src="blue slider.jpg" alt="Opened" />}
+        itemTwo={<ReactCompareSliderImage src="oranger slider.jpg" alt="Unopened" />}
       />
     </div>
   );

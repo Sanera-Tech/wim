@@ -34,41 +34,39 @@ const PaymentComplete = () => {
 
   return (
     <div className="payment-complete-container">
-      <h1>Payment Complete</h1>
+      <h1>Pago Completado</h1>
       
       <div className="order-details">
-        <p>Order Tracking ID: <strong>{trackingId}</strong></p>
-        <button className="print-button" onClick={handlePrint}>Print Receipt</button>
-        <p>A confirmation email containing your receipt has been sent to your inbox. Should you not find it in your inbox, kindly check your spam or junk folder.</p>
-        <p>Your order has been placed. Thank you for your purchase! To ensure you have all the necessary details, please save a copy of your receipt by either downloading it or taking a screenshot. Don’t forget to keep your tracking number for future reference.</p>
-        <p></p>
-        <p>If you have any questions or need further assistance, feel free to reach out.</p>
+        <p>ID de Seguimiento de Pedido: <strong>{trackingId}</strong></p>
+        <button className="print-button" onClick={handlePrint}>Imprime tu Recibo</button>
+        <p>¡Tu pedido ha sido realizado con éxito! Te hemos enviado un correo electrónico de confirmación con los detalles de tu compra. Si no lo encuentras en tu bandeja de entrada, no olvides revisar tu carpeta de spam o correo no deseado.</p>
+        <p>Gracias por elegirnos para acompañarte en tus #momentosWIMdeldía. Para asegurarte de que tienes todos los detalles necesarios, guarda una copia de tu recibo descargándolo o tomando una captura de pantalla. ¡No te olvides de mantener tu número de seguimiento para futuras referencias!</p>
+        <p>Si tienes alguna pregunta o necesitas más asistencia, no dudes en contactarnos. Estamos aquí para ayudarte a disfrutar de lo mejor en nutrición, con opciones saludables y deliciosas para esos momentos del #quécomo.</p>
 
-        
         <div className="customer-info">
               <div className="customer-info-block">
-                <h2 className='customer-title'>Customer Details:</h2>
-                  <p>Name: {first_name} {last_name}</p>
-                  <p>Phone Number: {phone_number}</p>
-                  <p>Email: {email}</p>
+                <h2 className='customer-title'>Detalles del Cliente:</h2>
+                  <p>Nombre: {first_name} {last_name}</p>
+                  <p>Teléfono: {phone_number}</p>
+                  <p>Correo Electrónico: {email}</p>
               </div>
               
               <div className="customer-info-block">
-                <h2 className='customer-title'>Billing Information:</h2>  
-                <p>Address: {address}</p>
+                <h2 className='customer-title'>Información de Facturación:</h2>  
+                <p>Dirección: {address}</p>
                 <p>PO Box: {poBox}</p>
-                <p>Location: {city}, {country}</p>
+                <p>Ubicación: {city}, {country}</p>
               </div>
         </div>
         <div className="cart-details" id="receipt-section">
-          <h2 >Order Details:</h2>
+          <h2 >Detalles del Pedido:</h2>
           {cart.map((cartItem, index) => (
             <div key={index} className="cart-item">
               <div className="item-info">
                 <div className="item-name">{cartItem.item.name}</div>
                 <div className="item-meta">
-                  <p>Weight: {cartItem.item.weight}</p>
-                  <p>Title: {cartItem.item.title}</p>
+                  <p>Peso: {cartItem.item.weight}</p>
+                  <p>Nombre: {cartItem.item.title}</p>
                 </div>
               </div>
               <div className="item-price">
@@ -79,7 +77,7 @@ const PaymentComplete = () => {
           ))}
            <div className="cart-summary">
               <p>Subtotal: S/{subTotal}</p>
-              <p>Shipping Cost: S/{shipping}</p>
+              <p>Costo de Envío: S/{shipping}</p>
               <p>Total: <strong>S/{total}</strong></p>
             </div>
         </div>

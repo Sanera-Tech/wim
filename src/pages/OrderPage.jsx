@@ -8,6 +8,7 @@ import { stringify, parse } from "flatted";
 import { getDeliveryDate } from "../utils/calculateDelivery";
 import { objectToFormData } from "../utils/objToForm";
 
+
 const OrderPage = () => {
   const { orderNumber } = useParams();
   const navigate = useNavigate();
@@ -164,16 +165,18 @@ const OrderPage = () => {
 
     const serializedData = JSON.stringify(data);
     console.log(serializedData);
-
-    const fetchPromise = fetch(sesEndpoint, {
+    console.log("SENDING");
+    const fetchPromise = fetch("./.netlify/functions/triggerSendReceipt.ts", {
       method: "POST",
-      mode: "cors",
-      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: serializedData,
     });
 
     fetchPromise
       .then((response) => {
+        console.log(`Email send response status: ${response.status}`);
         if (response.ok) {
           setSubmitMessage("Message successfully sent!");
         } else {
@@ -218,6 +221,7 @@ const OrderPage = () => {
     }
   };
   const handlePaymentComplete = async () => {
+    console.log("Starting payment complete");
     const newTrackingId = generateTrackingId(first_name, last_name);
     const dDate = await getDeliveryDate();
     const newOrderObj = {
@@ -268,7 +272,9 @@ const OrderPage = () => {
     console.log("Data Receipt:", dataReceipt);
 
     // You can call handleEmailSend with the event and data object
+    console.log("Starting Email Send");
     await handleEmailSend( dataReceipt);
+    
     const oldCart = JSON.parse(JSON.stringify(cart));
    
     navigate(`/payment-complete/${newTrackingId}`, {
